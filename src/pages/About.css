@@ -1,0 +1,168 @@
+.about-hero {
+  text-align: center;
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.content-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tech-list {
+  list-style: none;
+  padding: 0;
+}
+
+.tech-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tech-list li:last-child {
+  border-bottom: none;
+}
+
+.learning-topics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.topic h3 {
+  color: #3498db;
+  margin-bottom: 1rem;
+}
+
+.topic ul {
+  list-style: none;
+  padding: 0;
+}
+
+.topic li {
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.topic li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3498db;
+}
+
+.methodology {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.method {
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+}
+
+.method.good-practice {
+  border-left-color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.method.bad-practice {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.method h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.objectives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.objective {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.objective-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.objective h4 {
+  margin: 0 0 0.5rem 0;
+  color: #3498db;
+}
+
+.objective p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.cta-section {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: 2rem 1rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .learning-topics,
+  .methodology,
+  .objectives {
+    grid-template-columns: 1fr;
+  }
+
+  .objective {
+    flex-direction: column;
+    text-align: center;
+  }
+}
