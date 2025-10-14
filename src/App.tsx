@@ -1,55 +1,64 @@
-import { useState } from "react";
-import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/Home";
-import { UserProvider } from "./context/UserContext";
-import { StateManagementDemo } from "./components/examples/StateManagementDemo";
-import { StateManagementLearning } from "./pages/StateManagementLearning";
-import { BlogExample } from "./store/examples/HybridExample";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './hooks/useAuth';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { PostsPage } from './pages/PostsPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { StateManagementLearning } from './pages/StateManagementLearning';
+import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import "./App.css";
 
-type View = 'home' | 'learning' | 'demo' | 'integration';
+// Componente para proteger rutas
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, loading } = useAuth();
 
-// ✅ BUENA PRÁCTICA: Componente principal bien estructurado
+  if (loading) {
+    return <LoadingSpinner size="lg" text="Verificando autenticación..." />;
+  }
+
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
+}
+
 function App() {
-  const [activeView, setActiveView] = useState<View>('learning');
-
   return (
-    <UserProvider>
-      <div className="app">
-        {/* Navegación simple para la demo */}
-        <nav className="simple-nav">
-          <button 
-            className={activeView === 'home' ? 'active' : ''}
-            onClick={() => setActiveView('home')}
-          >
-            🏠 Inicio
-          </button>
-          <button 
-            className={activeView === 'learning' ? 'active' : ''}
-            onClick={() => setActiveView('learning')}
-          >
-            📚 Aprender
-          </button>
-          <button 
-            className={activeView === 'demo' ? 'active' : ''}
-            onClick={() => setActiveView('demo')}
-          >
-            🎯 Ejemplos TODO
-          </button>
-          <button 
-            className={activeView === 'integration' ? 'active' : ''}
-            onClick={() => setActiveView('integration')}
-          >
-            🤝 Integración
-          </button>
-        </nav>
-
-        {activeView === 'home' && <MainLayout><Home /></MainLayout>}
-        {activeView === 'learning' && <StateManagementLearning />}
-        {activeView === 'demo' && <StateManagementDemo />}
-        {activeView === 'integration' && <BlogExample />}
-      </div>
-    </UserProvider>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Rutas públicas */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          
+          {/* Rutas protegidas */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/posts"
+            element={
+              <ProtectedRoute>
+                <PostsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/learning"
+            element={
+              <ProtectedRoute>
+                <StateManagementLearning />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* Redirección por defecto */}
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
