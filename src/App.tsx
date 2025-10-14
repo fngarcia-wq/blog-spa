@@ -1,24 +1,64 @@
-import MainLayout from "./layouts/MainLayout";
-import Home from "./pages/Home";
-import { UserProvider } from "./context/UserContext";
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, useAuth } from './hooks/useAuth';
+import { LoginPage } from './pages/LoginPage';
+import { RegisterPage } from './pages/RegisterPage';
+import { PostsPage } from './pages/PostsPage';
+import { DashboardPage } from './pages/DashboardPage';
+import { StateManagementLearning } from './pages/StateManagementLearning';
+import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import "./App.css";
 
-// ✅ BUENA PRÁCTICA: Componente principal bien estructurado
+// Componente para proteger rutas
+function ProtectedRoute({ children }: { children: React.ReactNode }) {
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return <LoadingSpinner size="lg" text="Verificando autenticación..." />;
+  }
+
+  return isAuthenticated ? <>{children}</> : <Navigate to="/login" />;
+}
+
 function App() {
-
   return (
-    <UserProvider>
-      <div className="app">
-        {/* Navegación simple para la demo */}
-        <nav className="simple-nav">
-          <button className="active">
-            Inicio
-          </button>
-        </nav>
-
-        <MainLayout><Home /></MainLayout>
-      </div>
-    </UserProvider>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Rutas públicas */}
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          
+          {/* Rutas protegidas */}
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/posts"
+            element={
+              <ProtectedRoute>
+                <PostsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/learning"
+            element={
+              <ProtectedRoute>
+                <StateManagementLearning />
+              </ProtectedRoute>
+            }
+          />
+          
+          {/* Redirección por defecto */}
+          <Route path="/" element={<Navigate to="/dashboard" />} />
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
