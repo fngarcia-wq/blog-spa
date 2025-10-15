@@ -1,0 +1,1390 @@
+/* ============================================
+   SPA Demo - Estilos
+   ============================================ */
+
+.spa-demo-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+
+.spa-demo-sidebar {
+  width: 280px;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.spa-demo-sidebar h2 {
+  padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.spa-demo-sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.spa-demo-sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.spa-demo-sidebar button:hover {
+  background: #f8f9fa;
+  color: #667eea;
+}
+
+.spa-demo-sidebar button.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
+  border-left: 4px solid #fff;
+}
+
+.spa-demo-sidebar button .icon {
+  font-size: 1.5rem;
+  min-width: 1.5rem;
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+
+.spa-demo-content {
+  flex: 1;
+  padding: 3rem;
+  overflow-y: auto;
+}
+
+.demo-section {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.demo-section h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.demo-section h2 {
+  font-size: 2rem;
+  color: #444;
+  margin: 2rem 0 1rem;
+}
+
+.demo-section h3 {
+  font-size: 1.5rem;
+  color: #555;
+  margin: 1.5rem 0 1rem;
+}
+
+/* ============================================
+   SECCIÓN 1: INTRO
+   ============================================ */
+
+.definition-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
+}
+
+.definition-card h2 {
+  color: white;
+  margin-top: 0;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.benefit-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.benefit-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.benefit-card p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.famous-spas {
+  margin-top: 3rem;
+}
+
+.spas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.spa-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.spa-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+}
+
+.spa-card h4 {
+  color: #333;
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+}
+
+.spa-card .tech {
+  color: #667eea;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.spa-card .feature {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   SECCIÓN 2: COMPARACIÓN
+   ============================================ */
+
+.comparison-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.comparison-column h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.browser-mockup {
+  background: #f0f0f0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.browser-bar {
+  background: #e8e8e8;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.browser-dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.browser-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ccc;
+}
+
+.browser-url {
+  flex: 1;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.browser-content {
+  background: white;
+  min-height: 300px;
+  padding: 1.5rem;
+}
+
+.fake-header,
+.fake-nav,
+.fake-footer {
+  background: #e9ecef;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  color: #666;
+  font-weight: 600;
+}
+
+.fake-content {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 4px;
+  min-height: 120px;
+}
+
+.fake-content.highlighted {
+  background: #fff3cd;
+  border: 2px dashed #ffc107;
+}
+
+.persistent {
+  opacity: 0.6;
+  position: relative;
+}
+
+.persistent::after {
+  content: '✓';
+  position: absolute;
+  right: 10px;
+  color: #28a745;
+  font-weight: bold;
+}
+
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  background: white;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #667eea;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.smooth-transition {
+  font-size: 3rem;
+  animation: fadeIn 0.3s ease-in;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.loading-time {
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.demo-button {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-bottom: 1rem;
+}
+
+.demo-button.traditional {
+  background: #dc3545;
+  color: white;
+}
+
+.demo-button.traditional:hover:not(:disabled) {
+  background: #c82333;
+}
+
+.demo-button.spa {
+  background: #28a745;
+  color: white;
+}
+
+.demo-button.spa:hover:not(:disabled) {
+  background: #218838;
+}
+
+.demo-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.comparison-problems,
+.comparison-benefits {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.comparison-problems {
+  background: #f8d7da;
+  border-left: 4px solid #dc3545;
+}
+
+.comparison-benefits {
+  background: #d4edda;
+  border-left: 4px solid #28a745;
+}
+
+.comparison-problems h4,
+.comparison-benefits h4 {
+  margin-top: 0;
+}
+
+.comparison-problems ul,
+.comparison-benefits ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.comparison-problems li,
+.comparison-benefits li {
+  margin: 0.5rem 0;
+}
+
+/* Flow Diagram */
+.flow-diagram {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 3rem 0;
+}
+
+.flow-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.flow-column h4 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.flow-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flow-step {
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  min-width: 200px;
+  font-size: 0.9rem;
+  color: #2d3748;
+  font-weight: 500;
+  border: 2px solid #e2e8f0;
+}
+
+.flow-arrow {
+  color: #667eea;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.time-slow {
+  background: #dc3545;
+  color: white;
+  font-weight: bold;
+}
+
+.time-fast {
+  background: #28a745;
+  color: white;
+  font-weight: bold;
+}
+
+/* ============================================
+   SECCIÓN 3: ROUTER BÁSICO
+   ============================================ */
+
+.concepts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.concept-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.concept-card h3 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.concept-card pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  margin: 1rem 0;
+}
+
+.concept-card code {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+.mini-demo {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+.basic-router-demo {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.demo-nav {
+  display: flex;
+  background: #667eea;
+  padding: 0;
+}
+
+.demo-nav button {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.demo-nav button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.demo-nav button.active {
+  background: rgba(255, 255, 255, 0.2);
+  border-bottom: 3px solid white;
+}
+
+.demo-content {
+  padding: 2rem;
+}
+
+.demo-url {
+  background: #f8f9fa;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  margin-bottom: 1rem;
+  border-left: 4px solid #667eea;
+}
+
+.demo-note {
+  background: #d4edda;
+  border-left: 4px solid #28a745;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-top: 1.5rem;
+}
+
+/* ============================================
+   SECCIÓN 4: RUTAS DINÁMICAS
+   ============================================ */
+
+.dynamic-routes-demo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.demo-column {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.code-example {
+  margin: 1.5rem 0;
+}
+
+.code-example pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.9rem;
+}
+
+.posts-list {
+  margin: 1.5rem 0;
+}
+
+.post-item {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  border-left: 4px solid transparent;
+}
+
+.post-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left-color: #667eea;
+}
+
+.post-item.selected {
+  background: #e3f2fd;
+  border-left-color: #667eea;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
+}
+
+.post-item strong {
+  display: block;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.post-author {
+  font-size: 0.85rem;
+  color: #666;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.post-url {
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #667eea;
+}
+
+.post-detail {
+  background: #fff3cd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #ffc107;
+  margin-top: 1.5rem;
+}
+
+.post-detail code {
+  background: #ffe69c;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+}
+
+.search-demo {
+  margin: 1.5rem 0;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 2px solid #667eea;
+  border-radius: 6px;
+  color: #667eea;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination button:hover {
+  background: #667eea;
+  color: white;
+}
+
+.url-display {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.url-display code {
+  color: #667eea;
+  font-family: 'Courier New', monospace;
+}
+
+.params-extracted {
+  background: #d4edda;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.params-extracted ul {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.5rem;
+}
+
+/* ============================================
+   SECCIÓN 5: NAVEGACIÓN
+   ============================================ */
+
+.navigation-demo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.use-case {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.use-case h4 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.use-case form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.use-case input,
+.use-case textarea {
+  padding: 0.75rem;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.use-case input:focus,
+.use-case textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.use-case button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.use-case button[type="submit"] {
+  background: #667eea;
+  color: white;
+}
+
+.use-case button[type="submit"]:hover {
+  background: #5568d3;
+}
+
+.back-button {
+  background: #6c757d;
+  color: white;
+}
+
+.back-button:hover {
+  background: #5a6268;
+}
+
+.conditional-button {
+  background: #dc3545;
+  color: white;
+}
+
+.conditional-button:hover {
+  background: #c82333;
+}
+
+.state-button {
+  background: #17a2b8;
+  color: white;
+}
+
+.state-button:hover {
+  background: #138496;
+}
+
+.navigation-log {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.navigation-log h4 {
+  margin-top: 0;
+}
+
+.log-content {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.log-empty {
+  text-align: center;
+  opacity: 0.6;
+  font-style: italic;
+}
+
+.log-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.log-content li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.clear-log {
+  padding: 0.5rem 1rem;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.clear-log:hover {
+  background: #c82333;
+}
+
+/* ============================================
+   SECCIÓN 6: RUTAS PROTEGIDAS
+   ============================================ */
+
+.user-control {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.login-simulator {
+  text-align: center;
+}
+
+.login-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.login-buttons button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: #667eea;
+  color: white;
+}
+
+.login-buttons button:hover {
+  background: #5568d3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.user-info {
+  text-align: center;
+}
+
+.role-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.role-badge.admin {
+  background: #dc3545;
+  color: white;
+}
+
+.role-badge.teacher {
+  background: #ffc107;
+  color: #333;
+}
+
+.role-badge.student {
+  background: #17a2b8;
+  color: white;
+}
+
+.user-info button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.5rem;
+  background: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.user-info button:hover {
+  background: #5a6268;
+}
+
+.protection-methods {
+  margin: 2rem 0;
+}
+
+.methods-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.method-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-top: 4px solid #667eea;
+}
+
+.method-card h4 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.code-snippet {
+  background: #282c34;
+  padding: 1rem;
+  border-radius: 6px;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.code-snippet code {
+  color: #abb2bf;
+  font-size: 0.8rem;
+  font-family: 'Courier New', monospace;
+}
+
+.method-card button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 600;
+}
+
+.method-card button:hover {
+  background: #5568d3;
+}
+
+/* Protection Flow */
+.protection-flow {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.flow-diagram-horizontal {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.flow-step-horizontal {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 120px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #2d3748;
+  font-weight: 500;
+  border: 2px solid #e2e8f0;
+}
+
+.flow-step.danger {
+  background: #f8d7da;
+  border: 2px solid #dc3545;
+  color: #721c24;
+}
+
+.flow-step.success {
+  background: #d4edda;
+  border: 2px solid #28a745;
+  color: #155724;
+}
+
+.step-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.step-text {
+  font-size: 0.85rem;
+  color: #333;
+}
+
+.flow-split,
+.flow-split-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.flow-branch {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.branch-label {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+.branch-label.yes {
+  background: #d4edda;
+  color: #155724;
+}
+
+.branch-label.no {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.protection-log {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.protection-log .log-content li.success {
+  color: #28a745;
+}
+
+.protection-log .log-content li.error {
+  color: #dc3545;
+}
+
+/* ============================================
+   SECCIÓN 7: RUTAS ANIDADAS
+   ============================================ */
+
+.nested-concept {
+  background: #e3f2fd;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.nested-demo {
+  margin: 2rem 0;
+}
+
+.dashboard-simulator {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.dashboard-sidebar {
+  background: #2c3e50;
+  color: white;
+  padding: 2rem 0;
+}
+
+.dashboard-sidebar h4 {
+  color: white;
+  padding: 0 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-sidebar nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-sidebar button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.3s;
+  text-align: left;
+}
+
+.dashboard-sidebar button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.dashboard-sidebar button.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border-left: 4px solid #667eea;
+}
+
+.sidebar-note {
+  padding: 1.5rem;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  margin-top: auto;
+}
+
+.dashboard-content {
+  padding: 2rem;
+}
+
+.content-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.current-url {
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.outlet-visualization {
+  background: #f8f9fa;
+  border: 2px dashed #667eea;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.outlet-label {
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.outlet-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Route Tree */
+.nested-structure {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.route-tree {
+  margin-top: 1.5rem;
+}
+
+.tree-node {
+  background: white;
+  border-left: 3px solid #667eea;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  margin-left: 2rem;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tree-node.root {
+  margin-left: 0;
+  background: #e3f2fd;
+  font-weight: bold;
+}
+
+.tree-children {
+  margin-left: 1rem;
+}
+
+.node-icon {
+  font-size: 1.2rem;
+}
+
+.node-path {
+  font-family: 'Courier New', monospace;
+  color: #667eea;
+  font-weight: 600;
+  min-width: 100px;
+}
+
+.node-component {
+  font-family: 'Courier New', monospace;
+  color: #666;
+  background: #f8f9fa;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+}
+
+.node-url {
+  font-size: 0.85rem;
+  color: #999;
+  margin-left: auto;
+}
+
+/* ============================================
+   SECCIÓN 8: EJEMPLO COMPLETO
+   ============================================ */
+
+.complete-example {
+  margin: 2rem 0;
+}
+
+.code-example.large pre {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.features-checklist {
+  background: #d4edda;
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.features-checklist h4 {
+  margin-top: 0;
+  color: #155724;
+}
+
+.features-checklist ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.features-checklist li {
+  padding: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.best-practices-section {
+  margin: 3rem 0;
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.practice-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border-top: 4px solid #667eea;
+}
+
+.practice-card h4 {
+  margin-top: 0;
+  color: #667eea;
+}
+
+.practice-card ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.practice-card li {
+  margin: 0.75rem 0;
+  color: #666;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .comparison-container,
+  .dynamic-routes-demo,
+  .navigation-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .spa-demo-container {
+    flex-direction: column;
+  }
+
+  .spa-demo-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
+
+  .spa-demo-content {
+    padding: 1.5rem;
+  }
+
+  .demo-section {
+    padding: 1.5rem;
+  }
+
+  .dashboard-simulator {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-sidebar {
+    order: 2;
+  }
+
+  .methods-grid,
+  .practices-grid,
+  .concepts-grid {
+    grid-template-columns: 1fr;
+  }
+}

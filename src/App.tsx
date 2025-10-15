@@ -5,11 +5,13 @@ import { RegisterPage } from './pages/RegisterPage';
 import { PostsPage } from './pages/PostsPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { StateManagementLearning } from './pages/StateManagementLearning';
+import SPADemo from './pages/SPADemo';
 import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import "./App.css";
+import "./pages/SPADemo.css";
 
 // Componente para proteger rutas
-function ProtectedRoute({ children }: { children: React.ReactNode }) {
+function ProtectedRoute({ children }: Readonly<{ children: React.ReactNode }>) {
   const { isAuthenticated, loading } = useAuth();
 
   if (loading) {
@@ -27,6 +29,9 @@ function App() {
           {/* Rutas públicas */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          
+          {/* Ruta de demostración educativa */}
+          <Route path="/spa-demo" element={<SPADemo />} />
           
           {/* Rutas protegidas */}
           <Route

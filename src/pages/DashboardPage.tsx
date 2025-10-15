@@ -139,6 +139,37 @@ function HomeSection() {
         </p>
       </div>
 
+      {/* Destacado: Demo SPA y React Router */}
+      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-2xl p-8 text-white border-4 border-purple-300">
+        <div className="flex items-start gap-6">
+          <div className="text-6xl">🎓</div>
+          <div className="flex-1">
+            <div className="flex items-center gap-3 mb-2">
+              <h3 className="text-2xl font-bold">Clase de Hoy: SPA y React Router</h3>
+              <span className="bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">NUEVO</span>
+            </div>
+            <p className="text-purple-100 mb-4 text-lg">
+              Demo interactiva completa con 8 secciones: conceptos de SPA, React Router, rutas dinámicas, 
+              navegación programática, <strong>4 métodos de rutas protegidas</strong>, rutas anidadas y mejores prácticas
+            </p>
+            <div className="flex flex-wrap gap-2 mb-4">
+              <span className="bg-purple-400 text-white text-xs px-3 py-1 rounded-full">8 Secciones</span>
+              <span className="bg-purple-400 text-white text-xs px-3 py-1 rounded-full">Demos Interactivos</span>
+              <span className="bg-purple-400 text-white text-xs px-3 py-1 rounded-full">Rutas Protegidas</span>
+              <span className="bg-purple-400 text-white text-xs px-3 py-1 rounded-full">Código Completo</span>
+            </div>
+            <Link 
+              to="/spa-demo" 
+              className="inline-flex items-center gap-2 bg-white text-purple-600 px-6 py-3 rounded-lg hover:bg-purple-50 font-bold transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+            >
+              <span>🚀</span>
+              Abrir Demo Interactiva de SPA
+              <span>→</span>
+            </Link>
+          </div>
+        </div>
+      </div>
+
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">📚</div>
