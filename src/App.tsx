@@ -5,6 +5,7 @@ import { RegisterPage } from './pages/RegisterPage';
 import { PostsPage } from './pages/PostsPage';
 import { DashboardPage } from './pages/DashboardPage';
 import { StateManagementLearning } from './pages/StateManagementLearning';
+import SecurityPage from './pages/security/SecurityPage';
 import { LoadingSpinner } from './components/ui/LoadingSpinner';
 import "./App.css";
 
@@ -50,6 +51,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <StateManagementLearning />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/security"
+            element={
+              <ProtectedRoute>
+                <SecurityPage />
               </ProtectedRoute>
             }
           />

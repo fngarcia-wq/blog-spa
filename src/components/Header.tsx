@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./Header.css";
 
 interface HeaderProps {
@@ -9,6 +10,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({
   title = "Blog de React - Hooks y Buenas Prácticas",
 }) => {
+  const location = useLocation();
   return (
     <header className="header">
       <div className="container">
@@ -25,21 +27,30 @@ const Header: React.FC<HeaderProps> = ({
           </div>
 
           <nav className="navigation">
-            <a href="#home" className="nav-link active">
-              🏠 Inicio
-            </a>
-            <a href="#hooks" className="nav-link">
-              🪝 Hooks
-            </a>
-            <a href="#components" className="nav-link">
-              🧩 Componentes
-            </a>
-            <a href="#practices" className="nav-link">
-              ✨ Buenas Prácticas
-            </a>
-            <a href="#about" className="nav-link">
-              ℹ️ Acerca de
-            </a>
+            <Link 
+              to="/dashboard" 
+              className={`nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`}
+            >
+              🏠 Dashboard
+            </Link>
+            <Link 
+              to="/posts" 
+              className={`nav-link ${location.pathname === '/posts' ? 'active' : ''}`}
+            >
+              📝 Posts
+            </Link>
+            <Link 
+              to="/learning" 
+              className={`nav-link ${location.pathname === '/learning' ? 'active' : ''}`}
+            >
+              🎓 Learning
+            </Link>
+            <Link 
+              to="/security" 
+              className={`nav-link ${location.pathname === '/security' ? 'active' : ''}`}
+            >
+              🛡️ Seguridad
+            </Link>
           </nav>
         </div>
       </div>
