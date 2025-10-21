@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './OAuthIntegration.css';
+import React, { useState } from "react";
+import "./OAuthIntegration.css";
 
 interface OAuthProvider {
   id: string;
@@ -19,80 +19,84 @@ interface OAuthFlow {
 }
 
 const OAuthIntegration: React.FC = () => {
-  const [selectedProvider, setSelectedProvider] = useState<string>('google');
-  
+  const [selectedProvider, setSelectedProvider] = useState<string>("google");
+
   const providers: OAuthProvider[] = [
     {
-      id: 'google',
-      name: 'Google OAuth 2.0',
-      icon: '🔍',
-      color: '#4285f4',
-      description: 'Autenticación con cuentas de Google',
-      useCases: ['Single Sign-On', 'Acceso a Google APIs', 'Verificación de identidad']
+      id: "google",
+      name: "Google OAuth 2.0",
+      icon: "🔍",
+      color: "#4285f4",
+      description: "Autenticación con cuentas de Google",
+      useCases: [
+        "Single Sign-On",
+        "Acceso a Google APIs",
+        "Verificación de identidad",
+      ],
     },
     {
-      id: 'github',
-      name: 'GitHub OAuth',
-      icon: '🐙',
-      color: '#333',
-      description: 'Autenticación con cuentas de GitHub',
-      useCases: ['Apps de desarrollo', 'Code reviews', 'Repository access']
+      id: "github",
+      name: "GitHub OAuth",
+      icon: "🐙",
+      color: "#333",
+      description: "Autenticación con cuentas de GitHub",
+      useCases: ["Apps de desarrollo", "Code reviews", "Repository access"],
     },
     {
-      id: 'microsoft',
-      name: 'Microsoft Identity',
-      icon: '🏢',
-      color: '#0078d4',
-      description: 'Azure AD y Microsoft 365',
-      useCases: ['Enterprise SSO', 'Office 365 integration', 'Azure services']
+      id: "microsoft",
+      name: "Microsoft Identity",
+      icon: "🏢",
+      color: "#0078d4",
+      description: "Azure AD y Microsoft 365",
+      useCases: ["Enterprise SSO", "Office 365 integration", "Azure services"],
     },
     {
-      id: 'facebook',
-      name: 'Facebook Login',
-      icon: '📘',
-      color: '#1877f2',
-      description: 'Autenticación con Facebook',
-      useCases: ['Social login', 'User profiles', 'Social features']
-    }
+      id: "facebook",
+      name: "Facebook Login",
+      icon: "📘",
+      color: "#1877f2",
+      description: "Autenticación con Facebook",
+      useCases: ["Social login", "User profiles", "Social features"],
+    },
   ];
 
   const oauthFlows: OAuthFlow[] = [
     {
       step: 1,
-      title: 'Registro de Aplicación',
-      description: 'Registrar tu aplicación en el proveedor OAuth',
-      security: 'Obtén Client ID y Client Secret (mantén el secret seguro)'
+      title: "Registro de Aplicación",
+      description: "Registrar tu aplicación en el proveedor OAuth",
+      security: "Obtén Client ID y Client Secret (mantén el secret seguro)",
     },
     {
       step: 2,
-      title: 'Redirección a Proveedor',
-      description: 'Usuario es redirigido al proveedor para autenticarse',
-      security: 'Incluye state parameter para prevenir CSRF'
+      title: "Redirección a Proveedor",
+      description: "Usuario es redirigido al proveedor para autenticarse",
+      security: "Incluye state parameter para prevenir CSRF",
     },
     {
       step: 3,
-      title: 'Autorización del Usuario',
-      description: 'Usuario autoriza permisos solicitados',
-      security: 'Scope determina qué datos puede acceder tu app'
+      title: "Autorización del Usuario",
+      description: "Usuario autoriza permisos solicitados",
+      security: "Scope determina qué datos puede acceder tu app",
     },
     {
       step: 4,
-      title: 'Callback con Authorization Code',
-      description: 'Proveedor redirige de vuelta con código temporal',
-      security: 'Código expira rápidamente (5-10 minutos)'
+      title: "Callback con Authorization Code",
+      description: "Proveedor redirige de vuelta con código temporal",
+      security: "Código expira rápidamente (5-10 minutos)",
     },
     {
       step: 5,
-      title: 'Intercambio por Access Token',
-      description: 'Backend intercambia code por access token',
-      security: 'Requiere Client Secret - solo en backend'
+      title: "Intercambio por Access Token",
+      description: "Backend intercambia code por access token",
+      security: "Requiere Client Secret - solo en backend",
     },
     {
       step: 6,
-      title: 'Acceso a Recursos',
-      description: 'Usar access token para acceder a APIs del proveedor',
-      security: 'Token tiene tiempo de vida limitado'
-    }
+      title: "Acceso a Recursos",
+      description: "Usar access token para acceder a APIs del proveedor",
+      security: "Token tiene tiempo de vida limitado",
+    },
   ];
 
   // Configuración Google OAuth
@@ -448,67 +452,68 @@ app.post('/api/auth/github', async (req, res) => {
 
   const securityBestPractices = [
     {
-      title: '🔐 Client Secret Seguro',
-      description: 'Nunca expongas el client secret en el frontend',
-      implementation: 'Mantén todos los secrets en variables de entorno del backend'
+      title: "🔐 Client Secret Seguro",
+      description: "Nunca expongas el client secret en el frontend",
+      implementation:
+        "Mantén todos los secrets en variables de entorno del backend",
     },
     {
-      title: '🛡️ State Parameter',
-      description: 'Previene ataques CSRF en el flujo OAuth',
-      implementation: 'Genera valor random, guárdalo y verifica en callback'
+      title: "🛡️ State Parameter",
+      description: "Previene ataques CSRF en el flujo OAuth",
+      implementation: "Genera valor random, guárdalo y verifica en callback",
     },
     {
-      title: '⏰ Token Expiration',
-      description: 'Tokens deben tener tiempo de vida limitado',
-      implementation: 'Access tokens: 1-2 horas, Refresh tokens: días/semanas'
+      title: "⏰ Token Expiration",
+      description: "Tokens deben tener tiempo de vida limitado",
+      implementation: "Access tokens: 1-2 horas, Refresh tokens: días/semanas",
     },
     {
-      title: '📋 Scope Mínimo',
-      description: 'Solicita solo los permisos necesarios',
-      implementation: 'Principio de menor privilegio en scopes'
+      title: "📋 Scope Mínimo",
+      description: "Solicita solo los permisos necesarios",
+      implementation: "Principio de menor privilegio en scopes",
     },
     {
-      title: '🔍 Validación de Tokens',
-      description: 'Verifica siempre los tokens en el backend',
-      implementation: 'Valida signature, audience, issuer, expiration'
+      title: "🔍 Validación de Tokens",
+      description: "Verifica siempre los tokens en el backend",
+      implementation: "Valida signature, audience, issuer, expiration",
     },
     {
-      title: '🌐 HTTPS Obligatorio',
-      description: 'Todas las comunicaciones deben usar HTTPS',
-      implementation: 'Especialmente crítico en producción'
-    }
+      title: "🌐 HTTPS Obligatorio",
+      description: "Todas las comunicaciones deben usar HTTPS",
+      implementation: "Especialmente crítico en producción",
+    },
   ];
 
   const commonErrors = [
     {
-      error: 'redirect_uri_mismatch',
-      cause: 'URL de callback no coincide con la registrada',
-      solution: 'Verificar configuración en console del proveedor'
+      error: "redirect_uri_mismatch",
+      cause: "URL de callback no coincide con la registrada",
+      solution: "Verificar configuración en console del proveedor",
     },
     {
-      error: 'invalid_client',
-      cause: 'Client ID o Client Secret incorrectos',
-      solution: 'Revisar variables de entorno y configuración'
+      error: "invalid_client",
+      cause: "Client ID o Client Secret incorrectos",
+      solution: "Revisar variables de entorno y configuración",
     },
     {
-      error: 'access_denied',
-      cause: 'Usuario rechazó autorización',
-      solution: 'Manejar este caso con mensaje amigable'
+      error: "access_denied",
+      cause: "Usuario rechazó autorización",
+      solution: "Manejar este caso con mensaje amigable",
     },
     {
-      error: 'invalid_grant',
-      cause: 'Authorization code expirado o ya usado',
-      solution: 'Reiniciar flujo OAuth desde el inicio'
+      error: "invalid_grant",
+      cause: "Authorization code expirado o ya usado",
+      solution: "Reiniciar flujo OAuth desde el inicio",
     },
     {
-      error: 'invalid_scope',
-      cause: 'Scope solicitado no existe o no está permitido',
-      solution: 'Verificar scopes disponibles en documentación'
-    }
+      error: "invalid_scope",
+      cause: "Scope solicitado no existe o no está permitido",
+      solution: "Verificar scopes disponibles en documentación",
+    },
   ];
 
   const getCurrentProvider = () => {
-    return providers.find(p => p.id === selectedProvider) || providers[0];
+    return providers.find((p) => p.id === selectedProvider) || providers[0];
   };
 
   return (
@@ -518,34 +523,54 @@ app.post('/api/auth/github', async (req, res) => {
       {/* ¿Qué es OAuth? */}
       <div className="oauth-intro">
         <h3>🤔 ¿Qué es OAuth 2.0?</h3>
-        
+
         <div className="oauth-explanation">
           <div className="explanation-section">
             <h4>📋 Definición</h4>
             <p>
-              OAuth 2.0 es un estándar de autorización que permite a las aplicaciones 
-              obtener acceso limitado a cuentas de usuario sin exponer credenciales. 
-              Actúa como un "valet key" digital.
+              OAuth 2.0 es un estándar de autorización que permite a las
+              aplicaciones obtener acceso limitado a cuentas de usuario sin
+              exponer credenciales. Actúa como un "valet key" digital.
             </p>
           </div>
-          
+
           <div className="explanation-section">
             <h4>🎯 Casos de Uso</h4>
             <ul>
-              <li>🔑 <strong>Single Sign-On (SSO):</strong> Login con Google, GitHub, Facebook</li>
-              <li>🔗 <strong>Integración de APIs:</strong> Acceso a Google Drive, GitHub repos</li>
-              <li>📱 <strong>Apps de terceros:</strong> Conectar servicios sin passwords</li>
-              <li>🏢 <strong>Enterprise:</strong> Acceso a sistemas corporativos</li>
+              <li>
+                🔑 <strong>Single Sign-On (SSO):</strong> Login con Google,
+                GitHub, Facebook
+              </li>
+              <li>
+                🔗 <strong>Integración de APIs:</strong> Acceso a Google Drive,
+                GitHub repos
+              </li>
+              <li>
+                📱 <strong>Apps de terceros:</strong> Conectar servicios sin
+                passwords
+              </li>
+              <li>
+                🏢 <strong>Enterprise:</strong> Acceso a sistemas corporativos
+              </li>
             </ul>
           </div>
-          
+
           <div className="explanation-section">
             <h4>✅ Beneficios</h4>
             <ul>
-              <li>🛡️ <strong>Seguridad:</strong> Sin compartir passwords</li>
-              <li>🎛️ <strong>Control granular:</strong> Permisos específicos (scopes)</li>
-              <li>👤 <strong>Mejor UX:</strong> Login rápido y familiar</li>
-              <li>⏰ <strong>Tokens temporales:</strong> Acceso limitado en tiempo</li>
+              <li>
+                🛡️ <strong>Seguridad:</strong> Sin compartir passwords
+              </li>
+              <li>
+                🎛️ <strong>Control granular:</strong> Permisos específicos
+                (scopes)
+              </li>
+              <li>
+                👤 <strong>Mejor UX:</strong> Login rápido y familiar
+              </li>
+              <li>
+                ⏰ <strong>Tokens temporales:</strong> Acceso limitado en tiempo
+              </li>
             </ul>
           </div>
         </div>
@@ -554,12 +579,14 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Proveedores Populares */}
       <div className="providers-section">
         <h3>🌐 Proveedores OAuth Populares</h3>
-        
+
         <div className="providers-grid">
           {providers.map((provider) => (
-            <button 
-              key={provider.id} 
-              className={`provider-card ${selectedProvider === provider.id ? 'selected' : ''}`}
+            <button
+              key={provider.id}
+              className={`provider-card ${
+                selectedProvider === provider.id ? "selected" : ""
+              }`}
               onClick={() => setSelectedProvider(provider.id)}
               type="button"
             >
@@ -585,7 +612,7 @@ app.post('/api/auth/github', async (req, res) => {
       <div className="oauth-flow">
         <h3>🔄 Flujo Authorization Code (Recomendado)</h3>
         <p>El flujo más seguro para aplicaciones web con backend:</p>
-        
+
         <div className="flow-diagram">
           {oauthFlows.map((flow) => (
             <div key={flow.step} className="flow-step">
@@ -607,41 +634,53 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Implementación por Proveedor */}
       <div className="provider-implementation">
         <h3>💻 Implementación: {getCurrentProvider().name}</h3>
-        
+
         <div className="implementation-tabs">
-          {selectedProvider === 'google' && (
+          {selectedProvider === "google" && (
             <div className="implementation-content">
               <div className="code-section">
                 <h4>⚛️ Frontend React + Google OAuth</h4>
-                <pre><code>{googleSetup}</code></pre>
+                <pre>
+                  <code>{googleSetup}</code>
+                </pre>
               </div>
-              
+
               <div className="code-section">
                 <h4>🔧 Backend Verification</h4>
-                <pre><code>{googleBackend}</code></pre>
+                <pre>
+                  <code>{googleBackend}</code>
+                </pre>
               </div>
             </div>
           )}
-          
-          {selectedProvider === 'github' && (
+
+          {selectedProvider === "github" && (
             <div className="implementation-content">
               <div className="code-section">
                 <h4>⚛️ Frontend React + GitHub OAuth</h4>
-                <pre><code>{githubSetup}</code></pre>
+                <pre>
+                  <code>{githubSetup}</code>
+                </pre>
               </div>
-              
+
               <div className="code-section">
                 <h4>🔧 Backend GitHub OAuth</h4>
-                <pre><code>{githubBackend}</code></pre>
+                <pre>
+                  <code>{githubBackend}</code>
+                </pre>
               </div>
             </div>
           )}
-          
-          {(selectedProvider === 'microsoft' || selectedProvider === 'facebook') && (
+
+          {(selectedProvider === "microsoft" ||
+            selectedProvider === "facebook") && (
             <div className="implementation-placeholder">
               <div className="placeholder-content">
                 <h4>🚧 Implementación en desarrollo</h4>
-                <p>Los ejemplos para {getCurrentProvider().name} serán agregados próximamente.</p>
+                <p>
+                  Los ejemplos para {getCurrentProvider().name} serán agregados
+                  próximamente.
+                </p>
                 <div className="placeholder-info">
                   <strong>Recursos útiles:</strong>
                   <ul>
@@ -659,12 +698,14 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Mejores Prácticas de Seguridad */}
       <div className="security-practices">
         <h3>🛡️ Mejores Prácticas de Seguridad OAuth</h3>
-        
+
         <div className="practices-grid">
           {securityBestPractices.map((practice) => (
             <div key={practice.title} className="practice-card">
               <h4>{practice.title}</h4>
-              <p><strong>Problema:</strong> {practice.description}</p>
+              <p>
+                <strong>Problema:</strong> {practice.description}
+              </p>
               <div className="implementation">
                 <strong>✅ Implementación:</strong> {practice.implementation}
               </div>
@@ -676,7 +717,7 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Errores Comunes */}
       <div className="common-errors">
         <h3>🐛 Errores Comunes y Soluciones</h3>
-        
+
         <div className="errors-list">
           {commonErrors.map((item) => (
             <div key={item.error} className="error-item">
@@ -699,18 +740,27 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Testing OAuth */}
       <div className="oauth-testing">
         <h3>🧪 Testing y Debugging OAuth</h3>
-        
+
         <div className="testing-grid">
           <div className="testing-card">
             <h4>🔍 Debug Tools</h4>
             <ul>
-              <li><strong>Browser DevTools:</strong> Network tab para requests</li>
-              <li><strong>JWT.io:</strong> Decodificar JWT tokens</li>
-              <li><strong>Postman:</strong> Probar endpoints OAuth</li>
-              <li><strong>OAuth Playground:</strong> Google, GitHub tienen herramientas</li>
+              <li>
+                <strong>Browser DevTools:</strong> Network tab para requests
+              </li>
+              <li>
+                <strong>JWT.io:</strong> Decodificar JWT tokens
+              </li>
+              <li>
+                <strong>Postman:</strong> Probar endpoints OAuth
+              </li>
+              <li>
+                <strong>OAuth Playground:</strong> Google, GitHub tienen
+                herramientas
+              </li>
             </ul>
           </div>
-          
+
           <div className="testing-card">
             <h4>📋 Checklist de Testing</h4>
             <ul>
@@ -722,7 +772,7 @@ app.post('/api/auth/github', async (req, res) => {
               <li>✅ HTTPS en producción</li>
             </ul>
           </div>
-          
+
           <div className="testing-card">
             <h4>🚨 Casos Edge</h4>
             <ul>
@@ -739,11 +789,12 @@ app.post('/api/auth/github', async (req, res) => {
       {/* Environment Configuration */}
       <div className="environment-config">
         <h3>🔧 Configuración por Entorno</h3>
-        
+
         <div className="env-grid">
           <div className="env-card development">
             <h4>🛠️ Desarrollo</h4>
-            <pre><code>{`# .env.development
+            <pre>
+              <code>{`# .env.development
 GOOGLE_CLIENT_ID=dev-client-id
 GOOGLE_CLIENT_SECRET=dev-secret
 GITHUB_CLIENT_ID=dev-github-id
@@ -751,12 +802,14 @@ GITHUB_CLIENT_SECRET=dev-github-secret
 
 # URLs de callback
 FRONTEND_URL=http://localhost:3000
-BACKEND_URL=http://localhost:5000`}</code></pre>
+BACKEND_URL=http://localhost:5000`}</code>
+            </pre>
           </div>
-          
+
           <div className="env-card production">
             <h4>🚀 Producción</h4>
-            <pre><code>{`# .env.production
+            <pre>
+              <code>{`# .env.production
 GOOGLE_CLIENT_ID=prod-client-id
 GOOGLE_CLIENT_SECRET=prod-secret
 GITHUB_CLIENT_ID=prod-github-id
@@ -768,17 +821,30 @@ BACKEND_URL=https://api.myapp.com
 
 # Adicionales de seguridad
 JWT_SECRET=super-secure-random-string
-OAUTH_ENCRYPTION_KEY=another-secure-key`}</code></pre>
+OAUTH_ENCRYPTION_KEY=another-secure-key`}</code>
+            </pre>
           </div>
         </div>
-        
+
         <div className="config-notes">
           <h4>📝 Notas Importantes:</h4>
           <ul>
-            <li>🔒 <strong>Secrets separados:</strong> Usa diferentes secrets por entorno</li>
-            <li>🌐 <strong>URLs correctas:</strong> Configura callbacks exactos en provider console</li>
-            <li>🔐 <strong>Variables seguras:</strong> Nunca commitees secrets al repo</li>
-            <li>🔄 <strong>Rotación:</strong> Rota secrets regularmente en producción</li>
+            <li>
+              🔒 <strong>Secrets separados:</strong> Usa diferentes secrets por
+              entorno
+            </li>
+            <li>
+              🌐 <strong>URLs correctas:</strong> Configura callbacks exactos en
+              provider console
+            </li>
+            <li>
+              🔐 <strong>Variables seguras:</strong> Nunca commitees secrets al
+              repo
+            </li>
+            <li>
+              🔄 <strong>Rotación:</strong> Rota secrets regularmente en
+              producción
+            </li>
           </ul>
         </div>
       </div>

@@ -3,7 +3,7 @@
   display: flex;
   min-height: 100vh;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .security-sidebar {
@@ -255,7 +255,11 @@
 }
 
 .principle-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 245, 245, 0.9));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(245, 245, 245, 0.9)
+  );
   border-radius: 15px;
   padding: 1.5rem;
   text-align: center;
@@ -285,27 +289,27 @@
   .security-page {
     flex-direction: column;
   }
-  
+
   .security-sidebar {
     position: relative;
     width: 100%;
     height: auto;
     border-radius: 0;
   }
-  
+
   .security-content {
     margin-left: 0;
   }
-  
+
   .threats-grid,
   .principles-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .security-intro {
     padding: 1.5rem;
   }
-  
+
   .security-intro h2 {
     font-size: 2rem;
   }

@@ -1,59 +1,59 @@
-import React, { useState, useEffect } from 'react';
-import './TokenSecurity.css';
+import React, { useState, useEffect } from "react";
+import "./TokenSecurity.css";
 
 interface StorageComparison {
   method: string;
-  security: 'Alta' | 'Media' | 'Baja';
+  security: "Alta" | "Media" | "Baja";
   vulnerability: string;
   accessibility: string;
   persistence: string;
-  recommendation: 'Recomendado' | 'Condicional' | 'No Recomendado';
+  recommendation: "Recomendado" | "Condicional" | "No Recomendado";
 }
 
 const TokenSecurity: React.FC = () => {
-  const [currentToken, setCurrentToken] = useState<string>('');
+  const [currentToken, setCurrentToken] = useState<string>("");
   const [tokenInMemory, setTokenInMemory] = useState<string | null>(null);
 
   const storageComparisons: StorageComparison[] = [
     {
-      method: 'localStorage',
-      security: 'Baja',
-      vulnerability: 'Vulnerable a XSS - JavaScript puede acceder',
-      accessibility: 'Accesible por cualquier script en el dominio',
-      persistence: 'Persiste hasta ser eliminado manualmente',
-      recommendation: 'No Recomendado'
+      method: "localStorage",
+      security: "Baja",
+      vulnerability: "Vulnerable a XSS - JavaScript puede acceder",
+      accessibility: "Accesible por cualquier script en el dominio",
+      persistence: "Persiste hasta ser eliminado manualmente",
+      recommendation: "No Recomendado",
     },
     {
-      method: 'sessionStorage',
-      security: 'Baja',
-      vulnerability: 'Vulnerable a XSS - JavaScript puede acceder',
-      accessibility: 'Accesible por cualquier script en la pestaña',
-      persistence: 'Se elimina al cerrar la pestaña',
-      recommendation: 'No Recomendado'
+      method: "sessionStorage",
+      security: "Baja",
+      vulnerability: "Vulnerable a XSS - JavaScript puede acceder",
+      accessibility: "Accesible por cualquier script en la pestaña",
+      persistence: "Se elimina al cerrar la pestaña",
+      recommendation: "No Recomendado",
     },
     {
-      method: 'HttpOnly Cookies',
-      security: 'Alta',
-      vulnerability: 'Protegido contra XSS - JavaScript no puede acceder',
-      accessibility: 'Solo accesible por el servidor',
-      persistence: 'Configurable con expiración',
-      recommendation: 'Recomendado'
+      method: "HttpOnly Cookies",
+      security: "Alta",
+      vulnerability: "Protegido contra XSS - JavaScript no puede acceder",
+      accessibility: "Solo accesible por el servidor",
+      persistence: "Configurable con expiración",
+      recommendation: "Recomendado",
     },
     {
-      method: 'Memory + Refresh Pattern',
-      security: 'Alta',
-      vulnerability: 'Token en memoria (se pierde al recargar)',
-      accessibility: 'Solo en el contexto de la aplicación',
-      persistence: 'Se pierde al recargar - usa refresh token',
-      recommendation: 'Recomendado'
-    }
+      method: "Memory + Refresh Pattern",
+      security: "Alta",
+      vulnerability: "Token en memoria (se pierde al recargar)",
+      accessibility: "Solo en el contexto de la aplicación",
+      persistence: "Se pierde al recargar - usa refresh token",
+      recommendation: "Recomendado",
+    },
   ];
 
   // Simulación de token en memoria
   useEffect(() => {
     // Simular obtención de token al cargar la app
     const simulateTokenFetch = () => {
-      const mockToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...';
+      const mockToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...";
       setTokenInMemory(mockToken);
     };
 
@@ -233,33 +233,42 @@ app.post('/api/logout', (req, res) => {
   res.json({ message: 'Logout successful' });
 });`;
 
-  const getSecurityBadge = (level: StorageComparison['security']) => {
+  const getSecurityBadge = (level: StorageComparison["security"]) => {
     const badgeClasses = {
-      'Alta': 'security-high',
-      'Media': 'security-medium', 
-      'Baja': 'security-low'
+      Alta: "security-high",
+      Media: "security-medium",
+      Baja: "security-low",
     };
-    
-    return <span className={`security-badge ${badgeClasses[level]}`}>{level}</span>;
+
+    return (
+      <span className={`security-badge ${badgeClasses[level]}`}>{level}</span>
+    );
   };
 
-  const getRecommendationBadge = (rec: StorageComparison['recommendation']) => {
+  const getRecommendationBadge = (rec: StorageComparison["recommendation"]) => {
     const badgeClasses = {
-      'Recomendado': 'rec-good',
-      'Condicional': 'rec-conditional',
-      'No Recomendado': 'rec-bad'
+      Recomendado: "rec-good",
+      Condicional: "rec-conditional",
+      "No Recomendado": "rec-bad",
     };
-    
-    return <span className={`recommendation-badge ${badgeClasses[rec]}`}>{rec}</span>;
+
+    return (
+      <span className={`recommendation-badge ${badgeClasses[rec]}`}>{rec}</span>
+    );
   };
 
   // Simulación de XSS vulnerability
   const simulateXSSAttack = () => {
-    const storedToken = localStorage.getItem('demoToken');
+    const storedToken = localStorage.getItem("demoToken");
     if (storedToken) {
-      alert(`🚨 XSS Attack Simulation: Token robado: ${storedToken.substring(0, 20)}...`);
+      alert(
+        `🚨 XSS Attack Simulation: Token robado: ${storedToken.substring(
+          0,
+          20
+        )}...`
+      );
     } else {
-      alert('❌ No hay token en localStorage para robar');
+      alert("❌ No hay token en localStorage para robar");
     }
   };
 
@@ -279,7 +288,7 @@ app.post('/api/logout', (req, res) => {
             <div>Persistencia</div>
             <div>Recomendación</div>
           </div>
-          
+
           {storageComparisons.map((item) => (
             <div key={item.method} className="table-row">
               <div className="method-name">{item.method}</div>
@@ -296,41 +305,38 @@ app.post('/api/logout', (req, res) => {
       {/* Demostración Interactiva */}
       <div className="interactive-demo">
         <h3>🧪 Demostración Interactiva</h3>
-        
+
         <div className="demo-grid">
           {/* Almacenamiento Vulnerable */}
           <div className="demo-card vulnerable">
             <h4>❌ Método Vulnerable (localStorage)</h4>
             <div className="demo-controls">
-              <button 
+              <button
                 onClick={() => {
-                  const token = 'demo_token_' + Date.now();
-                  localStorage.setItem('demoToken', token);
+                  const token = "demo_token_" + Date.now();
+                  localStorage.setItem("demoToken", token);
                   setCurrentToken(token);
                 }}
                 className="btn-danger"
               >
                 Guardar Token en localStorage
               </button>
-              
-              <button 
-                onClick={simulateXSSAttack}
-                className="btn-attack"
-              >
+
+              <button onClick={simulateXSSAttack} className="btn-attack">
                 🚨 Simular Ataque XSS
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => {
-                  localStorage.removeItem('demoToken');
-                  setCurrentToken('');
+                  localStorage.removeItem("demoToken");
+                  setCurrentToken("");
                 }}
                 className="btn-clear"
               >
                 Limpiar
               </button>
             </div>
-            
+
             {currentToken && (
               <div className="token-display vulnerable-token">
                 <strong>Token en localStorage:</strong>
@@ -344,33 +350,33 @@ app.post('/api/logout', (req, res) => {
           <div className="demo-card secure">
             <h4>✅ Método Seguro (Memoria + HttpOnly)</h4>
             <div className="demo-controls">
-              <button 
+              <button
                 onClick={() => {
-                  const newToken = 'secure_token_' + Date.now();
+                  const newToken = "secure_token_" + Date.now();
                   setTokenInMemory(newToken);
                 }}
                 className="btn-success"
               >
                 Token en Memoria
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => {
-                  alert('✅ Los tokens en memoria no son accesibles por XSS');
+                  alert("✅ Los tokens en memoria no son accesibles por XSS");
                 }}
                 className="btn-safe"
               >
                 🛡️ Verificar Seguridad
               </button>
-              
-              <button 
+
+              <button
                 onClick={() => setTokenInMemory(null)}
                 className="btn-clear"
               >
                 Limpiar
               </button>
             </div>
-            
+
             {tokenInMemory && (
               <div className="token-display secure-token">
                 <strong>Token en memoria:</strong>
@@ -387,25 +393,31 @@ app.post('/api/logout', (req, res) => {
         <div className="code-comparison">
           <div className="code-section vulnerable-code">
             <h3>❌ Código Vulnerable</h3>
-            <pre><code>{vulnerableCode}</code></pre>
+            <pre>
+              <code>{vulnerableCode}</code>
+            </pre>
           </div>
-          
+
           <div className="code-section secure-code">
             <h3>✅ Código Seguro (Frontend)</h3>
-            <pre><code>{secureCode}</code></pre>
+            <pre>
+              <code>{secureCode}</code>
+            </pre>
           </div>
         </div>
-        
+
         <div className="backend-code-section">
           <h3>🔧 Configuración Backend Segura</h3>
-          <pre><code>{backendCode}</code></pre>
+          <pre>
+            <code>{backendCode}</code>
+          </pre>
         </div>
       </div>
 
       {/* Mejores Prácticas */}
       <div className="best-practices">
         <h3>🎯 Mejores Prácticas para Tokens</h3>
-        
+
         <div className="practices-grid">
           <div className="practice-card do">
             <h4>✅ SÍ hacer</h4>
@@ -419,7 +431,7 @@ app.post('/api/logout', (req, res) => {
               <li>Validar tokens en cada request del backend</li>
             </ul>
           </div>
-          
+
           <div className="practice-card dont">
             <h4>❌ NO hacer</h4>
             <ul>
@@ -438,16 +450,19 @@ app.post('/api/logout', (req, res) => {
       {/* Patrón Access + Refresh Token */}
       <div className="token-pattern">
         <h3>🔄 Patrón Access Token + Refresh Token</h3>
-        
+
         <div className="pattern-diagram">
           <div className="pattern-step">
             <div className="step-number">1</div>
             <div className="step-content">
               <h4>Login</h4>
-              <p>Usuario se autentica → Recibe Access Token (memoria) + Refresh Token (HttpOnly cookie)</p>
+              <p>
+                Usuario se autentica → Recibe Access Token (memoria) + Refresh
+                Token (HttpOnly cookie)
+              </p>
             </div>
           </div>
-          
+
           <div className="pattern-step">
             <div className="step-number">2</div>
             <div className="step-content">
@@ -455,15 +470,18 @@ app.post('/api/logout', (req, res) => {
               <p>Usar Access Token en header Authorization para cada request</p>
             </div>
           </div>
-          
+
           <div className="pattern-step">
             <div className="step-number">3</div>
             <div className="step-content">
               <h4>Expiración</h4>
-              <p>Cuando Access Token expira → Usar Refresh Token para obtener nuevo Access Token</p>
+              <p>
+                Cuando Access Token expira → Usar Refresh Token para obtener
+                nuevo Access Token
+              </p>
             </div>
           </div>
-          
+
           <div className="pattern-step">
             <div className="step-number">4</div>
             <div className="step-content">
@@ -472,21 +490,25 @@ app.post('/api/logout', (req, res) => {
             </div>
           </div>
         </div>
-        
+
         <div className="pattern-benefits">
           <h4>🎯 Beneficios de este patrón:</h4>
           <div className="benefits-grid">
             <div className="benefit">
-              <strong>🛡️ Seguridad:</strong> Access tokens de corta duración limitan ventana de ataque
+              <strong>🛡️ Seguridad:</strong> Access tokens de corta duración
+              limitan ventana de ataque
             </div>
             <div className="benefit">
-              <strong>🔄 Continuidad:</strong> Refresh automático mantiene sesión sin interrupciones
+              <strong>🔄 Continuidad:</strong> Refresh automático mantiene
+              sesión sin interrupciones
             </div>
             <div className="benefit">
-              <strong>🚪 Control:</strong> Refresh tokens pueden revocarse para cerrar todas las sesiones
+              <strong>🚪 Control:</strong> Refresh tokens pueden revocarse para
+              cerrar todas las sesiones
             </div>
             <div className="benefit">
-              <strong>⚡ Performance:</strong> No need validar en DB en cada request del access token
+              <strong>⚡ Performance:</strong> No need validar en DB en cada
+              request del access token
             </div>
           </div>
         </div>

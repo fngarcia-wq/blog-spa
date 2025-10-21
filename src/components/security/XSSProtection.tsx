@@ -1,51 +1,54 @@
-import React, { useState } from 'react';
-import DOMPurify from 'dompurify';
-import './XSSProtection.css';
+import React, { useState } from "react";
+import DOMPurify from "dompurify";
+import "./XSSProtection.css";
 
 interface XSSExample {
   id: string;
   name: string;
-  type: 'Stored' | 'Reflected' | 'DOM-based';
-  severity: 'Crítica' | 'Alta' | 'Media';
+  type: "Stored" | "Reflected" | "DOM-based";
+  severity: "Crítica" | "Alta" | "Media";
   description: string;
   maliciousCode: string;
   impact: string;
 }
 
 const XSSProtection: React.FC = () => {
-  const [userInput, setUserInput] = useState<string>('');
-  const [sanitizedInput, setSanitizedInput] = useState<string>('');
-  const [urlInput, setUrlInput] = useState<string>('');
+  const [userInput, setUserInput] = useState<string>("");
+  const [sanitizedInput, setSanitizedInput] = useState<string>("");
+  const [urlInput, setUrlInput] = useState<string>("");
   const [isValidUrl, setIsValidUrl] = useState<boolean | null>(null);
 
   const xssExamples: XSSExample[] = [
     {
-      id: 'stored',
-      name: 'Stored XSS',
-      type: 'Stored',
-      severity: 'Crítica',
-      description: 'Script malicioso almacenado en la base de datos que se ejecuta para todos los usuarios',
+      id: "stored",
+      name: "Stored XSS",
+      type: "Stored",
+      severity: "Crítica",
+      description:
+        "Script malicioso almacenado en la base de datos que se ejecuta para todos los usuarios",
       maliciousCode: '<script>alert("XSS Stored!");</script>',
-      impact: 'Alto - Afecta a todos los usuarios que vean el contenido'
+      impact: "Alto - Afecta a todos los usuarios que vean el contenido",
     },
     {
-      id: 'reflected',
-      name: 'Reflected XSS',
-      type: 'Reflected',
-      severity: 'Alta',
-      description: 'Script malicioso reflejado desde la URL o form data',
+      id: "reflected",
+      name: "Reflected XSS",
+      type: "Reflected",
+      severity: "Alta",
+      description: "Script malicioso reflejado desde la URL o form data",
       maliciousCode: '<img src="x" onerror="alert(\'XSS Reflected!\')">',
-      impact: 'Medio - Requiere que la víctima haga clic en un enlace malicioso'
+      impact:
+        "Medio - Requiere que la víctima haga clic en un enlace malicioso",
     },
     {
-      id: 'dom',
-      name: 'DOM-based XSS',
-      type: 'DOM-based',
-      severity: 'Alta',
-      description: 'Script que modifica el DOM en el lado del cliente',
-      maliciousCode: 'document.body.innerHTML = "<script>alert(\'DOM XSS!\')</script>";',
-      impact: 'Medio-Alto - Ejecutado completamente en el cliente'
-    }
+      id: "dom",
+      name: "DOM-based XSS",
+      type: "DOM-based",
+      severity: "Alta",
+      description: "Script que modifica el DOM en el lado del cliente",
+      maliciousCode:
+        "document.body.innerHTML = \"<script>alert('DOM XSS!')</script>\";",
+      impact: "Medio-Alto - Ejecutado completamente en el cliente",
+    },
   ];
 
   // Función para sanitizar HTML
@@ -58,7 +61,7 @@ const XSSProtection: React.FC = () => {
     try {
       const urlObj = new URL(url);
       // Solo permitir protocolos seguros
-      return ['http:', 'https:'].includes(urlObj.protocol);
+      return ["http:", "https:"].includes(urlObj.protocol);
     } catch {
       return false;
     }
@@ -220,13 +223,13 @@ app.use(helmet.contentSecurityPolicy({
   reportOnly: false // ✅ false = enforce, true = solo reportar
 }));`;
 
-  const getSeverityBadge = (severity: XSSExample['severity']) => {
+  const getSeverityBadge = (severity: XSSExample["severity"]) => {
     const severityClasses = {
-      'Crítica': 'severity-critical',
-      'Alta': 'severity-high',
-      'Media': 'severity-medium'
+      Crítica: "severity-critical",
+      Alta: "severity-high",
+      Media: "severity-medium",
     };
-    
+
     return (
       <span className={`severity-badge ${severityClasses[severity]}`}>
         {severity}
@@ -264,7 +267,7 @@ app.use(helmet.contentSecurityPolicy({
       {/* Demo Interactivo */}
       <div className="interactive-section">
         <h3>🧪 Demostración de Sanitización</h3>
-        
+
         <div className="demo-container">
           <div className="input-section">
             <h4>Ingresa contenido HTML (intenta con scripts maliciosos):</h4>
@@ -278,7 +281,7 @@ app.use(helmet.contentSecurityPolicy({
               🛡️ Sanitizar con DOMPurify
             </button>
           </div>
-          
+
           <div className="output-grid">
             <div className="output-section vulnerable">
               <h4>❌ Sin Sanitizar (Vulnerable)</h4>
@@ -291,16 +294,18 @@ app.use(helmet.contentSecurityPolicy({
                 <p className="warning">⚠️ Esto ejecutaría scripts maliciosos</p>
               </div>
             </div>
-            
+
             <div className="output-section secure">
               <h4>✅ Sanitizado (Seguro)</h4>
               <div className="output-box">
                 <strong>Renderizado seguro:</strong>
-                <div 
+                <div
                   className="safe-output"
                   dangerouslySetInnerHTML={{ __html: sanitizedInput }}
                 />
-                <p className="success">✅ Scripts removidos, contenido seguro preservado</p>
+                <p className="success">
+                  ✅ Scripts removidos, contenido seguro preservado
+                </p>
               </div>
             </div>
           </div>
@@ -310,7 +315,7 @@ app.use(helmet.contentSecurityPolicy({
       {/* Validación de URLs */}
       <div className="url-validation">
         <h3>🔗 Validación Segura de URLs</h3>
-        
+
         <div className="url-demo">
           <h4>Prueba validación de URLs:</h4>
           <input
@@ -320,9 +325,9 @@ app.use(helmet.contentSecurityPolicy({
             placeholder="Ejemplo: javascript:alert('XSS') o https://example.com"
             className="url-input"
           />
-          
+
           {urlInput && (
-            <div className={`url-result ${isValidUrl ? 'valid' : 'invalid'}`}>
+            <div className={`url-result ${isValidUrl ? "valid" : "invalid"}`}>
               {isValidUrl ? (
                 <>
                   <span className="success">✅ URL válida y segura</span>
@@ -353,7 +358,9 @@ app.use(helmet.contentSecurityPolicy({
               <strong>❌ Peligrosas:</strong>
               <ul>
                 <li>javascript:alert('XSS')</li>
-                <li>data:text/html,&lt;script&gt;alert('XSS')&lt;/script&gt;</li>
+                <li>
+                  data:text/html,&lt;script&gt;alert('XSS')&lt;/script&gt;
+                </li>
                 <li>vbscript:msgbox("XSS")</li>
               </ul>
             </div>
@@ -366,12 +373,16 @@ app.use(helmet.contentSecurityPolicy({
         <div className="code-comparison">
           <div className="code-section vulnerable-code">
             <h3>❌ Código Vulnerable</h3>
-            <pre><code>{vulnerableCode}</code></pre>
+            <pre>
+              <code>{vulnerableCode}</code>
+            </pre>
           </div>
-          
+
           <div className="code-section secure-code">
             <h3>✅ Código Seguro</h3>
-            <pre><code>{secureCode}</code></pre>
+            <pre>
+              <code>{secureCode}</code>
+            </pre>
           </div>
         </div>
       </div>
@@ -379,10 +390,10 @@ app.use(helmet.contentSecurityPolicy({
       {/* Content Security Policy */}
       <div className="csp-section">
         <h3>🛡️ Content Security Policy (CSP)</h3>
-        
+
         <div className="csp-info">
           <p>
-            CSP es una capa adicional de seguridad que ayuda a prevenir XSS 
+            CSP es una capa adicional de seguridad que ayuda a prevenir XSS
             especificando qué fuentes de contenido son confiables.
           </p>
         </div>
@@ -390,12 +401,16 @@ app.use(helmet.contentSecurityPolicy({
         <div className="csp-examples">
           <div className="csp-example">
             <h4>📄 CSP en HTML</h4>
-            <pre><code>{cspConfiguration}</code></pre>
+            <pre>
+              <code>{cspConfiguration}</code>
+            </pre>
           </div>
-          
+
           <div className="csp-example">
             <h4>⚙️ CSP en Servidor (Node.js)</h4>
-            <pre><code>{serverCSP}</code></pre>
+            <pre>
+              <code>{serverCSP}</code>
+            </pre>
           </div>
         </div>
 
@@ -403,16 +418,20 @@ app.use(helmet.contentSecurityPolicy({
           <h4>🎯 Beneficios de CSP:</h4>
           <div className="benefits-list">
             <div className="benefit-item">
-              <strong>🚫 Bloquea scripts inline:</strong> Previene ejecución de scripts maliciosos inyectados
+              <strong>🚫 Bloquea scripts inline:</strong> Previene ejecución de
+              scripts maliciosos inyectados
             </div>
             <div className="benefit-item">
-              <strong>📋 Whitelist de fuentes:</strong> Solo permite recursos de dominios confiables
+              <strong>📋 Whitelist de fuentes:</strong> Solo permite recursos de
+              dominios confiables
             </div>
             <div className="benefit-item">
-              <strong>📊 Reportes:</strong> Envía reportes de violaciones para monitoreo
+              <strong>📊 Reportes:</strong> Envía reportes de violaciones para
+              monitoreo
             </div>
             <div className="benefit-item">
-              <strong>🔒 Defensa en profundidad:</strong> Protección adicional aunque haya vulnerabilidades
+              <strong>🔒 Defensa en profundidad:</strong> Protección adicional
+              aunque haya vulnerabilidades
             </div>
           </div>
         </div>
@@ -421,7 +440,7 @@ app.use(helmet.contentSecurityPolicy({
       {/* Checklist de Protección */}
       <div className="protection-checklist">
         <h3>✅ Checklist de Protección XSS</h3>
-        
+
         <div className="checklist-grid">
           <div className="checklist-section input-validation">
             <h4>📥 Validación de Entrada</h4>
@@ -432,7 +451,7 @@ app.use(helmet.contentSecurityPolicy({
               <li>✅ Rechazar contenido sospechoso</li>
             </ul>
           </div>
-          
+
           <div className="checklist-section output-encoding">
             <h4>📤 Codificación de Salida</h4>
             <ul>
@@ -442,7 +461,7 @@ app.use(helmet.contentSecurityPolicy({
               <li>✅ Usar textContent en lugar de innerHTML</li>
             </ul>
           </div>
-          
+
           <div className="checklist-section security-headers">
             <h4>🔒 Headers de Seguridad</h4>
             <ul>
@@ -452,7 +471,7 @@ app.use(helmet.contentSecurityPolicy({
               <li>✅ Habilitar X-XSS-Protection (legacy browsers)</li>
             </ul>
           </div>
-          
+
           <div className="checklist-section best-practices">
             <h4>🎯 Mejores Prácticas</h4>
             <ul>

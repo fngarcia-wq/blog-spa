@@ -113,7 +113,11 @@
 
 .provider-card.selected {
   border-color: #667eea;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  background: linear-gradient(
+    135deg,
+    rgba(102, 126, 234, 0.05),
+    rgba(118, 75, 162, 0.05)
+  );
 }
 
 .provider-header {
@@ -293,7 +297,7 @@
 }
 
 .code-section code {
-  font-family: 'Monaco', 'Consolas', monospace;
+  font-family: "Monaco", "Consolas", monospace;
 }
 
 /* Implementation Placeholder */
@@ -422,7 +426,7 @@
 }
 
 .error-header code {
-  font-family: 'Monaco', 'Consolas', monospace;
+  font-family: "Monaco", "Consolas", monospace;
   font-size: 0.9rem;
   color: #e53e3e;
   font-weight: 600;
@@ -611,22 +615,22 @@
   .oauth-integration {
     padding: 1.5rem;
   }
-  
+
   .oauth-integration h2 {
     font-size: 1.8rem;
   }
-  
+
   .flow-step {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .provider-header {
     flex-direction: column;
     text-align: center;
     gap: 0.5rem;
   }
-  
+
   .error-details {
     gap: 0.5rem;
   }

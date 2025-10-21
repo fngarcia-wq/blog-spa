@@ -1,56 +1,61 @@
-import React, { useState } from 'react';
-import './CORSConfiguration.css';
+import React, { useState } from "react";
+import "./CORSConfiguration.css";
 
 interface CORSExample {
   id: string;
   name: string;
   description: string;
-  level: 'Permisivo' | 'Restrictivo' | 'Balanceado';
-  security: 'Baja' | 'Media' | 'Alta';
+  level: "Permisivo" | "Restrictivo" | "Balanceado";
+  security: "Baja" | "Media" | "Alta";
   configuration: string;
 }
 
 const CORSConfiguration: React.FC = () => {
-  const [selectedOrigin, setSelectedOrigin] = useState<string>('*');
-  const [selectedMethods, setSelectedMethods] = useState<string[]>(['GET', 'POST']);
-  const [selectedHeaders, setSelectedHeaders] = useState<string[]>(['Content-Type']);
+  const [selectedOrigin, setSelectedOrigin] = useState<string>("*");
+  const [selectedMethods, setSelectedMethods] = useState<string[]>([
+    "GET",
+    "POST",
+  ]);
+  const [selectedHeaders, setSelectedHeaders] = useState<string[]>([
+    "Content-Type",
+  ]);
   const [allowCredentials, setAllowCredentials] = useState<boolean>(false);
-  const [corsResult, setCorsResult] = useState<string>('');
+  const [corsResult, setCorsResult] = useState<string>("");
 
   const corsExamples: CORSExample[] = [
     {
-      id: 'permissive',
-      name: 'Configuración Permisiva (Desarrollo)',
-      description: 'Permite todos los orígenes - SOLO para desarrollo',
-      level: 'Permisivo',
-      security: 'Baja',
+      id: "permissive",
+      name: "Configuración Permisiva (Desarrollo)",
+      description: "Permite todos los orígenes - SOLO para desarrollo",
+      level: "Permisivo",
+      security: "Baja",
       configuration: `app.use(cors({
   origin: '*', // ❌ Permite cualquier origen
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: '*',
   credentials: true // ❌ Peligroso con origin: '*'
-}));`
+}));`,
     },
     {
-      id: 'restrictive',
-      name: 'Configuración Restrictiva (Producción)',
-      description: 'Solo orígenes específicos y métodos necesarios',
-      level: 'Restrictivo',
-      security: 'Alta',
+      id: "restrictive",
+      name: "Configuración Restrictiva (Producción)",
+      description: "Solo orígenes específicos y métodos necesarios",
+      level: "Restrictivo",
+      security: "Alta",
       configuration: `app.use(cors({
   origin: ['https://myapp.com', 'https://www.myapp.com'],
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
   maxAge: 86400 // Cache preflight por 24 horas
-}));`
+}));`,
     },
     {
-      id: 'balanced',
-      name: 'Configuración Balanceada',
-      description: 'Balance entre seguridad y funcionalidad',
-      level: 'Balanceado',
-      security: 'Media',
+      id: "balanced",
+      name: "Configuración Balanceada",
+      description: "Balance entre seguridad y funcionalidad",
+      level: "Balanceado",
+      security: "Media",
       configuration: `app.use(cors({
   origin: (origin, callback) => {
     const allowedOrigins = [
@@ -68,52 +73,53 @@ const CORSConfiguration: React.FC = () => {
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-API-Key'],
   credentials: true
-}));`
-    }
+}));`,
+    },
   ];
 
   const preflightFlow = [
     {
       step: 1,
-      title: 'Cliente envía Preflight',
-      description: 'OPTIONS request para verificar permisos',
+      title: "Cliente envía Preflight",
+      description: "OPTIONS request para verificar permisos",
       request: `OPTIONS /api/users HTTP/1.1
 Host: api.example.com
 Origin: https://myapp.com
 Access-Control-Request-Method: POST
-Access-Control-Request-Headers: Content-Type, Authorization`
+Access-Control-Request-Headers: Content-Type, Authorization`,
     },
     {
       step: 2,
-      title: 'Servidor evalúa',
-      description: 'Verifica origen, método y headers contra configuración CORS',
+      title: "Servidor evalúa",
+      description:
+        "Verifica origen, método y headers contra configuración CORS",
       response: `// Servidor verifica:
 // - ¿Está 'https://myapp.com' en orígenes permitidos?
 // - ¿Está 'POST' en métodos permitidos?
-// - ¿Están los headers solicitados permitidos?`
+// - ¿Están los headers solicitados permitidos?`,
     },
     {
       step: 3,
-      title: 'Servidor responde',
-      description: 'Indica si la request real está permitida',
+      title: "Servidor responde",
+      description: "Indica si la request real está permitida",
       response: `HTTP/1.1 200 OK
 Access-Control-Allow-Origin: https://myapp.com
 Access-Control-Allow-Methods: POST, GET, PUT
 Access-Control-Allow-Headers: Content-Type, Authorization
-Access-Control-Max-Age: 86400`
+Access-Control-Max-Age: 86400`,
     },
     {
       step: 4,
-      title: 'Cliente envía request real',
-      description: 'Solo si preflight fue exitoso',
+      title: "Cliente envía request real",
+      description: "Solo si preflight fue exitoso",
       request: `POST /api/users HTTP/1.1
 Host: api.example.com
 Origin: https://myapp.com
 Content-Type: application/json
 Authorization: Bearer token123
 
-{"name": "Juan", "email": "juan@example.com"}`
-    }
+{"name": "Juan", "email": "juan@example.com"}`,
+    },
   ];
 
   // Código de configuraciones
@@ -309,38 +315,41 @@ const loginUser = async (credentials) => {
 
   const troubleshootingSteps = [
     {
-      error: 'Access to fetch blocked by CORS policy',
-      cause: 'Origen no está en la lista de permitidos',
-      solution: 'Agregar el origen del frontend a allowedOrigins en el servidor'
+      error: "Access to fetch blocked by CORS policy",
+      cause: "Origen no está en la lista de permitidos",
+      solution:
+        "Agregar el origen del frontend a allowedOrigins en el servidor",
     },
     {
-      error: 'CORS header Access-Control-Allow-Origin missing',
-      cause: 'Servidor no tiene CORS configurado',
-      solution: 'Instalar y configurar middleware CORS en el servidor'
+      error: "CORS header Access-Control-Allow-Origin missing",
+      cause: "Servidor no tiene CORS configurado",
+      solution: "Instalar y configurar middleware CORS en el servidor",
     },
     {
-      error: 'Credentials flag is true, but Access-Control-Allow-Credentials header is false',
-      cause: 'Credentials habilitados en cliente pero no en servidor',
-      solution: 'Establecer credentials: true en configuración CORS del servidor'
+      error:
+        "Credentials flag is true, but Access-Control-Allow-Credentials header is false",
+      cause: "Credentials habilitados en cliente pero no en servidor",
+      solution:
+        "Establecer credentials: true en configuración CORS del servidor",
     },
     {
-      error: 'Method not allowed by Access-Control-Allow-Methods',
-      cause: 'Método HTTP no está permitido',
-      solution: 'Agregar el método (PUT, DELETE, etc.) a allowedMethods'
+      error: "Method not allowed by Access-Control-Allow-Methods",
+      cause: "Método HTTP no está permitido",
+      solution: "Agregar el método (PUT, DELETE, etc.) a allowedMethods",
     },
     {
-      error: 'Header not allowed by Access-Control-Allow-Headers',
-      cause: 'Header personalizado no está permitido',
-      solution: 'Agregar el header a allowedHeaders en configuración CORS'
-    }
+      error: "Header not allowed by Access-Control-Allow-Headers",
+      cause: "Header personalizado no está permitido",
+      solution: "Agregar el header a allowedHeaders en configuración CORS",
+    },
   ];
 
   const simulateCORSRequest = () => {
-    const origin = selectedOrigin === '*' ? 'cualquier origen' : selectedOrigin;
-    const methods = selectedMethods.join(', ');
-    const headers = selectedHeaders.join(', ');
-    const creds = allowCredentials ? 'Sí' : 'No';
-    
+    const origin = selectedOrigin === "*" ? "cualquier origen" : selectedOrigin;
+    const methods = selectedMethods.join(", ");
+    const headers = selectedHeaders.join(", ");
+    const creds = allowCredentials ? "Sí" : "No";
+
     const result = `Configuración CORS simulada:
     
 🌐 Origin permitido: ${origin}
@@ -348,21 +357,25 @@ const loginUser = async (credentials) => {
 📋 Headers: ${headers}
 🔐 Credenciales: ${creds}
 
-${selectedOrigin === '*' && allowCredentials ? 
-  '⚠️ ADVERTENCIA: origin "*" con credentials true es inseguro!' : 
-  '✅ Configuración válida'}`;
-    
+${
+  selectedOrigin === "*" && allowCredentials
+    ? '⚠️ ADVERTENCIA: origin "*" con credentials true es inseguro!'
+    : "✅ Configuración válida"
+}`;
+
     setCorsResult(result);
   };
 
-  const getSecurityBadge = (level: CORSExample['security']) => {
+  const getSecurityBadge = (level: CORSExample["security"]) => {
     const badgeClasses = {
-      'Alta': 'security-high',
-      'Media': 'security-medium',
-      'Baja': 'security-low'
+      Alta: "security-high",
+      Media: "security-medium",
+      Baja: "security-low",
     };
-    
-    return <span className={`security-badge ${badgeClasses[level]}`}>{level}</span>;
+
+    return (
+      <span className={`security-badge ${badgeClasses[level]}`}>{level}</span>
+    );
   };
 
   return (
@@ -372,13 +385,14 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* ¿Qué es CORS? */}
       <div className="cors-intro">
         <h3>🤔 ¿Qué es CORS y por qué existe?</h3>
-        
+
         <div className="cors-explanation">
           <div className="explanation-card">
             <h4>🛡️ Same-Origin Policy</h4>
             <p>
-              Los navegadores implementan la <strong>Same-Origin Policy</strong> por seguridad. 
-              Esta política bloquea requests JavaScript a diferentes orígenes (diferente protocolo, dominio o puerto).
+              Los navegadores implementan la <strong>Same-Origin Policy</strong>{" "}
+              por seguridad. Esta política bloquea requests JavaScript a
+              diferentes orígenes (diferente protocolo, dominio o puerto).
             </p>
             <div className="origin-examples">
               <div className="same-origin">
@@ -398,12 +412,13 @@ ${selectedOrigin === '*' && allowCredentials ?
               </div>
             </div>
           </div>
-          
+
           <div className="explanation-card">
             <h4>🔓 CORS al rescate</h4>
             <p>
-              CORS permite que los servidores especifiquen qué orígenes pueden acceder a sus recursos, 
-              relajando selectivamente la Same-Origin Policy.
+              CORS permite que los servidores especifiquen qué orígenes pueden
+              acceder a sus recursos, relajando selectivamente la Same-Origin
+              Policy.
             </p>
             <div className="cors-benefits">
               <ul>
@@ -420,8 +435,11 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Flujo Preflight */}
       <div className="preflight-section">
         <h3>🔄 Flujo de Peticiones Preflight</h3>
-        <p>Para requests "complejas", el navegador envía primero una petición OPTIONS (preflight) para verificar permisos.</p>
-        
+        <p>
+          Para requests "complejas", el navegador envía primero una petición
+          OPTIONS (preflight) para verificar permisos.
+        </p>
+
         <div className="preflight-flow">
           {preflightFlow.map((item) => (
             <div key={item.step} className="preflight-step">
@@ -429,12 +447,14 @@ ${selectedOrigin === '*' && allowCredentials ?
               <div className="step-content">
                 <h4>{item.title}</h4>
                 <p>{item.description}</p>
-                <pre><code>{item.request || item.response}</code></pre>
+                <pre>
+                  <code>{item.request || item.response}</code>
+                </pre>
               </div>
             </div>
           ))}
         </div>
-        
+
         <div className="preflight-triggers">
           <h4>⚡ ¿Cuándo se activa Preflight?</h4>
           <div className="triggers-grid">
@@ -444,7 +464,10 @@ ${selectedOrigin === '*' && allowCredentials ?
             </div>
             <div className="trigger-card">
               <strong>Headers:</strong>
-              <p>Authorization, Content-Type (excepto algunos valores), headers personalizados</p>
+              <p>
+                Authorization, Content-Type (excepto algunos valores), headers
+                personalizados
+              </p>
             </div>
             <div className="trigger-card">
               <strong>Credenciales:</strong>
@@ -457,25 +480,27 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Simulador CORS */}
       <div className="cors-simulator">
         <h3>🧪 Simulador de Configuración CORS</h3>
-        
+
         <div className="simulator-controls">
           <div className="control-group">
             <label htmlFor="origin-select">🌐 Origins permitidos:</label>
-            <select 
+            <select
               id="origin-select"
-              value={selectedOrigin} 
+              value={selectedOrigin}
               onChange={(e) => setSelectedOrigin(e.target.value)}
             >
               <option value="*">* (todos los orígenes)</option>
               <option value="https://myapp.com">https://myapp.com</option>
-              <option value="http://localhost:3000">http://localhost:3000</option>
+              <option value="http://localhost:3000">
+                http://localhost:3000
+              </option>
             </select>
           </div>
-          
+
           <div className="control-group">
             <div className="group-label">🔧 Métodos permitidos:</div>
             <div className="checkbox-group">
-              {['GET', 'POST', 'PUT', 'DELETE', 'PATCH'].map(method => (
+              {["GET", "POST", "PUT", "DELETE", "PATCH"].map((method) => (
                 <label key={method} className="checkbox-label">
                   <input
                     type="checkbox"
@@ -484,7 +509,9 @@ ${selectedOrigin === '*' && allowCredentials ?
                       if (e.target.checked) {
                         setSelectedMethods([...selectedMethods, method]);
                       } else {
-                        setSelectedMethods(selectedMethods.filter(m => m !== method));
+                        setSelectedMethods(
+                          selectedMethods.filter((m) => m !== method)
+                        );
                       }
                     }}
                   />
@@ -493,11 +520,16 @@ ${selectedOrigin === '*' && allowCredentials ?
               ))}
             </div>
           </div>
-          
+
           <div className="control-group">
             <div className="group-label">📋 Headers permitidos:</div>
             <div className="checkbox-group">
-              {['Content-Type', 'Authorization', 'X-API-Key', 'X-Requested-With'].map(header => (
+              {[
+                "Content-Type",
+                "Authorization",
+                "X-API-Key",
+                "X-Requested-With",
+              ].map((header) => (
                 <label key={header} className="checkbox-label">
                   <input
                     type="checkbox"
@@ -506,7 +538,9 @@ ${selectedOrigin === '*' && allowCredentials ?
                       if (e.target.checked) {
                         setSelectedHeaders([...selectedHeaders, header]);
                       } else {
-                        setSelectedHeaders(selectedHeaders.filter(h => h !== header));
+                        setSelectedHeaders(
+                          selectedHeaders.filter((h) => h !== header)
+                        );
                       }
                     }}
                   />
@@ -515,23 +549,23 @@ ${selectedOrigin === '*' && allowCredentials ?
               ))}
             </div>
           </div>
-          
+
           <div className="control-group">
             <label className="checkbox-label">
               <input
                 type="checkbox"
                 checked={allowCredentials}
                 onChange={(e) => setAllowCredentials(e.target.checked)}
-              />{' '}
+              />{" "}
               🔐 Permitir credenciales (cookies, auth headers)
             </label>
           </div>
-          
+
           <button onClick={simulateCORSRequest} className="simulate-btn">
             🚀 Simular Configuración
           </button>
         </div>
-        
+
         {corsResult && (
           <div className="simulation-result">
             <h4>Resultado de la Simulación:</h4>
@@ -543,7 +577,7 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Ejemplos de Configuración */}
       <div className="configuration-examples">
         <h3>⚙️ Ejemplos de Configuración</h3>
-        
+
         <div className="examples-grid">
           {corsExamples.map((example) => (
             <div key={example.id} className="example-card">
@@ -552,7 +586,9 @@ ${selectedOrigin === '*' && allowCredentials ?
                 {getSecurityBadge(example.security)}
               </div>
               <p>{example.description}</p>
-              <pre><code>{example.configuration}</code></pre>
+              <pre>
+                <code>{example.configuration}</code>
+              </pre>
             </div>
           ))}
         </div>
@@ -561,21 +597,27 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Configuraciones por Framework */}
       <div className="framework-configs">
         <h3>🔧 Configuración por Framework</h3>
-        
+
         <div className="config-tabs">
           <div className="config-section">
             <h4>🟢 Express.js (Node.js)</h4>
-            <pre><code>{expressConfig}</code></pre>
+            <pre>
+              <code>{expressConfig}</code>
+            </pre>
           </div>
-          
+
           <div className="config-section">
             <h4>🔴 Laravel (PHP)</h4>
-            <pre><code>{laravelConfig}</code></pre>
+            <pre>
+              <code>{laravelConfig}</code>
+            </pre>
           </div>
-          
+
           <div className="config-section">
             <h4>⚛️ Frontend (JavaScript)</h4>
-            <pre><code>{frontendCode}</code></pre>
+            <pre>
+              <code>{frontendCode}</code>
+            </pre>
           </div>
         </div>
       </div>
@@ -583,7 +625,7 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Problemas Comunes */}
       <div className="troubleshooting">
         <h3>🐛 Errores Comunes y Soluciones</h3>
-        
+
         <div className="error-list">
           {troubleshootingSteps.map((item) => (
             <div key={item.error} className="error-item">
@@ -604,7 +646,7 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Mejores Prácticas */}
       <div className="best-practices">
         <h3>🎯 Mejores Prácticas CORS</h3>
-        
+
         <div className="practices-grid">
           <div className="practice-section do">
             <h4>✅ SÍ hacer</h4>
@@ -619,7 +661,7 @@ ${selectedOrigin === '*' && allowCredentials ?
               <li>Revisar logs de errores CORS regularmente</li>
             </ul>
           </div>
-          
+
           <div className="practice-section dont">
             <h4>❌ NO hacer</h4>
             <ul>
@@ -639,12 +681,13 @@ ${selectedOrigin === '*' && allowCredentials ?
       {/* Testing de CORS */}
       <div className="cors-testing">
         <h3>🧪 Probar Configuración CORS</h3>
-        
+
         <div className="testing-tools">
           <div className="test-card">
             <h4>🌍 Browser DevTools</h4>
             <p>La forma más fácil de probar CORS:</p>
-            <pre><code>{`// En la consola del navegador:
+            <pre>
+              <code>{`// En la consola del navegador:
 fetch('https://api.example.com/data', {
   method: 'POST',
   headers: {
@@ -656,25 +699,35 @@ fetch('https://api.example.com/data', {
 })
 .then(r => r.json())
 .then(console.log)
-.catch(console.error);`}</code></pre>
+.catch(console.error);`}</code>
+            </pre>
           </div>
-          
+
           <div className="test-card">
             <h4>📡 cURL para Preflight</h4>
-            <pre><code>{`# Simular preflight request
+            <pre>
+              <code>{`# Simular preflight request
 curl -X OPTIONS https://api.example.com/users \\
   -H "Origin: https://myapp.com" \\
   -H "Access-Control-Request-Method: POST" \\
   -H "Access-Control-Request-Headers: Content-Type,Authorization" \\
-  -v`}</code></pre>
+  -v`}</code>
+            </pre>
           </div>
-          
+
           <div className="test-card">
             <h4>🔧 Herramientas Online</h4>
             <ul>
-              <li><strong>CORS Tester:</strong> test-cors.org</li>
-              <li><strong>Postman:</strong> Para probar APIs</li>
-              <li><strong>Browser Extensions:</strong> CORS Unblock (solo desarrollo)</li>
+              <li>
+                <strong>CORS Tester:</strong> test-cors.org
+              </li>
+              <li>
+                <strong>Postman:</strong> Para probar APIs
+              </li>
+              <li>
+                <strong>Browser Extensions:</strong> CORS Unblock (solo
+                desarrollo)
+              </li>
             </ul>
           </div>
         </div>

@@ -96,7 +96,7 @@
 .same-origin li,
 .cross-origin li {
   padding: 0.2rem 0;
-  font-family: 'Monaco', 'Consolas', monospace;
+  font-family: "Monaco", "Consolas", monospace;
   font-size: 0.85rem;
   color: #4a5568;
 }
@@ -641,7 +641,7 @@
   .testing-tools {
     grid-template-columns: 1fr;
   }
-  
+
   .triggers-grid {
     grid-template-columns: 1fr;
   }
@@ -651,20 +651,20 @@
   .cors-configuration {
     padding: 1.5rem;
   }
-  
+
   .cors-configuration h2 {
     font-size: 1.8rem;
   }
-  
+
   .preflight-step {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .checkbox-group {
     flex-direction: column;
   }
-  
+
   .checkbox-label {
     justify-content: flex-start;
   }

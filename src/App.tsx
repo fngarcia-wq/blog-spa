@@ -1,12 +1,12 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider, useAuth } from './hooks/useAuth';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { PostsPage } from './pages/PostsPage';
-import { DashboardPage } from './pages/DashboardPage';
-import { StateManagementLearning } from './pages/StateManagementLearning';
-import SecurityPage from './pages/security/SecurityPage';
-import { LoadingSpinner } from './components/ui/LoadingSpinner';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider, useAuth } from "./hooks/useAuth";
+import { LoginPage } from "./pages/LoginPage";
+import { RegisterPage } from "./pages/RegisterPage";
+import { PostsPage } from "./pages/PostsPage";
+import { DashboardPage } from "./pages/DashboardPage";
+import { StateManagementLearning } from "./pages/StateManagementLearning";
+import SecurityPage from "./pages/security/SecurityPage";
+import { LoadingSpinner } from "./components/ui/LoadingSpinner";
 import "./App.css";
 
 // Componente para proteger rutas
@@ -28,7 +28,7 @@ function App() {
           {/* Rutas públicas */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          
+
           {/* Rutas protegidas */}
           <Route
             path="/dashboard"
@@ -62,7 +62,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          
+
           {/* Redirección por defecto */}
           <Route path="/" element={<Navigate to="/dashboard" />} />
         </Routes>

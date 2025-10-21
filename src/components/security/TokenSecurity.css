@@ -248,7 +248,7 @@
   background: rgba(0, 0, 0, 0.1);
   padding: 0.5rem;
   border-radius: 4px;
-  font-family: 'Monaco', 'Consolas', monospace;
+  font-family: "Monaco", "Consolas", monospace;
   font-size: 0.85rem;
   word-break: break-all;
   margin-bottom: 0.5rem;
@@ -331,7 +331,7 @@
 
 .code-section code,
 .backend-code-section code {
-  font-family: 'Monaco', 'Consolas', monospace;
+  font-family: "Monaco", "Consolas", monospace;
 }
 
 /* Best Practices */
@@ -479,18 +479,18 @@
   .practices-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .table-header,
   .table-row {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
-  
+
   .table-header div,
   .table-row div {
     padding: 0.3rem 0;
   }
-  
+
   .benefits-grid {
     grid-template-columns: 1fr;
   }
@@ -500,19 +500,19 @@
   .token-security {
     padding: 1.5rem;
   }
-  
+
   .token-security h2 {
     font-size: 1.8rem;
   }
-  
+
   .demo-controls {
     flex-direction: column;
   }
-  
+
   .demo-controls button {
     width: 100%;
   }
-  
+
   .pattern-step {
     flex-direction: column;
     text-align: center;

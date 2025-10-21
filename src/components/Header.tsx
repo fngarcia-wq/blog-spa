@@ -27,27 +27,35 @@ const Header: React.FC<HeaderProps> = ({
           </div>
 
           <nav className="navigation">
-            <Link 
-              to="/dashboard" 
-              className={`nav-link ${location.pathname === '/dashboard' ? 'active' : ''}`}
+            <Link
+              to="/dashboard"
+              className={`nav-link ${
+                location.pathname === "/dashboard" ? "active" : ""
+              }`}
             >
               🏠 Dashboard
             </Link>
-            <Link 
-              to="/posts" 
-              className={`nav-link ${location.pathname === '/posts' ? 'active' : ''}`}
+            <Link
+              to="/posts"
+              className={`nav-link ${
+                location.pathname === "/posts" ? "active" : ""
+              }`}
             >
               📝 Posts
             </Link>
-            <Link 
-              to="/learning" 
-              className={`nav-link ${location.pathname === '/learning' ? 'active' : ''}`}
+            <Link
+              to="/learning"
+              className={`nav-link ${
+                location.pathname === "/learning" ? "active" : ""
+              }`}
             >
               🎓 Learning
             </Link>
-            <Link 
-              to="/security" 
-              className={`nav-link ${location.pathname === '/security' ? 'active' : ''}`}
+            <Link
+              to="/security"
+              className={`nav-link ${
+                location.pathname === "/security" ? "active" : ""
+              }`}
             >
               🛡️ Seguridad
             </Link>

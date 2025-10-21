@@ -18,11 +18,13 @@ Esta implementación completa incluye una clase integral de **Seguridad Frontend
 ### 🧪 Demostraciones Interactivas
 
 1. **Simulador de Vulnerabilidades XSS**
+
    - Input para probar código malicioso
    - Sanitización en tiempo real con DOMPurify
    - Comparación lado a lado: vulnerable vs seguro
 
 2. **Configurador CORS Interactivo**
+
    - Selector de orígenes permitidos
    - Configuración de métodos y headers
    - Simulación de configuración CORS
@@ -73,6 +75,7 @@ src/
 ## 🚀 Navegación
 
 La clase se accede mediante:
+
 - **URL:** `/security`
 - **Navegación:** Enlace "🛡️ Seguridad" en el header
 - **Protección:** Ruta protegida que requiere autenticación
@@ -89,17 +92,18 @@ El sistema utiliza badges visuales para clasificar amenazas:
 ## 💡 Ejemplos de Código Incluidos
 
 ### 1. Almacenamiento Seguro de Tokens
+
 ```javascript
 // ✅ Patrón seguro: Access Token en memoria + Refresh Token HttpOnly
 let accessToken = null; // Solo en memoria
 
 const login = async (credentials) => {
-  const response = await fetch('/api/login', {
-    method: 'POST',
-    credentials: 'include', // HttpOnly cookies
-    body: JSON.stringify(credentials)
+  const response = await fetch("/api/login", {
+    method: "POST",
+    credentials: "include", // HttpOnly cookies
+    body: JSON.stringify(credentials),
   });
-  
+
   const data = await response.json();
   accessToken = data.accessToken; // En memoria
   return data;
@@ -107,35 +111,38 @@ const login = async (credentials) => {
 ```
 
 ### 2. Protección XSS
+
 ```javascript
 // ✅ Sanitización segura con DOMPurify
-import DOMPurify from 'dompurify';
+import DOMPurify from "dompurify";
 
 const SafeHTMLComponent = ({ htmlContent }) => {
   const sanitizedHTML = DOMPurify.sanitize(htmlContent);
-  
-  return (
-    <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />
-  );
+
+  return <div dangerouslySetInnerHTML={{ __html: sanitizedHTML }} />;
 };
 ```
 
 ### 3. Configuración CORS Segura
+
 ```javascript
 // ✅ Express.js con CORS restrictivo
-app.use(cors({
-  origin: ['https://myapp.com', 'https://www.myapp.com'],
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,
-  maxAge: 86400
-}));
+app.use(
+  cors({
+    origin: ["https://myapp.com", "https://www.myapp.com"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
+    maxAge: 86400,
+  })
+);
 ```
 
 ### 4. OAuth 2.0 con Google
+
 ```javascript
 // ✅ Frontend React con Google OAuth
-import { GoogleLogin } from '@react-oauth/google';
+import { GoogleLogin } from "@react-oauth/google";
 
 const handleSuccess = (credentialResponse) => {
   // Enviar JWT token al backend para verificación
@@ -147,12 +154,13 @@ const handleSuccess = (credentialResponse) => {
   onError={handleError}
   useOneTap
   theme="outline"
-/>
+/>;
 ```
 
 ## 📚 Recursos Educativos
 
 ### Contenido Incluido:
+
 - **Regla de oro de seguridad frontend**
 - **Principales amenazas con ejemplos reales**
 - **Código vulnerable vs código seguro (lado a lado)**
@@ -162,14 +170,16 @@ const handleSuccess = (credentialResponse) => {
 - **Herramientas de testing y debugging**
 
 ### Enlaces de Referencia:
+
 - OWASP Top 10
-- MDN Security Guidelines  
+- MDN Security Guidelines
 - React Security Best Practices
 - OAuth 2.0 RFC Standards
 
 ## 🎨 Diseño Visual
 
 ### Características del UI:
+
 - **Diseño responsive:** Adaptable a móvil y desktop
 - **Navegación por pestañas:** Fácil acceso a cada sección
 - **Badges de severidad:** Identificación visual de prioridades
@@ -178,6 +188,7 @@ const handleSuccess = (credentialResponse) => {
 - **Progreso visual:** Barras y círculos de progreso
 
 ### Paleta de Colores:
+
 - **Primario:** Gradientes azul-púrpura (#667eea → #764ba2)
 - **Seguridad Alta:** Verde (#48bb78)
 - **Riesgo Crítico:** Rojo (#f56565)
@@ -205,6 +216,7 @@ Para expandir la funcionalidad:
 ## 📞 Soporte
 
 Para preguntas o mejoras:
+
 1. Revisar la documentación de cada componente
 2. Verificar ejemplos de código incluidos
 3. Consultar recursos adicionales en cada sección
