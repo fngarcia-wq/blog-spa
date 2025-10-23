@@ -1,23 +1,30 @@
-import { useState } from 'react';
-import { useAuth } from '../hooks/useAuth';
-import { useNavigate, Link } from 'react-router-dom';
-import { PostsList } from '../components/posts/PostsList';
-import { CreatePostForm } from '../components/posts/CreatePostForm';
-import { LoginDemo } from '../components/demos/LoginDemo';
-import { PostsDemo } from '../components/demos/PostsDemo';
-import { CommentsDemo } from '../components/demos/CommentsDemo';
-import './Dashboard.css';
+import { useState } from "react";
+import { useAuth } from "../hooks/useAuth";
+import { useNavigate, Link } from "react-router-dom";
+import { PostsList } from "../components/posts/PostsList";
+import { CreatePostForm } from "../components/posts/CreatePostForm";
+import { LoginDemo } from "../components/demos/LoginDemo";
+import { PostsDemo } from "../components/demos/PostsDemo";
+import { CommentsDemo } from "../components/demos/CommentsDemo";
+import "./Dashboard.css";
 
-type Section = 'home' | 'learning' | 'api-posts' | 'api-login' | 'api-comments' | 'comparisons';
+type Section =
+  | "home"
+  | "learning"
+  | "performance"
+  | "api-posts"
+  | "api-login"
+  | "api-comments"
+  | "comparisons";
 
 export function DashboardPage() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [activeSection, setActiveSection] = useState<Section>('home');
+  const [activeSection, setActiveSection] = useState<Section>("home");
 
   const handleLogout = async () => {
     await logout();
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -27,8 +34,12 @@ export function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <div>
-              <h1 className="text-3xl font-bold text-white">Blog SPA - Clases</h1>
-              <p className="text-blue-100 text-sm mt-1">Consumo de API REST con Axios</p>
+              <h1 className="text-3xl font-bold text-white">
+                Blog SPA - Clases
+              </h1>
+              <p className="text-blue-100 text-sm mt-1">
+                Consumo de API REST con Axios
+              </p>
             </div>
             {user && (
               <div className="flex items-center gap-4">
@@ -53,61 +64,71 @@ export function DashboardPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex space-x-2 py-4 overflow-x-auto">
             <button
-              onClick={() => setActiveSection('home')}
+              onClick={() => setActiveSection("home")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'home'
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "home"
+                  ? "bg-blue-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               🏠 Inicio
             </button>
             <button
-              onClick={() => setActiveSection('learning')}
+              onClick={() => setActiveSection("learning")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'learning'
-                  ? 'bg-purple-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "learning"
+                  ? "bg-purple-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               📚 State Management
             </button>
             <button
-              onClick={() => setActiveSection('api-posts')}
+              onClick={() => setActiveSection("performance")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'api-posts'
-                  ? 'bg-green-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "performance"
+                  ? "bg-pink-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              ⚡ Performance
+            </button>
+            <button
+              onClick={() => setActiveSection("api-posts")}
+              className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
+                activeSection === "api-posts"
+                  ? "bg-green-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               📝 API - Posts
             </button>
             <button
-              onClick={() => setActiveSection('api-login')}
+              onClick={() => setActiveSection("api-login")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'api-login'
-                  ? 'bg-orange-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "api-login"
+                  ? "bg-orange-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               🔐 API - Login
             </button>
             <button
-              onClick={() => setActiveSection('api-comments')}
+              onClick={() => setActiveSection("api-comments")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'api-comments'
-                  ? 'bg-indigo-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "api-comments"
+                  ? "bg-indigo-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               💬 API - Comments
             </button>
             <button
-              onClick={() => setActiveSection('comparisons')}
+              onClick={() => setActiveSection("comparisons")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
-                activeSection === 'comparisons'
-                  ? 'bg-teal-600 text-white shadow-md'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                activeSection === "comparisons"
+                  ? "bg-teal-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
               }`}
             >
               ⚖️ Comparaciones
@@ -118,12 +139,13 @@ export function DashboardPage() {
 
       {/* Content */}
       <main className="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
-        {activeSection === 'home' && <HomeSection />}
-        {activeSection === 'learning' && <LearningSection />}
-        {activeSection === 'api-posts' && <ApiPostsSection />}
-        {activeSection === 'api-login' && <ApiLoginSection />}
-        {activeSection === 'api-comments' && <ApiCommentsSection />}
-        {activeSection === 'comparisons' && <ComparisonsSection />}
+        {activeSection === "home" && <HomeSection />}
+        {activeSection === "learning" && <LearningSection />}
+        {activeSection === "performance" && <PerformanceSection />}
+        {activeSection === "api-posts" && <ApiPostsSection />}
+        {activeSection === "api-login" && <ApiLoginSection />}
+        {activeSection === "api-comments" && <ApiCommentsSection />}
+        {activeSection === "comparisons" && <ComparisonsSection />}
       </main>
     </div>
   );
@@ -135,50 +157,85 @@ function HomeSection() {
       <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg p-8 text-white">
         <h2 className="text-3xl font-bold mb-2">Bienvenido al Blog SPA</h2>
         <p className="text-blue-100">
-          Plataforma educativa para aprender consumo de API REST con React y TypeScript
+          Plataforma educativa para aprender consumo de API REST con React y
+          TypeScript
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">📚</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">State Management</h3>
-          <p className="text-gray-600 text-sm">Context API, Redux Toolkit, Zustand</p>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-          <div className="text-3xl mb-3">🔌</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Consumo de API REST</h3>
-          <p className="text-gray-600 text-sm">Axios vs Fetch, comparaciones en vivo</p>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-          <div className="text-3xl mb-3">🔐</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Autenticación</h3>
-          <p className="text-gray-600 text-sm">JWT Tokens, interceptores, rutas protegidas</p>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-          <div className="text-3xl mb-3">✏️</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">CRUD Completo</h3>
-          <p className="text-gray-600 text-sm">Posts y comentarios con todas las operaciones</p>
-        </div>
-
-        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
-          <div className="text-3xl mb-3">✅</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Buenas Prácticas</h3>
-          <p className="text-gray-600 text-sm">TypeScript, Error Handling, Loading States</p>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            State Management
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Context API, Redux Toolkit, Zustand
+          </p>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">⚡</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Comparaciones</h3>
-          <p className="text-gray-600 text-sm">Código lado a lado, tablas comparativas</p>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Performance</h3>
+          <p className="text-gray-600 text-sm">
+            React Query, Optimización, Lazy Loading
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🔌</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Consumo de API REST
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Axios vs Fetch, comparaciones en vivo
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🔐</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Autenticación
+          </h3>
+          <p className="text-gray-600 text-sm">
+            JWT Tokens, interceptores, rutas protegidas
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">✏️</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            CRUD Completo
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Posts y comentarios con todas las operaciones
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">✅</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Buenas Prácticas
+          </h3>
+          <p className="text-gray-600 text-sm">
+            TypeScript, Error Handling, Loading States
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">⚡</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Comparaciones
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Código lado a lado, tablas comparativas
+          </p>
         </div>
       </div>
 
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-xl font-bold text-gray-900 mb-4">🚀 Comienza Explorando</h3>
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          🚀 Comienza Explorando
+        </h3>
         <p className="text-gray-600 mb-4">
           Usa las pestañas de navegación arriba para explorar cada sección:
         </p>
@@ -187,28 +244,45 @@ function HomeSection() {
             <span className="text-2xl">1️⃣</span>
             <div>
               <p className="font-medium text-gray-900">State Management</p>
-              <p className="text-sm text-gray-600">Revisa las clases anteriores</p>
+              <p className="text-sm text-gray-600">
+                Revisa las clases anteriores
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-2xl">2️⃣</span>
             <div>
-              <p className="font-medium text-gray-900">API - Posts</p>
-              <p className="text-sm text-gray-600">Crea posts y ve comparaciones</p>
+              <p className="font-medium text-gray-900">Performance</p>
+              <p className="text-sm text-gray-600">
+                React Query y optimizaciones
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-2xl">3️⃣</span>
             <div>
-              <p className="font-medium text-gray-900">API - Login</p>
-              <p className="text-sm text-gray-600">Aprende sobre autenticación</p>
+              <p className="font-medium text-gray-900">API - Posts</p>
+              <p className="text-sm text-gray-600">
+                Crea posts y ve comparaciones
+              </p>
             </div>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-2xl">4️⃣</span>
             <div>
+              <p className="font-medium text-gray-900">API - Login</p>
+              <p className="text-sm text-gray-600">
+                Aprende sobre autenticación
+              </p>
+            </div>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-2xl">5️⃣</span>
+            <div>
               <p className="font-medium text-gray-900">Comparaciones</p>
-              <p className="text-sm text-gray-600">Tabla completa y buenas prácticas</p>
+              <p className="text-sm text-gray-600">
+                Tabla completa y buenas prácticas
+              </p>
             </div>
           </div>
         </div>
@@ -221,7 +295,9 @@ function LearningSection() {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl shadow-lg p-8 text-white">
-        <h2 className="text-3xl font-bold mb-2">📚 State Management Learning</h2>
+        <h2 className="text-3xl font-bold mb-2">
+          📚 State Management Learning
+        </h2>
         <p className="text-purple-100">
           Contenido de clases anteriores sobre manejo de estado en React
         </p>
@@ -239,7 +315,9 @@ function LearningSection() {
 
         <div className="bg-white rounded-lg shadow-md p-6 card-hover">
           <div className="text-4xl mb-3">🔴</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Redux Toolkit</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Redux Toolkit
+          </h3>
           <p className="text-gray-600 text-sm mb-3">
             Estado predecible con acciones y reducers
           </p>
@@ -264,10 +342,11 @@ function LearningSection() {
               Ver Contenido Completo
             </h3>
             <p className="text-blue-700 mb-4">
-              Accede a todos los ejemplos, comparaciones y ejercicios de State Management
+              Accede a todos los ejemplos, comparaciones y ejercicios de State
+              Management
             </p>
-            <Link 
-              to="/learning" 
+            <Link
+              to="/learning"
               className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 font-medium transition-colors shadow-md"
             >
               Ir a State Management Learning →
@@ -287,8 +366,8 @@ function ApiPostsSection() {
         <p className="text-green-100 mb-4">
           Implementación completa de CRUD de posts con Axios
         </p>
-        <Link 
-          to="/posts" 
+        <Link
+          to="/posts"
           className="inline-block bg-white text-green-600 px-5 py-2.5 rounded-lg hover:bg-green-50 font-medium transition-colors shadow-md"
         >
           Ver Aplicación Completa de Posts →
@@ -334,7 +413,7 @@ function ApiPostsSection() {
               <span>✅</span> Con Axios
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-green-200 shadow-sm">
-{`// Más limpio y conciso
+              {`// Más limpio y conciso
 const response = await axios.get('/posts');
 const posts = response.data;
 
@@ -352,7 +431,7 @@ try {
               <span>⚠️</span> Con Fetch
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-orange-200 shadow-sm">
-{`// Más verboso
+              {`// Más verboso
 const response = await fetch('/posts');
 if (!response.ok) {
   throw new Error('Error');
@@ -408,7 +487,7 @@ function ApiLoginSection() {
               <span>✅</span> Con Axios
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-green-200 shadow-sm">
-{`// Login con Axios
+              {`// Login con Axios
 const login = async (credentials) => {
   const response = await axios.post(
     '/login', 
@@ -437,7 +516,7 @@ axios.interceptors.request.use(config => {
               <span>⚠️</span> Con Fetch
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-orange-200 shadow-sm">
-{`// Login con Fetch
+              {`// Login con Fetch
 const login = async (credentials) => {
   const response = await fetch('/login', {
     method: 'POST',
@@ -479,9 +558,7 @@ function ApiCommentsSection() {
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
         <h2 className="text-3xl font-bold mb-2">💬 API - Comentarios</h2>
-        <p className="text-indigo-100">
-          CRUD de comentarios asociados a posts
-        </p>
+        <p className="text-indigo-100">CRUD de comentarios asociados a posts</p>
       </div>
 
       {/* Demo Funcional */}
@@ -508,7 +585,7 @@ function ApiCommentsSection() {
               <span>✅</span> Con Axios
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-green-200 shadow-sm">
-{`// Crear comentario
+              {`// Crear comentario
 const createComment = async (data) => {
   const response = await axios.post(
     '/comments',
@@ -537,7 +614,7 @@ const deleteComment = async (id) => {
               <span>⚠️</span> Con Fetch
             </h4>
             <pre className="bg-white p-4 rounded-lg text-sm overflow-x-auto border border-orange-200 shadow-sm">
-{`// Crear comentario
+              {`// Crear comentario
 const createComment = async (data) => {
   const response = await fetch('/comments', {
     method: 'POST',
@@ -587,7 +664,9 @@ function ComparisonsSection() {
   return (
     <div className="space-y-6">
       <div className="bg-gradient-to-r from-teal-500 to-teal-600 rounded-xl shadow-lg p-8 text-white">
-        <h2 className="text-3xl font-bold mb-2">⚖️ Comparaciones y Buenas Prácticas</h2>
+        <h2 className="text-3xl font-bold mb-2">
+          ⚖️ Comparaciones y Buenas Prácticas
+        </h2>
         <p className="text-teal-100">
           Análisis completo de Axios vs Fetch con ejemplos y recomendaciones
         </p>
@@ -616,34 +695,54 @@ function ComparisonsSection() {
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">Instalación</td>
-                <td className="px-6 py-4 text-sm text-orange-600">npm install axios</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  Instalación
+                </td>
+                <td className="px-6 py-4 text-sm text-orange-600">
+                  npm install axios
+                </td>
                 <td className="px-6 py-4 text-sm text-green-600">✅ Nativo</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">JSON Automático</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  JSON Automático
+                </td>
                 <td className="px-6 py-4 text-sm text-green-600">✅ Sí</td>
                 <td className="px-6 py-4 text-sm text-red-600">❌ Manual</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">Interceptores</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  Interceptores
+                </td>
                 <td className="px-6 py-4 text-sm text-green-600">✅ Nativos</td>
                 <td className="px-6 py-4 text-sm text-red-600">❌ Manual</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">Manejo Errores</td>
-                <td className="px-6 py-4 text-sm text-green-600">✅ Automático</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  Manejo Errores
+                </td>
+                <td className="px-6 py-4 text-sm text-green-600">
+                  ✅ Automático
+                </td>
                 <td className="px-6 py-4 text-sm text-red-600">❌ Manual</td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">Timeout</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  Timeout
+                </td>
                 <td className="px-6 py-4 text-sm text-green-600">✅ Nativo</td>
-                <td className="px-6 py-4 text-sm text-red-600">❌ AbortController</td>
+                <td className="px-6 py-4 text-sm text-red-600">
+                  ❌ AbortController
+                </td>
               </tr>
               <tr>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">Sintaxis</td>
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                  Sintaxis
+                </td>
                 <td className="px-6 py-4 text-sm text-green-600">✅ Concisa</td>
-                <td className="px-6 py-4 text-sm text-orange-600">⚠️ Verbosa</td>
+                <td className="px-6 py-4 text-sm text-orange-600">
+                  ⚠️ Verbosa
+                </td>
               </tr>
             </tbody>
           </table>
@@ -655,12 +754,14 @@ function ComparisonsSection() {
         <h3 className="text-xl font-bold mb-4">✅ Buenas Prácticas</h3>
         <div className="space-y-4">
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-green-700">1. Centralizar Configuración</h4>
+            <h4 className="font-semibold text-green-700">
+              1. Centralizar Configuración
+            </h4>
             <p className="text-sm text-gray-600 mt-1">
               Crear una instancia de Axios con baseURL y configuración común
             </p>
             <pre className="bg-gray-100 p-2 rounded text-xs mt-2">
-{`const api = axios.create({
+              {`const api = axios.create({
   baseURL: 'http://localhost:80/api',
   timeout: 10000
 });`}
@@ -668,12 +769,14 @@ function ComparisonsSection() {
           </div>
 
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-green-700">2. Usar Interceptores</h4>
+            <h4 className="font-semibold text-green-700">
+              2. Usar Interceptores
+            </h4>
             <p className="text-sm text-gray-600 mt-1">
               Agregar tokens automáticamente en todas las peticiones
             </p>
             <pre className="bg-gray-100 p-2 rounded text-xs mt-2">
-{`api.interceptors.request.use(config => {
+              {`api.interceptors.request.use(config => {
   const token = localStorage.getItem('token');
   if (token) {
     config.headers.Authorization = \`Bearer \${token}\`;
@@ -684,12 +787,14 @@ function ComparisonsSection() {
           </div>
 
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-green-700">3. Manejo de Errores Centralizado</h4>
+            <h4 className="font-semibold text-green-700">
+              3. Manejo de Errores Centralizado
+            </h4>
             <p className="text-sm text-gray-600 mt-1">
               Crear función para manejar errores de forma consistente
             </p>
             <pre className="bg-gray-100 p-2 rounded text-xs mt-2">
-{`function handleError(error) {
+              {`function handleError(error) {
   if (error.response?.status === 401) {
     // Redirigir a login
   }
@@ -704,7 +809,7 @@ function ComparisonsSection() {
               Siempre mostrar feedback visual al usuario
             </p>
             <pre className="bg-gray-100 p-2 rounded text-xs mt-2">
-{`const [loading, setLoading] = useState(false);
+              {`const [loading, setLoading] = useState(false);
 
 const fetchData = async () => {
   setLoading(true);
@@ -723,7 +828,7 @@ const fetchData = async () => {
               Definir tipos para las respuestas de la API
             </p>
             <pre className="bg-gray-100 p-2 rounded text-xs mt-2">
-{`interface Post {
+              {`interface Post {
   id: number;
   title: string;
   content: string;
@@ -743,7 +848,9 @@ const getPosts = async (): Promise<Post[]> => {
         <h3 className="text-xl font-bold mb-4">🤔 ¿Cuándo usar cada uno?</h3>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="border-2 border-green-500 rounded-lg p-4">
-            <h4 className="font-bold text-green-700 mb-2">Usar Axios cuando:</h4>
+            <h4 className="font-bold text-green-700 mb-2">
+              Usar Axios cuando:
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>✅ Proyecto mediano/grande</li>
               <li>✅ Necesitas interceptores</li>
@@ -753,13 +860,227 @@ const getPosts = async (): Promise<Post[]> => {
             </ul>
           </div>
           <div className="border-2 border-orange-500 rounded-lg p-4">
-            <h4 className="font-bold text-orange-700 mb-2">Usar Fetch cuando:</h4>
+            <h4 className="font-bold text-orange-700 mb-2">
+              Usar Fetch cuando:
+            </h4>
             <ul className="space-y-2 text-sm">
               <li>✅ Proyecto pequeño/simple</li>
               <li>✅ No quieres dependencias</li>
               <li>✅ Solo peticiones GET básicas</li>
               <li>✅ Optimizas tamaño del bundle</li>
               <li>✅ Restricciones de dependencias</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function PerformanceSection() {
+  return (
+    <div className="space-y-6">
+      <div className="bg-gradient-to-r from-pink-500 to-pink-600 rounded-xl shadow-lg p-8 text-white">
+        <h2 className="text-3xl font-bold mb-2">
+          ⚡ Performance y Optimización
+        </h2>
+        <p className="text-pink-100 mb-4">
+          React Query, TanStack Query, optimizaciones y mejores prácticas de
+          rendimiento
+        </p>
+        <Link
+          to="/performance"
+          className="inline-block bg-white text-pink-600 px-5 py-2.5 rounded-lg hover:bg-pink-50 font-medium transition-colors shadow-md"
+        >
+          Ir a Performance Learning →
+        </Link>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🪝</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Hooks Personalizados
+          </h3>
+          <p className="text-gray-600 text-sm">
+            useQuery, useMutation, hooks reutilizables
+          </p>
+          <span className="inline-block bg-pink-100 text-pink-700 px-2 py-1 rounded text-xs mt-2">
+            React Query
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🚀</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Lazy Loading</h3>
+          <p className="text-gray-600 text-sm">
+            React.lazy(), Suspense, code splitting
+          </p>
+          <span className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mt-2">
+            Core React
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🧠</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Memoización</h3>
+          <p className="text-gray-600 text-sm">
+            useMemo, useCallback, React.memo
+          </p>
+          <span className="inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-xs mt-2">
+            Optimización
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">📦</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Code Splitting
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Bundle splitting, webpack chunks
+          </p>
+          <span className="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs mt-2">
+            Webpack
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🔄</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Cache Inteligente
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Invalidación, stale-time, gc-time
+          </p>
+          <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-xs mt-2">
+            TanStack Query
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">📊</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Prefetching</h3>
+          <p className="text-gray-600 text-sm">
+            Infinite scroll, background updates
+          </p>
+          <span className="inline-block bg-teal-100 text-teal-700 px-2 py-1 rounded text-xs mt-2">
+            UX Avanzada
+          </span>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-200 rounded-xl p-6">
+        <div className="flex items-start gap-4">
+          <div className="text-4xl">🎯</div>
+          <div className="flex-1">
+            <h3 className="text-lg font-bold text-purple-900 mb-2">
+              Contenido de la Clase Actual
+            </h3>
+            <p className="text-purple-700 mb-4">
+              Esta sección contiene todo el material de la clase de Performance
+              con React Query, demostraciones interactivas y ejemplos prácticos.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  ✅ Temas Incluidos:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Introducción a Performance</li>
+                  <li>• Lazy Loading con Suspense</li>
+                  <li>• Memoización Avanzada</li>
+                  <li>• Code Splitting Estratégico</li>
+                  <li>• TanStack Query Setup</li>
+                  <li>• useQuery Interactivo</li>
+                  <li>• Servicios API Optimizados</li>
+                  <li>• Custom Hooks Avanzados</li>
+                  <li>• Listing con CRUD Completo</li>
+                  <li>• Prefetching e Infinite Scroll</li>
+                  <li>• Checklist de Optimización</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  🚀 Características:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Demos funcionales en vivo</li>
+                  <li>• Código fuente completo</li>
+                  <li>• Ejemplos interactivos</li>
+                  <li>• Comparaciones lado a lado</li>
+                  <li>• Métricas de rendimiento</li>
+                  <li>• Cache inteligente</li>
+                  <li>• Error boundaries</li>
+                  <li>• TypeScript completo</li>
+                  <li>• Responsive design</li>
+                  <li>• Best practices</li>
+                </ul>
+              </div>
+            </div>
+
+            <Link
+              to="/performance"
+              className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:from-purple-700 hover:to-pink-700 font-medium transition-all shadow-md"
+            >
+              Explorar Performance Learning →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          🎓 Lo que aprenderás
+        </h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Conceptos Fundamentales
+            </h4>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Core Web Vitals y métricas de rendimiento</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Técnicas de optimización de React</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Bundle analysis y code splitting</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Data fetching patterns avanzados</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Herramientas Prácticas
+            </h4>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>TanStack Query para data fetching</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>React Developer Tools profiling</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Bundle analyzer y optimización</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Performance monitoring en producción</span>
+              </li>
             </ul>
           </div>
         </div>

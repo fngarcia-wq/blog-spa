@@ -1,0 +1,402 @@
+/* PerformanceIntro.css */
+.performance-intro {
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.intro-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #e2e8f0;
+}
+
+.intro-header h2 {
+  color: #2b6cb0;
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+}
+
+.intro-subtitle {
+  color: #4a5568;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Performance Impact Section */
+.performance-impact {
+  margin-bottom: 3rem;
+}
+
+.performance-impact h3 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.impact-card {
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-card.critical {
+  background: linear-gradient(135deg, #f56565, #e53e3e);
+}
+
+.impact-card.high {
+  background: linear-gradient(135deg, #ed8936, #dd6b20);
+}
+
+.impact-card.medium {
+  background: linear-gradient(135deg, #ecc94b, #d69e2e);
+}
+
+.impact-card.low {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+}
+
+.impact-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.impact-card h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+.impact-card p {
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.stat {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 0.85rem;
+}
+
+/* Core Web Vitals */
+.core-web-vitals {
+  margin-bottom: 3rem;
+}
+
+.core-web-vitals h3 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.vitals-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.vital-card {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: #f7fafc;
+}
+
+.vital-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.vital-icon {
+  font-size: 1.5rem;
+}
+
+.vital-header h4 {
+  margin: 0;
+  color: #2d3748;
+  font-size: 1.2rem;
+}
+
+.vital-description p {
+  margin: 0 0 1rem 0;
+  color: #4a5568;
+}
+
+.vital-thresholds {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.threshold {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.threshold.good {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.threshold.needs-improvement {
+  background: #feebc8;
+  color: #744210;
+}
+
+.threshold.poor {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+/* Optimization Strategies */
+.optimization-strategies {
+  margin-bottom: 3rem;
+}
+
+.optimization-strategies h3 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.strategies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.strategy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 12px;
+  border-left: 4px solid #4299e1;
+}
+
+.strategy-icon {
+  font-size: 1.5rem;
+  min-width: 40px;
+  text-align: center;
+}
+
+.strategy-content h4 {
+  margin: 0 0 0.5rem 0;
+  color: #2d3748;
+  font-size: 1.1rem;
+}
+
+.strategy-content p {
+  margin: 0 0 0.5rem 0;
+  color: #4a5568;
+}
+
+.strategy-content code {
+  background: #edf2f7;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #2b6cb0;
+  font-family: "Courier New", monospace;
+}
+
+/* Measurement Tools */
+.measurement-tools {
+  margin-bottom: 3rem;
+}
+
+.measurement-tools h3 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tool-card {
+  padding: 1.5rem;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tool-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tool-card h4 {
+  margin: 0 0 0.75rem 0;
+  color: #2d3748;
+  font-size: 1.1rem;
+}
+
+.tool-card p {
+  margin: 0 0 1rem 0;
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+.tool-usage {
+  background: #edf2f7;
+  padding: 0.5rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: #2b6cb0;
+  font-family: "Courier New", monospace;
+}
+
+/* Practical Example */
+.practical-example {
+  margin-bottom: 3rem;
+}
+
+.practical-example h3 {
+  color: #2b6cb0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.comparison-card {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.comparison-card.before {
+  border: 2px solid #f56565;
+}
+
+.comparison-card.after {
+  border: 2px solid #48bb78;
+}
+
+.comparison-card h4 {
+  padding: 1rem;
+  margin: 0;
+  color: white;
+  font-size: 1.1rem;
+}
+
+.comparison-card.before h4 {
+  background: #f56565;
+}
+
+.comparison-card.after h4 {
+  background: #48bb78;
+}
+
+.comparison-card pre {
+  margin: 0;
+  padding: 1.5rem;
+  background: #2d3748;
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.comparison-card code {
+  font-family: "Courier New", monospace;
+}
+
+/* CTA Section */
+.cta-section {
+  margin-top: 2rem;
+}
+
+.cta-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 2rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.cta-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.cta-card p {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.cta-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-highlights {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .intro-header h2 {
+    font-size: 2rem;
+  }
+
+  .intro-subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparison-card pre {
+    font-size: 0.7rem;
+    padding: 1rem;
+  }
+
+  .intro-header h2 {
+    font-size: 1.8rem;
+  }
+}

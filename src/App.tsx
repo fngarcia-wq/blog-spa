@@ -6,6 +6,7 @@ import { PostsPage } from "./pages/PostsPage";
 import { DashboardPage } from "./pages/DashboardPage";
 import { StateManagementLearning } from "./pages/StateManagementLearning";
 import SecurityPage from "./pages/security/SecurityPage";
+import PerformancePage from "./pages/performance/PerformancePage";
 import { LoadingSpinner } from "./components/ui/LoadingSpinner";
 import "./App.css";
 
@@ -59,6 +60,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <SecurityPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/performance"
+            element={
+              <ProtectedRoute>
+                <PerformancePage />
               </ProtectedRoute>
             }
           />
