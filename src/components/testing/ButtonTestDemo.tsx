@@ -15,10 +15,10 @@ export function ButtonTestDemo() {
       {/* Componente Button */}
       <div className="testing-card">
         <h3 className="testing-card-title">📝 El Componente Button</h3>
-        
+
         <h4 className="font-semibold mb-2">Código del componente:</h4>
         <div className="testing-code-block">
-{`// src/components/ui/Button.tsx
+          {`// src/components/ui/Button.tsx
 import { ButtonHTMLAttributes } from 'react';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -101,29 +101,33 @@ export function Button({
 
       {/* Demo Interactivo */}
       <div className="testing-demo-container">
-        <h3 className="testing-demo-title">
-          🎮 Demo Interactivo
-        </h3>
+        <h3 className="testing-demo-title">🎮 Demo Interactivo</h3>
         <div className="testing-demo-content">
           <div className="flex flex-wrap gap-4 mb-4">
-            <DemoButton variant="primary" size="small">Primary Small</DemoButton>
-            <DemoButton variant="secondary" size="medium">Secondary Medium</DemoButton>
-            <DemoButton variant="danger" size="large">Danger Large</DemoButton>
+            <DemoButton variant="primary" size="small">
+              Primary Small
+            </DemoButton>
+            <DemoButton variant="secondary" size="medium">
+              Secondary Medium
+            </DemoButton>
+            <DemoButton variant="danger" size="large">
+              Danger Large
+            </DemoButton>
             <DemoButton disabled>Disabled</DemoButton>
             <DemoButton loading>Loading</DemoButton>
           </div>
-          
+
           <button
             onClick={() => setShowDemo(!showDemo)}
             className="testing-button secondary"
           >
-            {showDemo ? 'Ocultar' : 'Mostrar'} Código del Demo
+            {showDemo ? "Ocultar" : "Mostrar"} Código del Demo
           </button>
-          
+
           {showDemo && (
             <div className="mt-4">
               <div className="testing-code-block">
-{`// Componente demo simple para mostrar variantes
+                {`// Componente demo simple para mostrar variantes
 function DemoButton({ children, ...props }) {
   const [clicked, setClicked] = useState(false);
   
@@ -148,10 +152,10 @@ function DemoButton({ children, ...props }) {
       {/* Tests Completos */}
       <div className="testing-card">
         <h3 className="testing-card-title">🧪 Tests Completos del Button</h3>
-        
+
         <h4 className="font-semibold mb-2">Archivo de tests:</h4>
         <div className="testing-code-block">
-{`// src/components/ui/__tests__/Button.test.tsx
+          {`// src/components/ui/__tests__/Button.test.tsx
 import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Button } from '../Button';
@@ -340,12 +344,14 @@ describe('Button Component', () => {
       {/* Casos de Uso Avanzados */}
       <div className="testing-card">
         <h3 className="testing-card-title">🚀 Casos de Uso Avanzados</h3>
-        
+
         <div className="space-y-4">
           <div>
-            <h4 className="font-semibold text-purple-700 mb-2">Testing con User Events</h4>
+            <h4 className="font-semibold text-purple-700 mb-2">
+              Testing con User Events
+            </h4>
             <div className="testing-code-block">
-{`import userEvent from '@testing-library/user-event';
+              {`import userEvent from '@testing-library/user-event';
 
 test('handles complex user interactions', async () => {
   const user = userEvent.setup();
@@ -370,9 +376,11 @@ test('handles complex user interactions', async () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">Testing en Formularios</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              Testing en Formularios
+            </h4>
             <div className="testing-code-block">
-{`test('works in form context', async () => {
+              {`test('works in form context', async () => {
   const handleSubmit = jest.fn();
   const user = userEvent.setup();
   
@@ -433,10 +441,14 @@ test('handles complex user interactions', async () => {
 }
 
 // Componente demo simple para la demostración
-function DemoButton({ children, loading: initialLoading = false, ...props }: any) {
+function DemoButton({
+  children,
+  loading: initialLoading = false,
+  ...props
+}: any) {
   const [clicked, setClicked] = useState(false);
   const [loading, setLoading] = useState(initialLoading);
-  
+
   const handleClick = () => {
     if (initialLoading) {
       setLoading(true);
@@ -446,7 +458,7 @@ function DemoButton({ children, loading: initialLoading = false, ...props }: any
       setTimeout(() => setClicked(false), 1000);
     }
   };
-  
+
   return (
     <button
       {...props}
@@ -454,30 +466,51 @@ function DemoButton({ children, loading: initialLoading = false, ...props }: any
       disabled={props.disabled || loading}
       className={`
         font-medium rounded-lg transition-colors focus:outline-none focus:ring-2
-        ${props.variant === 'secondary' 
-          ? 'bg-gray-200 text-gray-900 hover:bg-gray-300' 
-          : props.variant === 'danger'
-          ? 'bg-red-600 text-white hover:bg-red-700'
-          : 'bg-blue-600 text-white hover:bg-blue-700'
+        ${
+          props.variant === "secondary"
+            ? "bg-gray-200 text-gray-900 hover:bg-gray-300"
+            : props.variant === "danger"
+            ? "bg-red-600 text-white hover:bg-red-700"
+            : "bg-blue-600 text-white hover:bg-blue-700"
         }
-        ${props.size === 'small' 
-          ? 'px-3 py-1.5 text-sm' 
-          : props.size === 'large'
-          ? 'px-6 py-3 text-lg'
-          : 'px-4 py-2 text-base'
+        ${
+          props.size === "small"
+            ? "px-3 py-1.5 text-sm"
+            : props.size === "large"
+            ? "px-6 py-3 text-lg"
+            : "px-4 py-2 text-base"
         }
-        ${(props.disabled || loading) ? 'opacity-50 cursor-not-allowed' : ''}
+        ${props.disabled || loading ? "opacity-50 cursor-not-allowed" : ""}
       `}
     >
       {loading ? (
         <span className="flex items-center">
-          <svg className="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          <svg
+            className="animate-spin -ml-1 mr-2 h-4 w-4"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+            ></circle>
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+            ></path>
           </svg>
           Loading...
         </span>
-      ) : clicked ? '✓ Clicked!' : children}
+      ) : clicked ? (
+        "✓ Clicked!"
+      ) : (
+        children
+      )}
     </button>
   );
 }

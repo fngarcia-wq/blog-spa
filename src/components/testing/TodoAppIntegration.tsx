@@ -11,11 +11,12 @@ export function TodoAppIntegration() {
       <div className="testing-card">
         <h3 className="testing-card-title">🏗️ Estructura de la TodoApp</h3>
         <p className="text-sm text-gray-600 mb-4">
-          Esta TodoApp incluye todas las operaciones CRUD y casos de uso reales para testing de integración
+          Esta TodoApp incluye todas las operaciones CRUD y casos de uso reales
+          para testing de integración
         </p>
-        
+
         <div className="testing-code-block">
-{`// TodoApp.tsx - Componente principal
+          {`// TodoApp.tsx - Componente principal
 import { useState, useEffect } from 'react';
 
 interface Todo {
@@ -317,27 +318,59 @@ export function TodoApp() {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Funcionalidades</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Funcionalidades
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>CRUD completo:</strong> Create, Read, Update, Delete</li>
-              <li>• <strong>Estados:</strong> Completed, Active, All</li>
-              <li>• <strong>Filtros:</strong> Cambio de vista dinámico</li>
-              <li>• <strong>Edición inline:</strong> Edit mode con validación</li>
-              <li>• <strong>Bulk actions:</strong> Toggle all, Clear completed</li>
-              <li>• <strong>Persistencia:</strong> LocalStorage integration</li>
-              <li>• <strong>Contadores:</strong> Stats en tiempo real</li>
+              <li>
+                • <strong>CRUD completo:</strong> Create, Read, Update, Delete
+              </li>
+              <li>
+                • <strong>Estados:</strong> Completed, Active, All
+              </li>
+              <li>
+                • <strong>Filtros:</strong> Cambio de vista dinámico
+              </li>
+              <li>
+                • <strong>Edición inline:</strong> Edit mode con validación
+              </li>
+              <li>
+                • <strong>Bulk actions:</strong> Toggle all, Clear completed
+              </li>
+              <li>
+                • <strong>Persistencia:</strong> LocalStorage integration
+              </li>
+              <li>
+                • <strong>Contadores:</strong> Stats en tiempo real
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">🧪 Casos de Testing</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              🧪 Casos de Testing
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>User flows:</strong> Flujos completos de usuario</li>
-              <li>• <strong>State management:</strong> Cambios de estado complejos</li>
-              <li>• <strong>Side effects:</strong> LocalStorage, useEffect</li>
-              <li>• <strong>Conditional rendering:</strong> Empty states, filters</li>
-              <li>• <strong>Eventos:</strong> Click, keyboard, form submission</li>
-              <li>• <strong>Data persistence:</strong> Reload y recovery</li>
-              <li>• <strong>Edge cases:</strong> Empty strings, duplicates</li>
+              <li>
+                • <strong>User flows:</strong> Flujos completos de usuario
+              </li>
+              <li>
+                • <strong>State management:</strong> Cambios de estado complejos
+              </li>
+              <li>
+                • <strong>Side effects:</strong> LocalStorage, useEffect
+              </li>
+              <li>
+                • <strong>Conditional rendering:</strong> Empty states, filters
+              </li>
+              <li>
+                • <strong>Eventos:</strong> Click, keyboard, form submission
+              </li>
+              <li>
+                • <strong>Data persistence:</strong> Reload y recovery
+              </li>
+              <li>
+                • <strong>Edge cases:</strong> Empty strings, duplicates
+              </li>
             </ul>
           </div>
         </div>
@@ -346,9 +379,10 @@ export function TodoApp() {
       <div className="testing-card">
         <h3 className="testing-card-title">🎮 Demo Interactivo</h3>
         <p className="text-sm text-gray-600 mb-4">
-          Prueba la TodoApp para entender su comportamiento antes de ver los tests:
+          Prueba la TodoApp para entender su comportamiento antes de ver los
+          tests:
         </p>
-        
+
         <div className="border-2 border-gray-200 rounded-lg p-4 bg-gray-50">
           <div className="text-center py-8 text-gray-600">
             <div className="text-4xl mb-2">📋</div>
@@ -367,7 +401,7 @@ export function TodoApp() {
         <p className="text-sm text-gray-600 mb-4">
           Esta TodoApp es perfecta para lograr alta cobertura de testing:
         </p>
-        
+
         <div className="grid md:grid-cols-4 gap-4">
           <div className="bg-green-50 p-4 rounded-lg text-center">
             <div className="text-2xl font-bold text-green-600">95%</div>

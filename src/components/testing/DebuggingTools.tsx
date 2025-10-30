@@ -1,11 +1,10 @@
 export function DebuggingTools() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        🐛 Herramientas de Debugging
-      </h2>
+      <h2 className="testing-section-title">🐛 Herramientas de Debugging</h2>
       <p className="testing-section-subtitle">
-        Técnicas y herramientas para debuggear tests, troubleshooting y análisis de problemas
+        Técnicas y herramientas para debuggear tests, troubleshooting y análisis
+        de problemas
       </p>
 
       <div className="testing-card">
@@ -13,9 +12,9 @@ export function DebuggingTools() {
         <p className="text-sm text-gray-600 mb-4">
           La herramienta más básica y útil para ver el estado actual del DOM:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Debugging básico con screen.debug()
+          {`// Debugging básico con screen.debug()
 import { render, screen } from '@testing-library/react';
 import { TodoApp } from './TodoApp';
 
@@ -78,11 +77,12 @@ describe('TodoApp Debug Examples', () => {
       <div className="testing-card">
         <h3 className="testing-card-title">🎮 Testing Playground</h3>
         <p className="text-sm text-gray-600 mb-4">
-          Herramienta interactiva para encontrar el mejor selector para elementos:
+          Herramienta interactiva para encontrar el mejor selector para
+          elementos:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Usando Testing Playground
+          {`// Usando Testing Playground
 import { render, screen } from '@testing-library/react';
 
 describe('Testing Playground Examples', () => {
@@ -126,9 +126,9 @@ describe('Testing Playground Examples', () => {
         <p className="text-sm text-gray-600 mb-4">
           Herramientas adicionales para inspeccionar y entender el DOM:
         </p>
-        
+
         <div className="testing-code-block">
-{`import { render, screen, prettyDOM, logRoles } from '@testing-library/react';
+          {`import { render, screen, prettyDOM, logRoles } from '@testing-library/react';
 
 describe('DOM Inspection Tools', () => {
   it('uses prettyDOM for formatted output', () => {
@@ -182,22 +182,42 @@ describe('DOM Inspection Tools', () => {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-red-700 mb-2">🚫 Element Not Found</h4>
+            <h4 className="font-semibold text-red-700 mb-2">
+              🚫 Element Not Found
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• Usar <code>screen.debug()</code> para ver DOM actual</li>
+              <li>
+                • Usar <code>screen.debug()</code> para ver DOM actual
+              </li>
               <li>• Verificar si elemento se renderiza condicionalmente</li>
-              <li>• Usar <code>screen.logTestingPlaygroundURL()</code></li>
-              <li>• Probar con <code>queryBy*</code> para verificar ausencia</li>
-              <li>• Verificar timing con <code>findBy*</code></li>
+              <li>
+                • Usar <code>screen.logTestingPlaygroundURL()</code>
+              </li>
+              <li>
+                • Probar con <code>queryBy*</code> para verificar ausencia
+              </li>
+              <li>
+                • Verificar timing con <code>findBy*</code>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-orange-700 mb-2">⏰ Async Issues</h4>
+            <h4 className="font-semibold text-orange-700 mb-2">
+              ⏰ Async Issues
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• Usar <code>findBy*</code> en lugar de <code>getBy*</code></li>
-              <li>• Verificar que <code>waitFor</code> esté esperando lo correcto</li>
-              <li>• Aumentar timeout en <code>waitFor</code></li>
-              <li>• Debug dentro de <code>waitFor</code> callback</li>
+              <li>
+                • Usar <code>findBy*</code> en lugar de <code>getBy*</code>
+              </li>
+              <li>
+                • Verificar que <code>waitFor</code> esté esperando lo correcto
+              </li>
+              <li>
+                • Aumentar timeout en <code>waitFor</code>
+              </li>
+              <li>
+                • Debug dentro de <code>waitFor</code> callback
+              </li>
               <li>• Verificar mocks de timers</li>
             </ul>
           </div>
@@ -209,9 +229,9 @@ describe('DOM Inspection Tools', () => {
         <p className="text-sm text-gray-600 mb-4">
           Técnicas avanzadas para problemas complejos:
         </p>
-        
+
         <div className="testing-code-block">
-{`// 1. Debug con breakpoints
+          {`// 1. Debug con breakpoints
 describe('Advanced Debugging', () => {
   it('uses debugger breakpoints', async () => {
     render(<TodoApp />);
@@ -300,9 +320,9 @@ describe('Advanced Debugging', () => {
         <p className="text-sm text-gray-600 mb-4">
           Configurar Jest para mejor debugging experience:
         </p>
-        
+
         <div className="testing-code-block">
-{`// jest.config.js - Debug configuration
+          {`// jest.config.js - Debug configuration
 module.exports = {
   // Mostrar tests individuales con más detalle
   verbose: true,
@@ -360,9 +380,9 @@ afterEach(() => {
         <p className="text-sm text-gray-600 mb-4">
           Configurar VS Code para debugging de tests:
         </p>
-        
+
         <div className="testing-code-block">
-{`// .vscode/launch.json
+          {`// .vscode/launch.json
 {
   "version": "0.2.0",
   "configurations": [
@@ -421,9 +441,11 @@ afterEach(() => {
         <h3 className="testing-card-title">🚨 Common Debugging Scenarios</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-red-700 mb-2">🔍 Elemento No Encontrado</h4>
+            <h4 className="font-semibold text-red-700 mb-2">
+              🔍 Elemento No Encontrado
+            </h4>
             <div className="testing-code-block text-sm">
-{`// 1. Verificar si existe
+              {`// 1. Verificar si existe
 const element = screen.queryByText('Not Found');
 console.log('Element exists:', !!element);
 
@@ -439,9 +461,11 @@ screen.logTestingPlaygroundURL();`}
             </div>
           </div>
           <div>
-            <h4 className="font-semibold text-orange-700 mb-2">⏰ Problemas Async</h4>
+            <h4 className="font-semibold text-orange-700 mb-2">
+              ⏰ Problemas Async
+            </h4>
             <div className="testing-code-block text-sm">
-{`// 1. Debug dentro de waitFor
+              {`// 1. Debug dentro de waitFor
 await waitFor(() => {
   console.log('Waiting for element...');
   screen.debug();
@@ -461,14 +485,14 @@ const element = await screen.findByText('Async content');`}
       </div>
 
       <div className="testing-highlight">
-        <h3 className="testing-highlight-title">
-          💡 Debugging Best Practices
-        </h3>
+        <h3 className="testing-highlight-title">💡 Debugging Best Practices</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
             <h4 className="font-semibold text-green-700 mb-2">✅ Hacer</h4>
             <ul className="text-sm space-y-1">
-              <li>• Usar <code>screen.debug()</code> frecuentemente</li>
+              <li>
+                • Usar <code>screen.debug()</code> frecuentemente
+              </li>
               <li>• Combinar múltiples herramientas de debugging</li>
               <li>• Aislar el problema con tests mínimos</li>
               <li>• Usar descriptive console.log messages</li>

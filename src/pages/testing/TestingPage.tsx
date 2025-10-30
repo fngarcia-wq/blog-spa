@@ -17,7 +17,7 @@ import { UsefulMatchers } from "../../components/testing/UsefulMatchers";
 import { DebuggingTools } from "../../components/testing/DebuggingTools";
 import { TestingChecklist } from "../../components/testing/TestingChecklist";
 
-type TestingSection = 
+type TestingSection =
   | "introduction"
   | "jest-setup"
   | "rtl-intro"
@@ -34,7 +34,8 @@ type TestingSection =
   | "checklist";
 
 export function TestingPage() {
-  const [activeSection, setActiveSection] = useState<TestingSection>("introduction");
+  const [activeSection, setActiveSection] =
+    useState<TestingSection>("introduction");
 
   const sections = [
     { id: "introduction", title: "Introducción al Testing", icon: "🧪" },
@@ -50,7 +51,7 @@ export function TestingPage() {
     { id: "coverage", title: "Coverage y Best Practices", icon: "📊" },
     { id: "matchers", title: "Matchers Útiles", icon: "🎯" },
     { id: "debugging", title: "Herramientas y Debugging", icon: "🔧" },
-    { id: "checklist", title: "Checklist Final", icon: "📋" }
+    { id: "checklist", title: "Checklist Final", icon: "📋" },
   ];
 
   const renderContent = () => {
@@ -97,7 +98,8 @@ export function TestingPage() {
             🧪 Testing con Jest y React Testing Library
           </h1>
           <p className="testing-subtitle">
-            Aprende testing desde cero: pirámide de tests, Jest, RTL, mocking, tests de integración y mejores prácticas
+            Aprende testing desde cero: pirámide de tests, Jest, RTL, mocking,
+            tests de integración y mejores prácticas
           </p>
         </div>
       </div>
@@ -127,15 +129,20 @@ export function TestingPage() {
           <div className="testing-progress">
             <h4 className="testing-progress-title">Progreso</h4>
             <div className="testing-progress-bar">
-              <div 
+              <div
                 className="testing-progress-fill"
-                style={{ 
-                  width: `${((sections.findIndex(s => s.id === activeSection) + 1) / sections.length) * 100}%` 
+                style={{
+                  width: `${
+                    ((sections.findIndex((s) => s.id === activeSection) + 1) /
+                      sections.length) *
+                    100
+                  }%`,
                 }}
               ></div>
             </div>
             <span className="testing-progress-text">
-              {sections.findIndex(s => s.id === activeSection) + 1} de {sections.length}
+              {sections.findIndex((s) => s.id === activeSection) + 1} de{" "}
+              {sections.length}
             </span>
           </div>
 
@@ -143,19 +150,21 @@ export function TestingPage() {
           <div className="testing-tips">
             <h4 className="testing-tips-title">💡 Tips Rápidos</h4>
             <ul className="testing-tips-list">
-              <li>Usa <code>screen.debug()</code> para ver el DOM</li>
+              <li>
+                Usa <code>screen.debug()</code> para ver el DOM
+              </li>
               <li>El patrón AAA: Arrange, Act, Assert</li>
               <li>Testa comportamiento, no implementación</li>
-              <li>Usa <code>waitFor</code> para operaciones async</li>
+              <li>
+                Usa <code>waitFor</code> para operaciones async
+              </li>
               <li>Mock solo lo necesario</li>
             </ul>
           </div>
         </div>
 
         {/* Main content */}
-        <div className="testing-content">
-          {renderContent()}
-        </div>
+        <div className="testing-content">{renderContent()}</div>
       </div>
     </div>
   );

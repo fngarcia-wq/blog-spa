@@ -131,7 +131,7 @@ button:focus-visible {
   .container {
     padding: 0 10px;
   }
-  
+
   .navigation {
     flex-direction: column;
     gap: 10px;

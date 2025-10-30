@@ -11,11 +11,12 @@ export function TodoAppTests() {
       <div className="testing-card">
         <h3 className="testing-card-title">🏗️ Estructura de Tests</h3>
         <p className="text-sm text-gray-600 mb-4">
-          Los tests de integración verifican que múltiples componentes trabajen juntos correctamente
+          Los tests de integración verifican que múltiples componentes trabajen
+          juntos correctamente
         </p>
-        
+
         <div className="testing-code-block">
-{`// TodoApp.test.tsx - Suite completa de tests
+          {`// TodoApp.test.tsx - Suite completa de tests
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { TodoApp } from './TodoApp';
@@ -422,40 +423,77 @@ describe('TodoApp Integration Tests', () => {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Qué Testear</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Qué Testear
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>User flows:</strong> Flujos completos de usuario</li>
-              <li>• <strong>State changes:</strong> Cambios de estado entre componentes</li>
-              <li>• <strong>Side effects:</strong> LocalStorage, API calls</li>
-              <li>• <strong>Conditional rendering:</strong> Diferentes estados de UI</li>
-              <li>• <strong>Event handling:</strong> Interactions complejas</li>
-              <li>• <strong>Data persistence:</strong> Save/Load scenarios</li>
-              <li>• <strong>Edge cases:</strong> Error handling, empty states</li>
+              <li>
+                • <strong>User flows:</strong> Flujos completos de usuario
+              </li>
+              <li>
+                • <strong>State changes:</strong> Cambios de estado entre
+                componentes
+              </li>
+              <li>
+                • <strong>Side effects:</strong> LocalStorage, API calls
+              </li>
+              <li>
+                • <strong>Conditional rendering:</strong> Diferentes estados de
+                UI
+              </li>
+              <li>
+                • <strong>Event handling:</strong> Interactions complejas
+              </li>
+              <li>
+                • <strong>Data persistence:</strong> Save/Load scenarios
+              </li>
+              <li>
+                • <strong>Edge cases:</strong> Error handling, empty states
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-red-700 mb-2">❌ Qué NO Testear</h4>
+            <h4 className="font-semibold text-red-700 mb-2">
+              ❌ Qué NO Testear
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>Implementation details:</strong> Estado interno privado</li>
-              <li>• <strong>Third-party libraries:</strong> Funcionalidad externa</li>
-              <li>• <strong>Styling:</strong> CSS específico</li>
-              <li>• <strong>Browser APIs:</strong> Ya están probadas</li>
-              <li>• <strong>Constants:</strong> Valores hardcoded</li>
-              <li>• <strong>Pure rendering:</strong> Sin lógica</li>
-              <li>• <strong>Console logs:</strong> Debug utilities</li>
+              <li>
+                • <strong>Implementation details:</strong> Estado interno
+                privado
+              </li>
+              <li>
+                • <strong>Third-party libraries:</strong> Funcionalidad externa
+              </li>
+              <li>
+                • <strong>Styling:</strong> CSS específico
+              </li>
+              <li>
+                • <strong>Browser APIs:</strong> Ya están probadas
+              </li>
+              <li>
+                • <strong>Constants:</strong> Valores hardcoded
+              </li>
+              <li>
+                • <strong>Pure rendering:</strong> Sin lógica
+              </li>
+              <li>
+                • <strong>Console logs:</strong> Debug utilities
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">🛠️ Configuración de Test Environment</h3>
+        <h3 className="testing-card-title">
+          🛠️ Configuración de Test Environment
+        </h3>
         <p className="text-sm text-gray-600 mb-4">
           Setup adicional necesario para tests de integración:
         </p>
-        
+
         <div className="testing-code-block">
-{`// setupTests.ts - Configuración adicional
+          {`// setupTests.ts - Configuración adicional
 import '@testing-library/jest-dom';
 
 // Mock localStorage
@@ -492,7 +530,7 @@ afterAll(() => {
           <div>
             <h4 className="font-semibold mb-2">Ejecutar Tests</h4>
             <div className="testing-code-block">
-{`# Ejecutar todos los tests
+              {`# Ejecutar todos los tests
 npm test
 
 # Ejecutar tests en modo watch
@@ -511,7 +549,7 @@ npm test -- --runInBand --no-cache`}
           <div>
             <h4 className="font-semibold mb-2">Filtros Útiles</h4>
             <div className="testing-code-block">
-{`# Solo tests que fallaron la última vez
+              {`# Solo tests que fallaron la última vez
 npm test -- --onlyFailures
 
 # Tests que cambiaron en git
@@ -532,9 +570,9 @@ npm test -- --updateSnapshot`}
         <p className="text-sm text-gray-600 mb-4">
           Herramientas para debuggear tests complejos:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Debugging técnicas
+          {`// Debugging técnicas
 describe('TodoApp Debug Example', () => {
   it('debugs complex interactions', async () => {
     const user = userEvent.setup();

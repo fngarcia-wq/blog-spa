@@ -1,11 +1,10 @@
 export function CoverageAndBestPractices() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        📊 Coverage y Mejores Prácticas
-      </h2>
+      <h2 className="testing-section-title">📊 Coverage y Mejores Prácticas</h2>
       <p className="testing-section-subtitle">
-        Métricas de cobertura, patrones AAA, y mejores prácticas para testing efectivo
+        Métricas de cobertura, patrones AAA, y mejores prácticas para testing
+        efectivo
       </p>
 
       <div className="testing-card">
@@ -13,9 +12,9 @@ export function CoverageAndBestPractices() {
         <p className="text-sm text-gray-600 mb-4">
           Configurar Jest para generar reportes de cobertura detallados:
         </p>
-        
+
         <div className="testing-code-block">
-{`// jest.config.js - Configuración de coverage
+          {`// jest.config.js - Configuración de coverage
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
@@ -75,34 +74,56 @@ module.exports = {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">📊 Tipos de Coverage</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              📊 Tipos de Coverage
+            </h4>
             <ul className="text-sm space-y-2">
-              <li>• <strong>Lines:</strong> % de líneas ejecutadas</li>
-              <li>• <strong>Functions:</strong> % de funciones llamadas</li>
-              <li>• <strong>Branches:</strong> % de ramas if/else ejecutadas</li>
-              <li>• <strong>Statements:</strong> % de declaraciones ejecutadas</li>
+              <li>
+                • <strong>Lines:</strong> % de líneas ejecutadas
+              </li>
+              <li>
+                • <strong>Functions:</strong> % de funciones llamadas
+              </li>
+              <li>
+                • <strong>Branches:</strong> % de ramas if/else ejecutadas
+              </li>
+              <li>
+                • <strong>Statements:</strong> % de declaraciones ejecutadas
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">🎯 Metas Realistas</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              🎯 Metas Realistas
+            </h4>
             <ul className="text-sm space-y-2">
-              <li>• <strong>80-90%:</strong> Buen coverage general</li>
-              <li>• <strong>90-95%:</strong> Código crítico/core</li>
-              <li>• <strong>100%:</strong> Solo para funciones críticas</li>
-              <li>• <strong>Calidad &gt; Cantidad:</strong> Tests significativos</li>
+              <li>
+                • <strong>80-90%:</strong> Buen coverage general
+              </li>
+              <li>
+                • <strong>90-95%:</strong> Código crítico/core
+              </li>
+              <li>
+                • <strong>100%:</strong> Solo para funciones críticas
+              </li>
+              <li>
+                • <strong>Calidad &gt; Cantidad:</strong> Tests significativos
+              </li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">🧪 Patrón AAA (Arrange-Act-Assert)</h3>
+        <h3 className="testing-card-title">
+          🧪 Patrón AAA (Arrange-Act-Assert)
+        </h3>
         <p className="text-sm text-gray-600 mb-4">
           Estructura estándar para organizar tests claros y mantenibles:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Ejemplo del patrón AAA
+          {`// Ejemplo del patrón AAA
 describe('TodoApp - AAA Pattern Examples', () => {
   it('adds a new todo item', async () => {
     // 🏗️ ARRANGE - Preparar el escenario
@@ -181,27 +202,59 @@ describe('TodoApp - AAA Pattern Examples', () => {
           <div>
             <h4 className="font-semibold text-green-700 mb-2">✅ Hacer</h4>
             <ul className="text-sm space-y-2">
-              <li>• <strong>Test behavior, not implementation</strong></li>
-              <li>• <strong>Usar nombres descriptivos</strong></li>
-              <li>• <strong>Un concepto por test</strong></li>
-              <li>• <strong>Tests independientes</strong></li>
-              <li>• <strong>Setup y cleanup apropiados</strong></li>
-              <li>• <strong>Usar data-testid para elementos complejos</strong></li>
-              <li>• <strong>Mock external dependencies</strong></li>
-              <li>• <strong>Test edge cases y error paths</strong></li>
+              <li>
+                • <strong>Test behavior, not implementation</strong>
+              </li>
+              <li>
+                • <strong>Usar nombres descriptivos</strong>
+              </li>
+              <li>
+                • <strong>Un concepto por test</strong>
+              </li>
+              <li>
+                • <strong>Tests independientes</strong>
+              </li>
+              <li>
+                • <strong>Setup y cleanup apropiados</strong>
+              </li>
+              <li>
+                • <strong>Usar data-testid para elementos complejos</strong>
+              </li>
+              <li>
+                • <strong>Mock external dependencies</strong>
+              </li>
+              <li>
+                • <strong>Test edge cases y error paths</strong>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-red-700 mb-2">❌ Evitar</h4>
             <ul className="text-sm space-y-2">
-              <li>• <strong>Test implementation details</strong></li>
-              <li>• <strong>Tests que dependen del orden</strong></li>
-              <li>• <strong>Hard-coded test data</strong></li>
-              <li>• <strong>Tests demasiado complejos</strong></li>
-              <li>• <strong>Múltiples assertions no relacionadas</strong></li>
-              <li>• <strong>Ignorar warnings de tests</strong></li>
-              <li>• <strong>Tests sin asserts</strong></li>
-              <li>• <strong>Coverage por coverage</strong></li>
+              <li>
+                • <strong>Test implementation details</strong>
+              </li>
+              <li>
+                • <strong>Tests que dependen del orden</strong>
+              </li>
+              <li>
+                • <strong>Hard-coded test data</strong>
+              </li>
+              <li>
+                • <strong>Tests demasiado complejos</strong>
+              </li>
+              <li>
+                • <strong>Múltiples assertions no relacionadas</strong>
+              </li>
+              <li>
+                • <strong>Ignorar warnings de tests</strong>
+              </li>
+              <li>
+                • <strong>Tests sin asserts</strong>
+              </li>
+              <li>
+                • <strong>Coverage por coverage</strong>
+              </li>
             </ul>
           </div>
         </div>
@@ -212,9 +265,9 @@ describe('TodoApp - AAA Pattern Examples', () => {
         <p className="text-sm text-gray-600 mb-4">
           Comandos y herramientas para trabajar con coverage:
         </p>
-        
+
         <div className="testing-code-block">
-{`# Comandos de coverage
+          {`# Comandos de coverage
 npm test -- --coverage                    # Generar reporte básico
 npm test -- --coverage --watchAll=false   # Solo una vez
 npm test -- --coverage --silent          # Sin output de tests
@@ -239,9 +292,9 @@ npm test -- --coverage --ci --watchAll=false --silent
         <p className="text-sm text-gray-600 mb-4">
           Estructura recomendada para organizar tests:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Estructura de archivos de test
+          {`// Estructura de archivos de test
 src/
 ├── components/
 │   ├── TodoApp/
@@ -280,10 +333,14 @@ utilityName.test.ts          // Tests de utilities`}
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">🎯 Test Strategies por Tipo de Código</h3>
+        <h3 className="testing-card-title">
+          🎯 Test Strategies por Tipo de Código
+        </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-purple-700 mb-2">🔧 Components</h4>
+            <h4 className="font-semibold text-purple-700 mb-2">
+              🔧 Components
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Rendering con diferentes props</li>
               <li>• Event handling</li>
@@ -313,7 +370,9 @@ utilityName.test.ts          // Tests de utilities`}
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">🌐 Integration</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              🌐 Integration
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• User flows completos</li>
               <li>• Cross-component communication</li>
@@ -333,15 +392,23 @@ utilityName.test.ts          // Tests de utilities`}
           <div>
             <h4 className="font-semibold text-blue-700 mb-2">🚀 Performance</h4>
             <ul className="text-sm space-y-1">
-              <li>• Usar <code>screen.getByRole</code> when possible</li>
+              <li>
+                • Usar <code>screen.getByRole</code> when possible
+              </li>
               <li>• Minimize DOM queries en loops</li>
-              <li>• Usar <code>findBy*</code> para elementos async</li>
-              <li>• Setup compartido en <code>beforeEach</code></li>
+              <li>
+                • Usar <code>findBy*</code> para elementos async
+              </li>
+              <li>
+                • Setup compartido en <code>beforeEach</code>
+              </li>
               <li>• Mock expensive operations</li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">🎯 Maintainability</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              🎯 Maintainability
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Test helpers para setup común</li>
               <li>• Factories para test data</li>

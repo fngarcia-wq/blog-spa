@@ -1,9 +1,7 @@
 export function AsyncTestingDemo() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        ⏳ Testing Asíncrono
-      </h2>
+      <h2 className="testing-section-title">⏳ Testing Asíncrono</h2>
       <p className="testing-section-subtitle">
         Fetch, mocking, waitFor y patrones para testear operaciones asíncronas
       </p>
@@ -14,7 +12,9 @@ export function AsyncTestingDemo() {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-orange-700 mb-2">⚠️ Problemas Comunes</h4>
+            <h4 className="font-semibold text-orange-700 mb-2">
+              ⚠️ Problemas Comunes
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Tests que fallan intermitentemente</li>
               <li>• Timeouts por operaciones lentas</li>
@@ -37,9 +37,11 @@ export function AsyncTestingDemo() {
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">🔄 waitFor() - La herramienta principal</h3>
+        <h3 className="testing-card-title">
+          🔄 waitFor() - La herramienta principal
+        </h3>
         <div className="testing-code-block">
-{`// Esperar a que aparezca un elemento
+          {`// Esperar a que aparezca un elemento
 await waitFor(() => {
   expect(screen.getByText('Data loaded')).toBeInTheDocument();
 });
@@ -65,9 +67,11 @@ await waitFor(() => {
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">🔍 findBy* Queries - Async por defecto</h3>
+        <h3 className="testing-card-title">
+          🔍 findBy* Queries - Async por defecto
+        </h3>
         <div className="testing-code-block">
-{`// findBy* retorna una Promise y espera automáticamente
+          {`// findBy* retorna una Promise y espera automáticamente
 test('loads user data', async () => {
   render(<UserProfile userId="123" />);
   
@@ -92,10 +96,10 @@ test('loads user posts', async () => {
 
       <div className="testing-card">
         <h3 className="testing-card-title">🌐 Mocking de Fetch/APIs</h3>
-        
+
         <h4 className="font-semibold mb-2">Setup global de fetch mock:</h4>
         <div className="testing-code-block">
-{`// setupTests.ts
+          {`// setupTests.ts
 global.fetch = jest.fn();
 
 beforeEach(() => {
@@ -103,9 +107,11 @@ beforeEach(() => {
 });`}
         </div>
 
-        <h4 className="font-semibold mb-2 mt-4">Mock de respuestas exitosas:</h4>
+        <h4 className="font-semibold mb-2 mt-4">
+          Mock de respuestas exitosas:
+        </h4>
         <div className="testing-code-block">
-{`test('loads and displays user data', async () => {
+          {`test('loads and displays user data', async () => {
   const mockUser = { id: 1, name: 'John Doe', email: 'john@example.com' };
   
   (fetch as jest.MockedFunction<typeof fetch>).mockResolvedValueOnce({
@@ -124,7 +130,7 @@ beforeEach(() => {
 
         <h4 className="font-semibold mb-2 mt-4">Mock de errores:</h4>
         <div className="testing-code-block">
-{`test('handles API error gracefully', async () => {
+          {`test('handles API error gracefully', async () => {
   (fetch as jest.MockedFunction<typeof fetch>).mockRejectedValueOnce(
     new Error('Network error')
   );
@@ -150,9 +156,9 @@ test('handles HTTP error status', async () => {
 
       <div className="testing-card">
         <h3 className="testing-card-title">🕒 Mocking de Timers</h3>
-        
+
         <div className="testing-code-block">
-{`// Mock de setTimeout/setInterval
+          {`// Mock de setTimeout/setInterval
 beforeEach(() => {
   jest.useFakeTimers();
 });
@@ -198,11 +204,13 @@ test('auto-saves after typing stops', async () => {
       </div>
 
       <div className="testing-card">
-        <h3 className="testing-card-title">📦 Ejemplo Completo: PostList con API</h3>
-        
+        <h3 className="testing-card-title">
+          📦 Ejemplo Completo: PostList con API
+        </h3>
+
         <h4 className="font-semibold mb-2">Componente:</h4>
         <div className="testing-code-block">
-{`// PostList.tsx
+          {`// PostList.tsx
 import { useState, useEffect } from 'react';
 
 interface Post {
@@ -270,7 +278,7 @@ export function PostList() {
 
         <h4 className="font-semibold mb-2 mt-4">Tests completos:</h4>
         <div className="testing-code-block">
-{`// PostList.test.tsx
+          {`// PostList.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
 import { PostList } from '../PostList';
 

@@ -1,24 +1,35 @@
 export function TestingIntroduction() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        🧪 Introducción al Testing
-      </h2>
+      <h2 className="testing-section-title">🧪 Introducción al Testing</h2>
       <p className="testing-section-subtitle">
-        Fundamentos del testing en React: pirámide de tests, tipos de tests y por qué testear
+        Fundamentos del testing en React: pirámide de tests, tipos de tests y
+        por qué testear
       </p>
 
       {/* ¿Por qué Testing? */}
       <div className="testing-highlight">
-        <h3 className="testing-highlight-title">
-          🎯 ¿Por qué hacer Testing?
-        </h3>
+        <h3 className="testing-highlight-title">🎯 ¿Por qué hacer Testing?</h3>
         <ul className="space-y-2 text-sm">
-          <li><strong>Confianza:</strong> Cambios de código sin miedo a romper funcionalidad</li>
-          <li><strong>Documentación:</strong> Los tests actúan como documentación viva</li>
-          <li><strong>Calidad:</strong> Detecta bugs antes de que lleguen a producción</li>
-          <li><strong>Refactoring:</strong> Permite refactorizar código con seguridad</li>
-          <li><strong>Velocidad:</strong> Feedback inmediato durante el desarrollo</li>
+          <li>
+            <strong>Confianza:</strong> Cambios de código sin miedo a romper
+            funcionalidad
+          </li>
+          <li>
+            <strong>Documentación:</strong> Los tests actúan como documentación
+            viva
+          </li>
+          <li>
+            <strong>Calidad:</strong> Detecta bugs antes de que lleguen a
+            producción
+          </li>
+          <li>
+            <strong>Refactoring:</strong> Permite refactorizar código con
+            seguridad
+          </li>
+          <li>
+            <strong>Velocidad:</strong> Feedback inmediato durante el desarrollo
+          </li>
         </ul>
       </div>
 
@@ -27,7 +38,9 @@ export function TestingIntroduction() {
         <h3 className="testing-card-title">🏗️ Pirámide de Tests</h3>
         <div className="testing-grid">
           <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-            <h4 className="font-bold text-red-700 mb-2">🔺 E2E Tests (Pocos)</h4>
+            <h4 className="font-bold text-red-700 mb-2">
+              🔺 E2E Tests (Pocos)
+            </h4>
             <p className="text-sm text-gray-600 mb-2">
               Tests de extremo a extremo que prueban toda la aplicación
             </p>
@@ -37,9 +50,11 @@ export function TestingIntroduction() {
               <li>• User journeys completos</li>
             </ul>
           </div>
-          
+
           <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-            <h4 className="font-bold text-yellow-700 mb-2">🔶 Integration Tests (Algunos)</h4>
+            <h4 className="font-bold text-yellow-700 mb-2">
+              🔶 Integration Tests (Algunos)
+            </h4>
             <p className="text-sm text-gray-600 mb-2">
               Tests que verifican la interacción entre componentes
             </p>
@@ -49,9 +64,11 @@ export function TestingIntroduction() {
               <li>• API calls y efectos</li>
             </ul>
           </div>
-          
+
           <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-            <h4 className="font-bold text-green-700 mb-2">🔻 Unit Tests (Muchos)</h4>
+            <h4 className="font-bold text-green-700 mb-2">
+              🔻 Unit Tests (Muchos)
+            </h4>
             <p className="text-sm text-gray-600 mb-2">
               Tests que verifican unidades individuales de código
             </p>
@@ -74,7 +91,7 @@ export function TestingIntroduction() {
               Testear componentes individualmente: props, estado, eventos
             </p>
             <div className="testing-code-block">
-{`// Ejemplo: Test de componente Button
+              {`// Ejemplo: Test de componente Button
 test('renders button with correct text', () => {
   render(<Button>Click me</Button>);
   expect(screen.getByText('Click me')).toBeInTheDocument();
@@ -83,12 +100,14 @@ test('renders button with correct text', () => {
           </div>
 
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-green-700">Integration Testing</h4>
+            <h4 className="font-semibold text-green-700">
+              Integration Testing
+            </h4>
             <p className="text-sm text-gray-600">
               Testear interacciones entre múltiples componentes
             </p>
             <div className="testing-code-block">
-{`// Ejemplo: Test de integración Form + API
+              {`// Ejemplo: Test de integración Form + API
 test('submits form data to API', async () => {
   render(<ContactForm />);
   
@@ -111,7 +130,7 @@ test('submits form data to API', async () => {
               Comparar el output renderizado contra snapshots guardados
             </p>
             <div className="testing-code-block">
-{`// Ejemplo: Snapshot test
+              {`// Ejemplo: Snapshot test
 test('matches snapshot', () => {
   const tree = renderer
     .create(<Button variant="primary">Save</Button>)
@@ -125,12 +144,12 @@ test('matches snapshot', () => {
 
       {/* Testing Philosophy */}
       <div className="testing-highlight">
-        <h3 className="testing-highlight-title">
-          🧠 Filosofía de Testing
-        </h3>
+        <h3 className="testing-highlight-title">🧠 Filosofía de Testing</h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Qué Testear</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Qué Testear
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Comportamiento visible del usuario</li>
               <li>• Funcionalidad crítica del negocio</li>
@@ -140,7 +159,9 @@ test('matches snapshot', () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-red-700 mb-2">❌ Qué NO Testear</h4>
+            <h4 className="font-semibold text-red-700 mb-2">
+              ❌ Qué NO Testear
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Detalles de implementación</li>
               <li>• Librerías de terceros</li>
@@ -157,23 +178,31 @@ test('matches snapshot', () => {
         <h3 className="testing-card-title">🎭 Testing Mindset</h3>
         <div className="space-y-3">
           <div className="bg-blue-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-blue-700 mb-1">🤔 Piensa como un usuario</h4>
+            <h4 className="font-semibold text-blue-700 mb-1">
+              🤔 Piensa como un usuario
+            </h4>
             <p className="text-sm text-gray-600">
-              No testes cómo funciona internamente, sino qué ve y experimenta el usuario
+              No testes cómo funciona internamente, sino qué ve y experimenta el
+              usuario
             </p>
           </div>
-          
+
           <div className="bg-green-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-green-700 mb-1">🔍 Test de comportamiento</h4>
+            <h4 className="font-semibold text-green-700 mb-1">
+              🔍 Test de comportamiento
+            </h4>
             <p className="text-sm text-gray-600">
               Enfócate en inputs y outputs, no en la implementación interna
             </p>
           </div>
-          
+
           <div className="bg-purple-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-purple-700 mb-1">🎯 Tests como documentación</h4>
+            <h4 className="font-semibold text-purple-700 mb-1">
+              🎯 Tests como documentación
+            </h4>
             <p className="text-sm text-gray-600">
-              Cada test debe ser legible y explicar claramente qué hace el código
+              Cada test debe ser legible y explicar claramente qué hace el
+              código
             </p>
           </div>
         </div>
@@ -181,30 +210,38 @@ test('matches snapshot', () => {
 
       {/* Herramientas del Ecosistema */}
       <div className="testing-card">
-        <h3 className="testing-card-title">🛠️ Herramientas del Ecosistema React Testing</h3>
+        <h3 className="testing-card-title">
+          🛠️ Herramientas del Ecosistema React Testing
+        </h3>
         <div className="testing-grid">
           <div className="bg-gray-50 p-4 rounded-lg text-center">
             <div className="text-2xl mb-2">🃏</div>
             <h4 className="font-semibold">Jest</h4>
             <p className="text-xs text-gray-600">Test runner y framework</p>
           </div>
-          
+
           <div className="bg-gray-50 p-4 rounded-lg text-center">
             <div className="text-2xl mb-2">⚛️</div>
             <h4 className="font-semibold">React Testing Library</h4>
-            <p className="text-xs text-gray-600">Testing utilities para React</p>
+            <p className="text-xs text-gray-600">
+              Testing utilities para React
+            </p>
           </div>
-          
+
           <div className="bg-gray-50 p-4 rounded-lg text-center">
             <div className="text-2xl mb-2">🎭</div>
             <h4 className="font-semibold">jest-dom</h4>
-            <p className="text-xs text-gray-600">Matchers adicionales para DOM</p>
+            <p className="text-xs text-gray-600">
+              Matchers adicionales para DOM
+            </p>
           </div>
-          
+
           <div className="bg-gray-50 p-4 rounded-lg text-center">
             <div className="text-2xl mb-2">👤</div>
             <h4 className="font-semibold">user-event</h4>
-            <p className="text-xs text-gray-600">Simulación realista de eventos</p>
+            <p className="text-xs text-gray-600">
+              Simulación realista de eventos
+            </p>
           </div>
         </div>
       </div>
@@ -225,7 +262,9 @@ test('matches snapshot', () => {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-gray-700 mb-2">Práctica Avanzada</h4>
+            <h4 className="font-semibold text-gray-700 mb-2">
+              Práctica Avanzada
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Testing de formularios complejos</li>
               <li>• Mocking de APIs y módulos</li>

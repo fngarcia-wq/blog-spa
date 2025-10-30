@@ -1,9 +1,7 @@
 export function MockingExamples() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        🎭 Mocking de Módulos
-      </h2>
+      <h2 className="testing-section-title">🎭 Mocking de Módulos</h2>
       <p className="testing-section-subtitle">
         Módulos, Router, LocalStorage, Timers y técnicas avanzadas de mocking
       </p>
@@ -14,36 +12,36 @@ export function MockingExamples() {
           <div className="bg-blue-50 p-4 rounded-lg">
             <h4 className="font-bold text-blue-700 mb-2">🔧 Funciones</h4>
             <div className="testing-code-block">
-{`const mockFunction = jest.fn();
+              {`const mockFunction = jest.fn();
 const mockWithReturn = jest.fn(() => 'result');
 const mockImplementation = jest.fn().mockImplementation((arg) => arg * 2);`}
             </div>
           </div>
-          
+
           <div className="bg-green-50 p-4 rounded-lg">
             <h4 className="font-bold text-green-700 mb-2">📦 Módulos</h4>
             <div className="testing-code-block">
-{`jest.mock('./userService');
+              {`jest.mock('./userService');
 jest.mock('react-router-dom', () => ({
   useNavigate: () => mockNavigate
 }));`}
             </div>
           </div>
-          
+
           <div className="bg-purple-50 p-4 rounded-lg">
             <h4 className="font-bold text-purple-700 mb-2">🌐 APIs Globales</h4>
             <div className="testing-code-block">
-{`global.fetch = jest.fn();
+              {`global.fetch = jest.fn();
 Object.defineProperty(window, 'localStorage', {
   value: mockLocalStorage
 });`}
             </div>
           </div>
-          
+
           <div className="bg-orange-50 p-4 rounded-lg">
             <h4 className="font-bold text-orange-700 mb-2">⏰ Timers</h4>
             <div className="testing-code-block">
-{`jest.useFakeTimers();
+              {`jest.useFakeTimers();
 jest.advanceTimersByTime(1000);
 jest.useRealTimers();`}
             </div>
@@ -54,7 +52,7 @@ jest.useRealTimers();`}
       <div className="testing-card">
         <h3 className="testing-card-title">🗃️ Mocking LocalStorage</h3>
         <div className="testing-code-block">
-{`// setupTests.ts - Setup global
+          {`// setupTests.ts - Setup global
 const localStorageMock = {
   getItem: jest.fn(),
   setItem: jest.fn(),
@@ -90,7 +88,7 @@ test('loads saved preferences', () => {
       <div className="testing-card">
         <h3 className="testing-card-title">🛣️ Mocking React Router</h3>
         <div className="testing-code-block">
-{`// Mock completo de react-router-dom
+          {`// Mock completo de react-router-dom
 const mockNavigate = jest.fn();
 const mockLocation = {
   pathname: '/dashboard',
@@ -137,7 +135,7 @@ test('renders navigation links', () => {
       <div className="testing-card">
         <h3 className="testing-card-title">⏱️ Mocking Timers y Debounce</h3>
         <div className="testing-code-block">
-{`describe('Timer Tests', () => {
+          {`describe('Timer Tests', () => {
   beforeEach(() => {
     jest.useFakeTimers();
   });
@@ -214,7 +212,7 @@ test('renders navigation links', () => {
       <div className="testing-card">
         <h3 className="testing-card-title">🔌 Mocking Servicios y APIs</h3>
         <div className="testing-code-block">
-{`// userService.ts
+          {`// userService.ts
 export const userService = {
   async getUser(id: string) {
     const response = await fetch(\`/api/users/\${id}\`);
@@ -277,7 +275,7 @@ test('handles update user', async () => {
       <div className="testing-card">
         <h3 className="testing-card-title">🎨 Mocking Custom Hooks</h3>
         <div className="testing-code-block">
-{`// useAuth.ts
+          {`// useAuth.ts
 export function useAuth() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);

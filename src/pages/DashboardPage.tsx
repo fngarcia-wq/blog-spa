@@ -1109,7 +1109,8 @@ function TestingSection() {
           🧪 Testing con Jest y React Testing Library
         </h2>
         <p className="text-red-100 mb-4">
-          Aprende testing desde cero: pirámide de tests, Jest, RTL, mocking, tests de integración y mejores prácticas
+          Aprende testing desde cero: pirámide de tests, Jest, RTL, mocking,
+          tests de integración y mejores prácticas
         </p>
         <Link
           to="/testing"
@@ -1135,7 +1136,9 @@ function TestingSection() {
 
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">🃏</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Jest Framework</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Jest Framework
+          </h3>
           <p className="text-gray-600 text-sm">
             Setup, matchers, mocking, coverage
           </p>
@@ -1146,7 +1149,9 @@ function TestingSection() {
 
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">⚛️</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">React Testing Library</h3>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            React Testing Library
+          </h3>
           <p className="text-gray-600 text-sm">
             Queries, user events, async testing
           </p>
@@ -1183,10 +1188,10 @@ function TestingSection() {
 
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
           <div className="text-3xl mb-3">🔗</div>
-          <h3 className="text-lg font-bold text-gray-900 mb-2">Tests de Integración</h3>
-          <p className="text-gray-600 text-sm">
-            TodoApp completa con CRUD
-          </p>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Tests de Integración
+          </h3>
+          <p className="text-gray-600 text-sm">TodoApp completa con CRUD</p>
           <span className="inline-block bg-teal-100 text-teal-700 px-2 py-1 rounded text-xs mt-2">
             Integración
           </span>
@@ -1201,8 +1206,8 @@ function TestingSection() {
               Contenido de la Clase de Testing
             </h3>
             <p className="text-red-700 mb-4">
-              Aprende testing desde cero con ejemplos prácticos, componentes funcionales y 
-              aplicaciones completas con tests de integración.
+              Aprende testing desde cero con ejemplos prácticos, componentes
+              funcionales y aplicaciones completas con tests de integración.
             </p>
 
             <div className="grid md:grid-cols-2 gap-4 mb-4">

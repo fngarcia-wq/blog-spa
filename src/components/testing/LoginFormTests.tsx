@@ -1,11 +1,10 @@
 export function LoginFormTests() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        🔐 Tests del LoginForm
-      </h2>
+      <h2 className="testing-section-title">🔐 Tests del LoginForm</h2>
       <p className="testing-section-subtitle">
-        Testing completo del formulario de login con autenticación, validaciones y manejo de errores
+        Testing completo del formulario de login con autenticación, validaciones
+        y manejo de errores
       </p>
 
       <div className="testing-highlight">
@@ -28,7 +27,7 @@ export function LoginFormTests() {
       <div className="testing-card">
         <h3 className="testing-card-title">📝 Componente LoginForm Completo</h3>
         <div className="testing-code-block">
-{`// src/components/auth/LoginForm.tsx (versión completa para testing)
+          {`// src/components/auth/LoginForm.tsx (versión completa para testing)
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
@@ -208,7 +207,7 @@ export function LoginForm() {
       <div className="testing-card">
         <h3 className="testing-card-title">🧪 Tests Completos del LoginForm</h3>
         <div className="testing-code-block">
-{`// src/components/auth/__tests__/LoginForm.test.tsx
+          {`// src/components/auth/__tests__/LoginForm.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
@@ -488,25 +487,53 @@ describe('LoginForm', () => {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Técnicas Aplicadas</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Técnicas Aplicadas
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>Mocking:</strong> useNavigate, authService</li>
-              <li>• <strong>Custom Render:</strong> Providers wrapping</li>
-              <li>• <strong>Async Testing:</strong> waitFor, promises</li>
-              <li>• <strong>Error Scenarios:</strong> Server errors, validation</li>
-              <li>• <strong>Loading States:</strong> Button text changes</li>
-              <li>• <strong>User Interaction:</strong> Form flow completo</li>
+              <li>
+                • <strong>Mocking:</strong> useNavigate, authService
+              </li>
+              <li>
+                • <strong>Custom Render:</strong> Providers wrapping
+              </li>
+              <li>
+                • <strong>Async Testing:</strong> waitFor, promises
+              </li>
+              <li>
+                • <strong>Error Scenarios:</strong> Server errors, validation
+              </li>
+              <li>
+                • <strong>Loading States:</strong> Button text changes
+              </li>
+              <li>
+                • <strong>User Interaction:</strong> Form flow completo
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">🎯 Cobertura Completa</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              🎯 Cobertura Completa
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <strong>Happy Path:</strong> Login exitoso</li>
-              <li>• <strong>Validation:</strong> Todos los casos de error</li>
-              <li>• <strong>Network Errors:</strong> Fallos de API</li>
-              <li>• <strong>Loading States:</strong> UI feedback</li>
-              <li>• <strong>Navigation:</strong> Redirección post-login</li>
-              <li>• <strong>Accessibility:</strong> ARIA y roles</li>
+              <li>
+                • <strong>Happy Path:</strong> Login exitoso
+              </li>
+              <li>
+                • <strong>Validation:</strong> Todos los casos de error
+              </li>
+              <li>
+                • <strong>Network Errors:</strong> Fallos de API
+              </li>
+              <li>
+                • <strong>Loading States:</strong> UI feedback
+              </li>
+              <li>
+                • <strong>Navigation:</strong> Redirección post-login
+              </li>
+              <li>
+                • <strong>Accessibility:</strong> ARIA y roles
+              </li>
             </ul>
           </div>
         </div>

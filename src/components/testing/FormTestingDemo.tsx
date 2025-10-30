@@ -1,9 +1,7 @@
 export function FormTestingDemo() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        📝 Testing de Formularios
-      </h2>
+      <h2 className="testing-section-title">📝 Testing de Formularios</h2>
       <p className="testing-section-subtitle">
         Cómo testear formularios complejos, validaciones, y manejo de errores
       </p>
@@ -15,7 +13,9 @@ export function FormTestingDemo() {
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Qué Testear</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Qué Testear
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Renderizado de campos</li>
               <li>• Entrada y validación de datos</li>
@@ -26,13 +26,25 @@ export function FormTestingDemo() {
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">🔧 Herramientas</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              🔧 Herramientas
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <code>getByLabelText</code> para inputs</li>
-              <li>• <code>user.type()</code> para entrada de texto</li>
-              <li>• <code>user.click()</code> para submit</li>
-              <li>• <code>waitFor()</code> para validaciones async</li>
-              <li>• <code>getByText()</code> para mensajes</li>
+              <li>
+                • <code>getByLabelText</code> para inputs
+              </li>
+              <li>
+                • <code>user.type()</code> para entrada de texto
+              </li>
+              <li>
+                • <code>user.click()</code> para submit
+              </li>
+              <li>
+                • <code>waitFor()</code> para validaciones async
+              </li>
+              <li>
+                • <code>getByText()</code> para mensajes
+              </li>
               <li>• Mock de funciones de submit</li>
             </ul>
           </div>
@@ -42,10 +54,10 @@ export function FormTestingDemo() {
       {/* Ejemplo de formulario simple */}
       <div className="testing-card">
         <h3 className="testing-card-title">📋 Formulario Simple</h3>
-        
+
         <h4 className="font-semibold mb-2">Componente ContactForm:</h4>
         <div className="testing-code-block">
-{`// src/components/forms/ContactForm.tsx
+          {`// src/components/forms/ContactForm.tsx
 import { useState } from 'react';
 
 interface ContactFormData {
@@ -195,9 +207,9 @@ export function ContactForm({ onSubmit, loading = false }: ContactFormProps) {
       {/* Tests del formulario */}
       <div className="testing-card">
         <h3 className="testing-card-title">🧪 Tests del ContactForm</h3>
-        
+
         <div className="testing-code-block">
-{`// src/components/forms/__tests__/ContactForm.test.tsx
+          {`// src/components/forms/__tests__/ContactForm.test.tsx
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ContactForm } from '../ContactForm';
@@ -374,9 +386,11 @@ describe('ContactForm', () => {
         </h3>
         <div className="space-y-4">
           <div className="border-l-4 border-blue-500 pl-4">
-            <h4 className="font-semibold text-blue-700 mb-2">Custom Render Helper</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              Custom Render Helper
+            </h4>
             <div className="testing-code-block">
-{`// utils/test-utils.tsx
+              {`// utils/test-utils.tsx
 import { render } from '@testing-library/react';
 import { FormProvider, useForm } from 'react-hook-form';
 
@@ -392,9 +406,11 @@ export function renderWithForm(ui: React.ReactElement, options = {}) {
           </div>
 
           <div className="border-l-4 border-green-500 pl-4">
-            <h4 className="font-semibold text-green-700 mb-2">Testing Form Libraries (React Hook Form)</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              Testing Form Libraries (React Hook Form)
+            </h4>
             <div className="testing-code-block">
-{`test('works with react-hook-form', async () => {
+              {`test('works with react-hook-form', async () => {
   const user = userEvent.setup();
   const mockSubmit = jest.fn();
   
@@ -413,9 +429,11 @@ export function renderWithForm(ui: React.ReactElement, options = {}) {
           </div>
 
           <div className="border-l-4 border-purple-500 pl-4">
-            <h4 className="font-semibold text-purple-700 mb-2">Testing File Uploads</h4>
+            <h4 className="font-semibold text-purple-700 mb-2">
+              Testing File Uploads
+            </h4>
             <div className="testing-code-block">
-{`test('handles file upload', async () => {
+              {`test('handles file upload', async () => {
   const user = userEvent.setup();
   const file = new File(['content'], 'test.txt', { type: 'text/plain' });
   

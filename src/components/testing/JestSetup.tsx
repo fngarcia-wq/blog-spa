@@ -14,9 +14,9 @@ export function JestSetup() {
         <p className="text-sm text-gray-600 mb-3">
           Instala Jest, React Testing Library y las utilidades necesarias:
         </p>
-        
+
         <div className="testing-code-block">
-{`# Dependencias principales
+          {`# Dependencias principales
 npm install --save-dev jest @testing-library/react @testing-library/jest-dom
 
 # Para eventos de usuario más realistas
@@ -33,10 +33,10 @@ npm install --save-dev jest-environment-jsdom`}
       {/* Configuración Jest */}
       <div className="testing-card">
         <h3 className="testing-card-title">⚙️ Configuración de Jest</h3>
-        
+
         <h4 className="font-semibold mb-2">1. package.json - Scripts</h4>
         <div className="testing-code-block">
-{`{
+          {`{
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -46,9 +46,11 @@ npm install --save-dev jest-environment-jsdom`}
 }`}
         </div>
 
-        <h4 className="font-semibold mb-2 mt-4">2. jest.config.js - Configuración</h4>
+        <h4 className="font-semibold mb-2 mt-4">
+          2. jest.config.js - Configuración
+        </h4>
         <div className="testing-code-block">
-{`module.exports = {
+          {`module.exports = {
   // Entorno de testing
   testEnvironment: 'jsdom',
   
@@ -84,7 +86,7 @@ npm install --save-dev jest-environment-jsdom`}
 
         <h4 className="font-semibold mb-2 mt-4">3. src/setupTests.ts</h4>
         <div className="testing-code-block">
-{`// Jest DOM matchers
+          {`// Jest DOM matchers
 import '@testing-library/jest-dom';
 
 // Mock de módulos globales si es necesario
@@ -101,12 +103,12 @@ beforeEach(() => {
       {/* Sintaxis Básica */}
       <div className="testing-card">
         <h3 className="testing-card-title">📝 Sintaxis Básica de Jest</h3>
-        
+
         <div className="space-y-4">
           <div>
             <h4 className="font-semibold text-blue-700 mb-2">Test Básico</h4>
             <div className="testing-code-block">
-{`// Estructura básica de un test
+              {`// Estructura básica de un test
 test('should add two numbers correctly', () => {
   // Arrange (Preparar)
   const a = 2;
@@ -133,9 +135,11 @@ describe('Math operations', () => {
           </div>
 
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">Lifecycle Hooks</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              Lifecycle Hooks
+            </h4>
             <div className="testing-code-block">
-{`describe('Component tests', () => {
+              {`describe('Component tests', () => {
   // Se ejecuta antes de TODOS los tests
   beforeAll(() => {
     console.log('Setup inicial');
@@ -168,12 +172,12 @@ describe('Math operations', () => {
       {/* Matchers Esenciales */}
       <div className="testing-card">
         <h3 className="testing-card-title">🎯 Matchers Esenciales de Jest</h3>
-        
+
         <div className="testing-grid">
           <div className="bg-blue-50 p-3 rounded-lg">
             <h4 className="font-semibold text-blue-700 mb-2">Igualdad</h4>
             <div className="testing-code-block">
-{`// Igualdad exacta
+              {`// Igualdad exacta
 expect(2 + 2).toBe(4);
 
 // Igualdad de objetos
@@ -187,7 +191,7 @@ expect('4').not.toBe(4);`}
           <div className="bg-green-50 p-3 rounded-lg">
             <h4 className="font-semibold text-green-700 mb-2">Truthiness</h4>
             <div className="testing-code-block">
-{`// Truthy/Falsy
+              {`// Truthy/Falsy
 expect('hello').toBeTruthy();
 expect('').toBeFalsy();
 
@@ -201,7 +205,7 @@ expect('test').toBeDefined();`}
           <div className="bg-purple-50 p-3 rounded-lg">
             <h4 className="font-semibold text-purple-700 mb-2">Números</h4>
             <div className="testing-code-block">
-{`// Comparaciones numéricas
+              {`// Comparaciones numéricas
 expect(2 + 2).toBeGreaterThan(3);
 expect(3.14).toBeCloseTo(3.1, 1);
 
@@ -214,7 +218,7 @@ expect('hello world').toMatch(/world/);`}
           <div className="bg-orange-50 p-3 rounded-lg">
             <h4 className="font-semibold text-orange-700 mb-2">Funciones</h4>
             <div className="testing-code-block">
-{`// Mock functions
+              {`// Mock functions
 const mockFn = jest.fn();
 mockFn();
 expect(mockFn).toHaveBeenCalled();
@@ -230,11 +234,13 @@ expect(() => {
 
       {/* Primer test React */}
       <div className="testing-card">
-        <h3 className="testing-card-title">⚛️ Primer Test de React Component</h3>
-        
+        <h3 className="testing-card-title">
+          ⚛️ Primer Test de React Component
+        </h3>
+
         <h4 className="font-semibold mb-2">Componente a testear:</h4>
         <div className="testing-code-block">
-{`// src/components/Welcome.tsx
+          {`// src/components/Welcome.tsx
 interface WelcomeProps {
   name: string;
   isLoggedIn?: boolean;
@@ -253,7 +259,7 @@ export function Welcome({ name, isLoggedIn = false }: WelcomeProps) {
 
         <h4 className="font-semibold mb-2 mt-4">Test del componente:</h4>
         <div className="testing-code-block">
-{`// src/components/__tests__/Welcome.test.tsx
+          {`// src/components/__tests__/Welcome.test.tsx
 import { render, screen } from '@testing-library/react';
 import { Welcome } from '../Welcome';
 
@@ -288,14 +294,12 @@ describe('Welcome Component', () => {
 
       {/* Comandos útiles */}
       <div className="testing-highlight">
-        <h3 className="testing-highlight-title">
-          🚀 Comandos Útiles de Jest
-        </h3>
+        <h3 className="testing-highlight-title">🚀 Comandos Útiles de Jest</h3>
         <div className="testing-grid">
           <div>
             <h4 className="font-semibold mb-2">Ejecución</h4>
             <div className="testing-code-block">
-{`# Ejecutar todos los tests
+              {`# Ejecutar todos los tests
 npm test
 
 # Watch mode (re-ejecuta al cambiar archivos)
@@ -308,11 +312,11 @@ jest --onlyChanged
 jest Welcome.test.tsx`}
             </div>
           </div>
-          
+
           <div>
             <h4 className="font-semibold mb-2">Coverage</h4>
             <div className="testing-code-block">
-{`# Reporte de coverage
+              {`# Reporte de coverage
 npm run test:coverage
 
 # Coverage de archivos específicos
@@ -328,13 +332,17 @@ jest --coverage --coverageThreshold='{"global":{"branches":80}}'`}
       {/* Debugging */}
       <div className="testing-card">
         <h3 className="testing-card-title">🐛 Debugging de Tests</h3>
-        
+
         <div className="space-y-3">
           <div className="bg-yellow-50 p-3 rounded-lg">
-            <h4 className="font-semibold text-yellow-700 mb-1">screen.debug()</h4>
-            <p className="text-sm text-gray-600 mb-2">Ver el DOM renderizado en consola</p>
+            <h4 className="font-semibold text-yellow-700 mb-1">
+              screen.debug()
+            </h4>
+            <p className="text-sm text-gray-600 mb-2">
+              Ver el DOM renderizado en consola
+            </p>
             <div className="testing-code-block">
-{`test('debug example', () => {
+              {`test('debug example', () => {
   render(<Welcome name="John" />);
   
   // Muestra todo el DOM
@@ -345,12 +353,14 @@ jest --coverage --coverageThreshold='{"global":{"branches":80}}'`}
 });`}
             </div>
           </div>
-          
+
           <div className="bg-blue-50 p-3 rounded-lg">
             <h4 className="font-semibold text-blue-700 mb-1">logRoles()</h4>
-            <p className="text-sm text-gray-600 mb-2">Ver todos los roles accesibles</p>
+            <p className="text-sm text-gray-600 mb-2">
+              Ver todos los roles accesibles
+            </p>
             <div className="testing-code-block">
-{`import { logRoles } from '@testing-library/dom';
+              {`import { logRoles } from '@testing-library/dom';
 
 test('see roles', () => {
   const { container } = render(<Welcome name="John" />);

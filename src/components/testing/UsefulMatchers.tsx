@@ -1,11 +1,10 @@
 export function UsefulMatchers() {
   return (
     <div className="testing-section">
-      <h2 className="testing-section-title">
-        🎯 Matchers Útiles
-      </h2>
+      <h2 className="testing-section-title">🎯 Matchers Útiles</h2>
       <p className="testing-section-subtitle">
-        Referencia completa de matchers de Jest y Testing Library para todos los casos de uso
+        Referencia completa de matchers de Jest y Testing Library para todos los
+        casos de uso
       </p>
 
       <div className="testing-card">
@@ -13,9 +12,9 @@ export function UsefulMatchers() {
         <p className="text-sm text-gray-600 mb-4">
           Matchers fundamentales para assertions básicas:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Equality matchers
+          {`// Equality matchers
 expect(2 + 2).toBe(4);                    // Strict equality (===)
 expect({ name: 'John' }).toEqual({        // Deep equality
   name: 'John'
@@ -62,9 +61,9 @@ expect(() => {
         <p className="text-sm text-gray-600 mb-4">
           Matchers específicos para testing de elementos DOM:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Visibility matchers
+          {`// Visibility matchers
 expect(element).toBeInTheDocument();      // Element exists in DOM
 expect(element).toBeVisible();            // Element is visible
 expect(element).not.toBeVisible();        // Element is hidden
@@ -103,9 +102,9 @@ expect(element).toHaveAccessibleDescription('Click to submit'); // Description`}
         <p className="text-sm text-gray-600 mb-4">
           Jerarquía de queries recomendada para encontrar elementos:
         </p>
-        
+
         <div className="testing-code-block">
-{`// 1. ByRole - PREFERIDO (más accesible)
+          {`// 1. ByRole - PREFERIDO (más accesible)
 screen.getByRole('button', { name: /submit/i });
 screen.getByRole('textbox', { name: /username/i });
 screen.getByRole('checkbox', { name: /agree/i });
@@ -150,9 +149,11 @@ screen.getByTestId('complex-component');
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">📝 Forms y Inputs</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              📝 Forms y Inputs
+            </h4>
             <div className="testing-code-block text-sm">
-{`// Input validation
+              {`// Input validation
 expect(input).toBeValid();
 expect(input).toBeInvalid();
 expect(input).toBeRequired();
@@ -172,7 +173,7 @@ expect(checkbox).toBePartiallyChecked();`}
           <div>
             <h4 className="font-semibold text-green-700 mb-2">🎭 UI States</h4>
             <div className="testing-code-block text-sm">
-{`// Loading states
+              {`// Loading states
 expect(spinner).toBeInTheDocument();
 expect(screen.queryByText(/loading/i))
   .not.toBeInTheDocument();
@@ -194,9 +195,9 @@ expect(screen.getByText(/no items found/i))
         <p className="text-sm text-gray-600 mb-4">
           Matchers para código asíncrono y efectos de lado:
         </p>
-        
+
         <div className="testing-code-block">
-{`// waitFor - Esperar cambios en DOM
+          {`// waitFor - Esperar cambios en DOM
 await waitFor(() => {
   expect(screen.getByText('Success!')).toBeInTheDocument();
 });
@@ -229,9 +230,9 @@ expect(items).toHaveLength(3);`}
         <p className="text-sm text-gray-600 mb-4">
           Matchers para verificar llamadas a mocks y funciones:
         </p>
-        
+
         <div className="testing-code-block">
-{`// Mock function calls
+          {`// Mock function calls
 expect(mockFunction).toHaveBeenCalled();
 expect(mockFunction).toHaveBeenCalledTimes(2);
 expect(mockFunction).toHaveBeenCalledWith('arg1', 'arg2');
@@ -266,9 +267,9 @@ expect(mockFunction).toHaveBeenCalledAfter(otherMockFunction);`}
         <p className="text-sm text-gray-600 mb-4">
           Crear matchers personalizados para casos específicos:
         </p>
-        
+
         <div className="testing-code-block">
-{`// setupTests.ts - Extending Jest matchers
+          {`// setupTests.ts - Extending Jest matchers
 import { expect } from '@jest/globals';
 
 // Custom matcher para verificar loading states
@@ -340,32 +341,66 @@ expect.extend({
           <div>
             <h4 className="font-semibold text-purple-700 mb-2">🎯 Most Used</h4>
             <ul className="text-sm space-y-1">
-              <li>• <code>toBeInTheDocument()</code></li>
-              <li>• <code>toHaveTextContent()</code></li>
-              <li>• <code>toBeVisible()</code></li>
-              <li>• <code>toHaveValue()</code></li>
-              <li>• <code>toBeChecked()</code></li>
-              <li>• <code>toHaveBeenCalled()</code></li>
+              <li>
+                • <code>toBeInTheDocument()</code>
+              </li>
+              <li>
+                • <code>toHaveTextContent()</code>
+              </li>
+              <li>
+                • <code>toBeVisible()</code>
+              </li>
+              <li>
+                • <code>toHaveValue()</code>
+              </li>
+              <li>
+                • <code>toBeChecked()</code>
+              </li>
+              <li>
+                • <code>toHaveBeenCalled()</code>
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="font-semibold text-blue-700 mb-2">🔍 Finding Elements</h4>
+            <h4 className="font-semibold text-blue-700 mb-2">
+              🔍 Finding Elements
+            </h4>
             <ul className="text-sm space-y-1">
-              <li>• <code>getByRole()</code></li>
-              <li>• <code>getByLabelText()</code></li>
-              <li>• <code>getByText()</code></li>
-              <li>• <code>findByRole()</code></li>
-              <li>• <code>queryByText()</code></li>
-              <li>• <code>getAllByRole()</code></li>
+              <li>
+                • <code>getByRole()</code>
+              </li>
+              <li>
+                • <code>getByLabelText()</code>
+              </li>
+              <li>
+                • <code>getByText()</code>
+              </li>
+              <li>
+                • <code>findByRole()</code>
+              </li>
+              <li>
+                • <code>queryByText()</code>
+              </li>
+              <li>
+                • <code>getAllByRole()</code>
+              </li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-green-700 mb-2">⏰ Async</h4>
             <ul className="text-sm space-y-1">
-              <li>• <code>waitFor()</code></li>
-              <li>• <code>findBy*()</code></li>
-              <li>• <code>waitForElementToBeRemoved()</code></li>
-              <li>• <code>act()</code></li>
+              <li>
+                • <code>waitFor()</code>
+              </li>
+              <li>
+                • <code>findBy*()</code>
+              </li>
+              <li>
+                • <code>waitForElementToBeRemoved()</code>
+              </li>
+              <li>
+                • <code>act()</code>
+              </li>
             </ul>
           </div>
         </div>
@@ -377,10 +412,15 @@ expect.extend({
         </h3>
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <h4 className="font-semibold text-green-700 mb-2">✅ Buenas Prácticas</h4>
+            <h4 className="font-semibold text-green-700 mb-2">
+              ✅ Buenas Prácticas
+            </h4>
             <ul className="text-sm space-y-1">
               <li>• Usar el matcher más específico posible</li>
-              <li>• Preferir <code>toBeInTheDocument()</code> sobre <code>toBeTruthy()</code></li>
+              <li>
+                • Preferir <code>toBeInTheDocument()</code> sobre{" "}
+                <code>toBeTruthy()</code>
+              </li>
               <li>• Usar regex para texto que puede cambiar</li>
               <li>• Combinar múltiples matchers cuando necesario</li>
               <li>• Usar custom matchers para lógica repetitiva</li>

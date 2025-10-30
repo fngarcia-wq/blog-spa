@@ -317,7 +317,7 @@
   color: #f9fafb;
   padding: 1.5rem;
   border-radius: 12px;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.9rem;
   line-height: 1.5;
   overflow-x: auto;
@@ -463,17 +463,17 @@
     gap: 1rem;
     padding: 1rem;
   }
-  
+
   .testing-sidebar {
     position: static;
     order: 2;
   }
-  
+
   .testing-content {
     order: 1;
     padding: 1.5rem;
   }
-  
+
   .testing-title {
     font-size: 2rem;
   }
@@ -483,19 +483,19 @@
   .testing-header {
     padding: 2rem 0;
   }
-  
+
   .testing-title {
     font-size: 1.8rem;
   }
-  
+
   .testing-subtitle {
     font-size: 1rem;
   }
-  
+
   .testing-content {
     padding: 1rem;
   }
-  
+
   .testing-section-title {
     font-size: 1.8rem;
   }
