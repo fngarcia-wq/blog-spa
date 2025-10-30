@@ -7,6 +7,7 @@ import { DashboardPage } from "./pages/DashboardPage";
 import { StateManagementLearning } from "./pages/StateManagementLearning";
 import SecurityPage from "./pages/security/SecurityPage";
 import PerformancePage from "./pages/performance/PerformancePage";
+import { TestingPage } from "./pages/testing/TestingPage";
 import { LoadingSpinner } from "./components/ui/LoadingSpinner";
 import "./App.css";
 
@@ -68,6 +69,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <PerformancePage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/testing"
+            element={
+              <ProtectedRoute>
+                <TestingPage />
               </ProtectedRoute>
             }
           />

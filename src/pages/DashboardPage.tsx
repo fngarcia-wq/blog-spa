@@ -12,6 +12,7 @@ type Section =
   | "home"
   | "learning"
   | "performance"
+  | "testing"
   | "api-posts"
   | "api-login"
   | "api-comments"
@@ -94,6 +95,16 @@ export function DashboardPage() {
               ⚡ Performance
             </button>
             <button
+              onClick={() => setActiveSection("testing")}
+              className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
+                activeSection === "testing"
+                  ? "bg-red-600 text-white shadow-md"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              🧪 Testing
+            </button>
+            <button
               onClick={() => setActiveSection("api-posts")}
               className={`px-5 py-2.5 rounded-lg whitespace-nowrap font-medium transition-all ${
                 activeSection === "api-posts"
@@ -142,6 +153,7 @@ export function DashboardPage() {
         {activeSection === "home" && <HomeSection />}
         {activeSection === "learning" && <LearningSection />}
         {activeSection === "performance" && <PerformanceSection />}
+        {activeSection === "testing" && <TestingSection />}
         {activeSection === "api-posts" && <ApiPostsSection />}
         {activeSection === "api-login" && <ApiLoginSection />}
         {activeSection === "api-comments" && <ApiCommentsSection />}
@@ -1082,6 +1094,246 @@ function PerformanceSection() {
                 <span>Performance monitoring en producción</span>
               </li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function TestingSection() {
+  return (
+    <div className="space-y-6">
+      <div className="bg-gradient-to-r from-red-500 to-red-600 rounded-xl shadow-lg p-8 text-white">
+        <h2 className="text-3xl font-bold mb-2">
+          🧪 Testing con Jest y React Testing Library
+        </h2>
+        <p className="text-red-100 mb-4">
+          Aprende testing desde cero: pirámide de tests, Jest, RTL, mocking, tests de integración y mejores prácticas
+        </p>
+        <Link
+          to="/testing"
+          className="inline-block bg-white text-red-600 px-5 py-2.5 rounded-lg hover:bg-red-50 font-medium transition-colors shadow-md"
+        >
+          Ir a Testing Learning →
+        </Link>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🏗️</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Pirámide de Tests
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Unit, Integration, E2E - Teoría y práctica
+          </p>
+          <span className="inline-block bg-red-100 text-red-700 px-2 py-1 rounded text-xs mt-2">
+            Fundamentos
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🃏</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Jest Framework</h3>
+          <p className="text-gray-600 text-sm">
+            Setup, matchers, mocking, coverage
+          </p>
+          <span className="inline-block bg-green-100 text-green-700 px-2 py-1 rounded text-xs mt-2">
+            Core Testing
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">⚛️</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">React Testing Library</h3>
+          <p className="text-gray-600 text-sm">
+            Queries, user events, async testing
+          </p>
+          <span className="inline-block bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs mt-2">
+            React Specific
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">📝</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Component Testing
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Button, Forms, LoginForm completos
+          </p>
+          <span className="inline-block bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs mt-2">
+            Práctica
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🎭</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">
+            Mocking Avanzado
+          </h3>
+          <p className="text-gray-600 text-sm">
+            Módulos, fetch, localStorage, timers
+          </p>
+          <span className="inline-block bg-orange-100 text-orange-700 px-2 py-1 rounded text-xs mt-2">
+            Avanzado
+          </span>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-xl transition-shadow">
+          <div className="text-3xl mb-3">🔗</div>
+          <h3 className="text-lg font-bold text-gray-900 mb-2">Tests de Integración</h3>
+          <p className="text-gray-600 text-sm">
+            TodoApp completa con CRUD
+          </p>
+          <span className="inline-block bg-teal-100 text-teal-700 px-2 py-1 rounded text-xs mt-2">
+            Integración
+          </span>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-r from-yellow-50 to-red-50 border-2 border-red-200 rounded-xl p-6">
+        <div className="flex items-start gap-4">
+          <div className="text-4xl">🎯</div>
+          <div className="flex-1">
+            <h3 className="text-lg font-bold text-red-900 mb-2">
+              Contenido de la Clase de Testing
+            </h3>
+            <p className="text-red-700 mb-4">
+              Aprende testing desde cero con ejemplos prácticos, componentes funcionales y 
+              aplicaciones completas con tests de integración.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  ✅ Temas Incluidos:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Introducción al Testing</li>
+                  <li>• Jest - Setup y configuración</li>
+                  <li>• React Testing Library</li>
+                  <li>• Primer Test - Componente Button</li>
+                  <li>• Testing de Formularios</li>
+                  <li>• Tests Asíncronos</li>
+                  <li>• Mocking de Módulos</li>
+                  <li>• Tests de Integración - TodoApp</li>
+                  <li>• Coverage y Best Practices</li>
+                  <li>• Matchers Útiles</li>
+                  <li>• Herramientas y Debugging</li>
+                  <li>• Checklist Final</li>
+                </ul>
+              </div>
+
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  🚀 Características:
+                </h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Ejemplos funcionales completos</li>
+                  <li>• TodoApp con CRUD y tests</li>
+                  <li>• Formularios con validación</li>
+                  <li>• Mocking exhaustivo</li>
+                  <li>• Patrón AAA (Arrange-Act-Assert)</li>
+                  <li>• Matchers de Jest y jest-dom</li>
+                  <li>• Debugging con screen.debug()</li>
+                  <li>• Coverage reports</li>
+                  <li>• TypeScript completo</li>
+                  <li>• Checklist práctica</li>
+                </ul>
+              </div>
+            </div>
+
+            <Link
+              to="/testing"
+              className="inline-block bg-gradient-to-r from-red-600 to-pink-600 text-white px-6 py-3 rounded-lg hover:from-red-700 hover:to-pink-700 font-medium transition-all shadow-md"
+            >
+              Explorar Testing Learning →
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          🎓 Lo que aprenderás
+        </h3>
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Conceptos Fundamentales
+            </h4>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Pirámide de tests y tipos de testing</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Jest: matchers, mocking, coverage</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>React Testing Library: queries y eventos</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-green-500 mt-0.5">✓</span>
+                <span>Testing asíncrono con waitFor</span>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-gray-900 mb-3">
+              Práctica Avanzada
+            </h4>
+            <ul className="space-y-2 text-sm text-gray-600">
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Component testing con Button y Forms</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Mocking avanzado de módulos y APIs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Tests de integración con TodoApp</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-blue-500 mt-0.5">⚡</span>
+                <span>Coverage reports y best practices</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h3 className="text-xl font-bold text-gray-900 mb-4">
+          🛠️ Herramientas que usaremos
+        </h3>
+        <div className="grid md:grid-cols-4 gap-4">
+          <div className="text-center p-4 bg-gray-50 rounded-lg">
+            <div className="text-2xl mb-2">🃏</div>
+            <h4 className="font-semibold text-sm">Jest</h4>
+            <p className="text-xs text-gray-600">Testing Framework</p>
+          </div>
+          <div className="text-center p-4 bg-gray-50 rounded-lg">
+            <div className="text-2xl mb-2">⚛️</div>
+            <h4 className="font-semibold text-sm">React Testing Library</h4>
+            <p className="text-xs text-gray-600">React Testing Utils</p>
+          </div>
+          <div className="text-center p-4 bg-gray-50 rounded-lg">
+            <div className="text-2xl mb-2">🎭</div>
+            <h4 className="font-semibold text-sm">jest-dom</h4>
+            <p className="text-xs text-gray-600">DOM Matchers</p>
+          </div>
+          <div className="text-center p-4 bg-gray-50 rounded-lg">
+            <div className="text-2xl mb-2">👤</div>
+            <h4 className="font-semibold text-sm">user-event</h4>
+            <p className="text-xs text-gray-600">User Interactions</p>
           </div>
         </div>
       </div>
