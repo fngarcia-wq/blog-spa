@@ -11,7 +11,11 @@ const blogApi = axios.create({
 // Request Interceptor - Agregar token automáticamente
 blogApi.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('access_token');
+    // Primero intentar con token de Auth0, luego con token legacy
+    const auth0Token = localStorage.getItem('auth0_token');
+    const legacyToken = localStorage.getItem('access_token');
+    const token = auth0Token || legacyToken;
+    
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -41,9 +45,10 @@ blogApi.interceptors.response.use(
   async (error) => {
     // Manejo de token expirado (401)
     if (error.response?.status === 401) {
-      // Limpiar token y redirigir a login
+      // Limpiar tokens y redirigir a home
       localStorage.removeItem('access_token');
-      window.location.href = '/login';
+      localStorage.removeItem('auth0_token');
+      window.location.href = '/';
     }
 
     // Log de errores en desarrollo

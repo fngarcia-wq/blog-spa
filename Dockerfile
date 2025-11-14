@@ -16,9 +16,19 @@ RUN npm ci
 # Copiar código fuente
 COPY . .
 
-# Argumento para la URL de la API (puede ser sobreescrito en docker-compose)
+# Argumentos para variables de entorno (pueden ser sobreescritos en docker-compose)
 ARG VITE_API_URL=http://laravel.test:80/api
+ARG VITE_AUTH0_DOMAIN
+ARG VITE_AUTH0_CLIENT_ID
+ARG VITE_AUTH0_AUDIENCE
+ARG VITE_AUTH0_REDIRECT_URI=http://localhost:3000
+
+# Variables de entorno para el build
 ENV VITE_API_URL=$VITE_API_URL
+ENV VITE_AUTH0_DOMAIN=$VITE_AUTH0_DOMAIN
+ENV VITE_AUTH0_CLIENT_ID=$VITE_AUTH0_CLIENT_ID
+ENV VITE_AUTH0_AUDIENCE=$VITE_AUTH0_AUDIENCE
+ENV VITE_AUTH0_REDIRECT_URI=$VITE_AUTH0_REDIRECT_URI
 
 # Build de producción
 RUN npm run build:skip-check

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAuth } from '../hooks/useAuth';
+import { useAuth0Integration } from '../hooks/useAuth0Integration';
 import { useNavigate, Link } from 'react-router-dom';
 import { PostsList } from '../components/posts/PostsList';
 import { CreatePostForm } from '../components/posts/CreatePostForm';
@@ -11,13 +11,13 @@ import './Dashboard.css';
 type Section = 'home' | 'learning' | 'api-posts' | 'api-login' | 'api-comments' | 'comparisons';
 
 export function DashboardPage() {
-  const { user, logout } = useAuth();
+  const { user, logout } = useAuth0Integration();
   const navigate = useNavigate();
   const [activeSection, setActiveSection] = useState<Section>('home');
 
   const handleLogout = async () => {
-    await logout();
-    navigate('/login');
+    logout();
+    navigate('/');
   };
 
   return (

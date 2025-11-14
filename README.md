@@ -18,6 +18,7 @@ Este proyecto demuestra las **ventajas, desventajas y casos de uso** de tres sol
 - ✅ Ejemplos de integración armónica
 - ✅ TypeScript en todo el proyecto
 - ✅ Buenas prácticas y patrones recomendados
+- ✅ **Autenticación con Auth0** - Login y registro seguros
 
 ## 🚀 Inicio Rápido
 
@@ -113,6 +114,11 @@ blog-spa/
 - [🏪 store/README.md](./src/store/README.md) - Documentación del directorio store
 - [🎯 examples/README.md](./src/store/examples/README.md) - Guía de ejemplos
 - [🤝 INTEGRATION_GUIDE.md](./src/store/examples/HybridExample/INTEGRATION_GUIDE.md) - Integración armónica
+
+### Autenticación con Auth0
+- [🚀 QUICK_START_AUTH0.md](./QUICK_START_AUTH0.md) - Inicio rápido en 5 minutos
+- [🔐 AUTH0_SETUP.md](./AUTH0_SETUP.md) - Configuración completa de Auth0
+- [🔧 BACKEND_CHANGES.md](./BACKEND_CHANGES.md) - Cambios necesarios en el backend Laravel
 
 ### Ejemplos de Código
 

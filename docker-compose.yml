@@ -9,6 +9,11 @@ services:
       args:
         # URL de la API Laravel (ajusta según tu configuración)
         VITE_API_URL: http://laravel.test/api
+        # Auth0 Configuration - IMPORTANTE: Configurar estos valores
+        VITE_AUTH0_DOMAIN: ${VITE_AUTH0_DOMAIN}
+        VITE_AUTH0_CLIENT_ID: ${VITE_AUTH0_CLIENT_ID}
+        VITE_AUTH0_AUDIENCE: ${VITE_AUTH0_AUDIENCE}
+        VITE_AUTH0_REDIRECT_URI: http://localhost:3000
     container_name: blog-spa-frontend
     ports:
       - "3000:80"
