@@ -1,0 +1,30 @@
+services:
+  # ====================================
+  # Frontend React + Vite
+  # ====================================
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        # URL de la API Laravel (ajusta según tu configuración)
+        VITE_API_URL: http://laravel.test/api
+    container_name: blog-spa-frontend
+    ports:
+      - "3000:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - blog-network
+      - gyl_network
+      
+    restart: unless-stopped
+
+  
+networks:
+  blog-network:
+    driver: bridge
+  
+  gyl_network:
+    external: true
+
