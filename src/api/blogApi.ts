@@ -18,11 +18,16 @@ blogApi.interceptors.request.use(
     
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
-    }
-
-    // Log en desarrollo
-    if (import.meta.env.DEV) {
-      console.log(`🚀 ${config.method?.toUpperCase()} ${config.url}`, config.data);
+      
+      // Log detallado del token en desarrollo
+      if (import.meta.env.DEV) {
+        console.log('[API Request] URL:', config.url);
+        console.log('[API Request] Token usado:', token.substring(0, 50) + '...');
+        console.log('[API Request] Token segments:', token.split('.').length);
+        console.log('[API Request] Authorization header:', config.headers.Authorization?.substring(0, 100) + '...');
+      }
+    } else if (import.meta.env.DEV) {
+      console.warn('[API Request] No hay token disponible');
     }
 
     return config;

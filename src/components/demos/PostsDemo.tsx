@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import blogApi from '../../api/blogApi';
 
 interface PostsDemoProps {
   method: 'axios' | 'fetch';
@@ -18,16 +18,8 @@ export function PostsDemo({ method }: PostsDemoProps) {
     setSuccess('');
 
     try {
-      const token = localStorage.getItem('access_token');
-      const response = await axios.post(
-        'http://localhost:80/api/posts',
-        { title, content },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }
-      );
+      // ✅ Usa blogApi - el token se agrega automáticamente
+      const response = await blogApi.post('/posts', { title, content });
 
       setSuccess(`✅ Post creado! ID: ${response.data.data?.id}`);
       setTitle('');
@@ -55,12 +47,17 @@ export function PostsDemo({ method }: PostsDemoProps) {
     setSuccess('');
 
     try {
-      const token = localStorage.getItem('access_token');
-      const response = await fetch('http://localhost:80/api/posts', {
+      // ✅ Usa la URL base de blogApi y obtén el token de Auth0
+      const auth0Token = localStorage.getItem('auth0_token');
+      const legacyToken = localStorage.getItem('access_token');
+      const token = auth0Token || legacyToken;
+      
+      const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:80/api';
+      const response = await fetch(`${baseURL}/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
+          ...(token && { 'Authorization': `Bearer ${token}` })
         },
         body: JSON.stringify({ title, content })
       });

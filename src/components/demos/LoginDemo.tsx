@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
+import blogApi from '../../api/blogApi';
 
 interface LoginDemoProps {
   method: 'axios' | 'fetch';
@@ -18,7 +18,8 @@ export function LoginDemo({ method }: LoginDemoProps) {
     setSuccess('');
 
     try {
-      const response = await axios.post('http://localhost:80/api/login', {
+      // ✅ Usa blogApi - el token Auth0 se agrega automáticamente si existe
+      const response = await blogApi.post('/login', {
         email,
         password
       });
@@ -43,7 +44,8 @@ export function LoginDemo({ method }: LoginDemoProps) {
     setSuccess('');
 
     try {
-      const response = await fetch('http://localhost:80/api/login', {
+      const baseURL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:80/api';
+      const response = await fetch(`${baseURL}/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
